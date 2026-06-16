@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula — xbyteid</title>
-<meta name="description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security. — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+<title>Smart Contract Security: Panduan Lengkap Audit Solidity — xbyteid</title>
+<meta name="description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="xbyteid">
 <meta name="keywords" content="smart contract, solidity, security audit, web3, defi, immunefi, xbyteid, bug bounty, web3, crypto">
 <link rel="canonical" href="https://xbyteid.codes/blog/smart-contract-security-audit-guide.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://xbyteid.codes/blog/smart-contract-security-audit-guide.html">
-<meta property="og:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula">
-<meta property="og:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security. — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+<meta property="og:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity">
+<meta property="og:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
 <meta property="og:image" content="https://xbyteid.codes/og-image.png">
 <meta property="og:site_name" content="xbyteid">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula">
-<meta name="twitter:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security. — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+<meta name="twitter:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity">
+<meta name="twitter:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
 <meta name="twitter:site" content="@xbyteid">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
@@ -28,8 +28,8 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula",
-  "description": "Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security. — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.",
+  "headline": "Smart Contract Security: Panduan Lengkap Audit Solidity",
+  "description": "Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.",
   "url": "https://xbyteid.codes/blog/smart-contract-security-audit-guide.html",
   "datePublished": "2026-06-14",
   "author": {
@@ -155,7 +155,7 @@ footer a { color: var(--text-dim); }
   <div class="breadcrumb"><a href="/">home</a> / <a href="/blog/">blog</a> / smart-contract-security-audit-guide</div>
   <article>
     <header class="article-header">
-      <h1>Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula</h1>
+      <h1>Smart Contract Security: Panduan Lengkap Audit Solidity</h1>
       <div class="article-meta">
         <span>2026-06-14</span>
         <span class="dot">·</span>
@@ -164,90 +164,77 @@ footer a { color: var(--text-dim); }
       <div class="tags"><span class="tag">airdrop</span> <span class="tag">web3</span> <span class="tag">defi</span> <span class="tag">farming</span> <span class="tag">multi-wallet</span></div>
     </header>
     <div class="article-body">
-      <p>Airdrop farming di 2026 udah bukan game yang sama kayak 2023. Sybil detection makin ketat, requirement makin ribet, tapi reward masih gede buat yang tau cara main-nya. Ini guide lengkap dari pengalaman gue farming 50+ airdrop.</p>
+      <p>Di 2026, DeFi udah manage ratusan miliar dollar. Tapi smart contract security masih jadi Wild West. Setiap tahun, billions hilang karena bugs yang seharusnya bisa di-prevent.</p>
 
-      <h2>Kenapa Airdrop Masih Worth It di 2026?</h2>
-      <p>Banyak orang bilang "airdrop udah mati." Faktanya? <strong>Arbitrum airdrop avg $3K per wallet</strong>, Jito $2K+, Jupiter $1K+. Yang bilang mati biasanya yang kena sybil flag atau ga konsisten.</p>
-      <p>Di 2026, airdrop makin selective — mereka mau real users, bukan farmers. Tapi kalau lo emang aktif di ecosystem-nya (swap, bridge, stake, vote), reward-nya tetep gede.</p>
+      <h2>Kenapa Smart Contract Security?</h2>
+      <p>Bayangin: lo nemuin bug di contract yang pegang $100M TVL. Bug itu bisa worth $50K-$500K bounty. Satu bug. Satu report.</p>
+      <p>Yang bikin menarik: <strong>skill gap-nya masih gede</strong>. Banyak Solidity developer ga ngerti security, dan banyak security researcher ga ngerti blockchain.</p>
 
-      <h2>Setup Multi-Wallet yang Aman</h2>
-      <p>Ini bagian paling krusial. Salah setup = kena sybil = semua wallet lo di-flag.</p>
+      <h2>Common Vulnerabilities</h2>
 
-      <div class="callout-warn">
-        <strong>⚠️ Golden Rule:</strong> 1 wallet = 1 identity. Jangan pernah transfer langsung antar wallet yang lo pake buat farming. Selalu lewat CEX atau bridge dulu.
-      </div>
+      <h3>1. Reentrancy</h3>
+      <p>Masih #1 di 2026. The DAO hack ($60M, 2016) pakai ini. Masih banyak contract vulnerable.</p>
+      <pre><code>// VULNERABLE
+function withdraw() public {
+    uint amount = balances[msg.sender];
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+    balances[msg.sender] = 0; // Too late!
+}
 
-      <h3>Step 1: Wallet Generation</h3>
+// SECURE (Checks-Effects-Interactions)
+function withdraw() public {
+    uint amount = balances[msg.sender];
+    balances[msg.sender] = 0; // Update FIRST
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+}</code></pre>
+
+      <h3>2. Access Control</h3>
+      <p>Functions tanpa proper access modifiers. <code>public</code> yang harusnya <code>internal</code>. Missing <code>onlyOwner</code>.</p>
+
+      <h3>3. Oracle Manipulation</h3>
+      <p>Flash loan attacks. Manipulate price oracle lalu drain liquidity pool. Banyak protocol masih pakai spot price dari DEX sebagai oracle.</p>
+
+      <h3>4. Logic Errors</h3>
+      <p>Math yang salah, edge cases ga ke-handle, state transitions ga valid. Paling sering ditemukan.</p>
+
+      <h3>5. Frontend != Contract</h3>
+      <p>Website bilang "stake your tokens," tapi contract-nya ngasih approval unlimited. Always audit the contract, bukan cuma UI.</p>
+
+      <h2>Tools Buat Audit</h2>
       <ul>
-        <li>Pake <code>ethers.js</code> atau <code>solana-keygen</code> buat generate wallet baru</li>
-        <li>Simpan seed phrase di password manager (bukan di file biasa!)</li>
-        <li>Jangan generate 10 wallet sekaligus dari 1 device — spread out</li>
+        <li><strong>Slither</strong> — static analysis, 70+ detectors, wajib punya</li>
+        <li><strong>Mythril</strong> — symbolic execution buat deep analysis</li>
+        <li><strong>Foundry</strong> — testing framework, <code>forge test</code></li>
+        <li><strong>Echidna</strong> — fuzzer buat property-based testing</li>
+        <li><strong>Aderyn</strong> — static analyzer by Cyfrin</li>
       </ul>
 
-      <h3>Step 2: Funding Pattern</h3>
-      <p>Ini yang paling sering kena flag:</p>
-      <ul>
-        <li><strong>JANGAN:</strong> Main wallet → Wallet A → Wallet B → Wallet C (chain transfer = instant sybil flag)</li>
-        <li><strong>HARUS:</strong> CEX → Wallet A, CEX → Wallet B, CEX → Wallet C (masing-masing dari exchange, beda amount, beda timing)</li>
-        <li>Tambahin random delay 1-7 hari antara funding dan aktivitas pertama</li>
-      </ul>
+      <h2>Cara Mulai</h2>
+      <ol>
+        <li><strong>Belajar Solidity</strong> — CryptoZombies, Solidity by Example</li>
+        <li><strong>Baca audit reports</strong> — Code4rena, Sherlock, Cantina</li>
+        <li><strong>Practice</strong> — Damn Vulnerable DeFi, Ethernaut CTF</li>
+        <li><strong>Join contests</strong> — Code4rena, Sherlock, Hats Finance</li>
+        <li><strong>Build reputation</strong> — consistent wins → private audits</li>
+      </ol>
 
-      <h3>Step 3: Activity Diversification</h3>
-      <p>Setiap wallet harus punya "personality" yang beda:</p>
+      <h2>Market di 2026</h2>
       <ul>
-        <li>Wallet A: Suka swap di DEX, volume kecil tapi sering</li>
-        <li>Wallet B: Suka LP di pool volatile</li>
-        <li>Wallet C: Governance voter aktif</li>
-        <li>Wallet D: NFT collector + occasional swap</li>
-      </ul>
-      <p>Jangan semua wallet lakuin hal yang persis sama di hari yang sama.</p>
-
-      <h2>Target Airdrop 2026 yang Worth Di-farm</h2>
-
-      <h3>Layer 2 / Layer 3</h3>
-      <ul>
-        <li><strong>Abstract Chain</strong> — consumer crypto L2, masih early, gas murah</li>
-        <li><strong>Scroll</strong> — ZK rollup, belum TGE, aktif di ecosystem = points</li>
-        <li><strong>Linea</strong> — Consensys L2, campaign-based points</li>
-      </ul>
-
-      <h3>DeFi Protocols</h3>
-      <ul>
-        <li><strong>Ethena</strong> — stablecoin yield, sUSDe farming</li>
-        <li><strong>Fluid Protocol</strong> — DEX aggregator, belum token</li>
-        <li><strong>Kamino Finance</strong> — Solana DeFi, points system aktif</li>
-      </ul>
-
-      <h3>Infrastructure</h3>
-      <ul>
-        <li><strong>Validator nodes</strong> (Asentum, dll) — run node, earn token</li>
-        <li><strong>RPC providers</strong> — running light nodes buat incentive</li>
-      </ul>
-
-      <h2>Automation Tips</h2>
-      <p>Manual farming 10+ wallet = burnout. Ini yang gue automate:</p>
-      <ul>
-        <li><strong>Cron jobs</strong> — schedule daily swaps, bridge activity per wallet</li>
-        <li><strong>Multi-chain bridge</strong> — script buat bridge small amounts weekly (deBridge, Across)</li>
-        <li><strong>Points tracker</strong> — scrape points dashboard, alert kalau ada wallet yang idle</li>
+        <li><strong>Public contests</strong> — Code4rena, Sherlock: $5K-$50K per contest</li>
+        <li><strong>Private audits</strong> — Cyfrin, Trail of Bits: $20K-$200K</li>
+        <li><strong>Bug bounties</strong> — Immunefi: $1K-$10M per bug</li>
+        <li><strong>Retainer</strong> — ongoing advisor: $5K-$20K/month</li>
       </ul>
 
       <div class="callout">
-        <strong>💡 Pro tip:</strong> Pakai Playwright buat browser-based farming (quest, social tasks). Selenium kebanyakan kena anti-bot sekarang.
+        <strong>Pro tip:</strong> Start dari public contests di Code4rena. Entry barrier rendah, bisa compete dari mana aja.
       </div>
 
-      <h2>Common Mistakes yang Harus Dihindari</h2>
-      <ol>
-        <li><strong>Gas farming barengan</strong> — semua wallet swap di block yang sama = sybil</li>
-        <li><strong>Same IP</strong> — rotate proxy, jangan farming dari 1 IP buat semua wallet</li>
-        <li><strong>Transfer antar wallet</strong> — ini yang paling sering ke-flag</li>
-        <li><strong>Too fast, too similar</strong> — kalau 5 wallet lakuin 10 tx identik dalam 1 menit, itu bot behavior</li>
-        <li><strong>Lupa governance</strong> — voting/DAO participation = strong signal real user</li>
-      </ol>
-
-      <h2>Conclusion</h2>
-      <p>Airdrop farming di 2026 = patience + diversification + automation. Yang bikin duid bukan yang paling banyak wallet, tapi yang paling konsisten dan "keliatan real."</p>
-      <p>Start kecil: 3-5 wallet, 1-2 ecosystem, farm 3-6 bulan. Kalau hasilnya bagus, scale up.</p>
+      <h2>Kesimpulan</h2>
+      <p>Smart contract security = salah satu skill paling lucrative di tech sekarang. Supply auditors masih sedikit dari demand. Mulai belajar sekarang, 6-12 bulan udah bisa menang contest.</p>
+      <p>Modal: laptop + internet + 100 jam belajar. Return: potentially $10K+ per bulan.</p>
     </div>
   </article>
   <div class="related">
