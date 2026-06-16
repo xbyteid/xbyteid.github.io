@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xbyteid — Blog</title>
+    <link>https://xbyteid.codes/blog/</link>
+    <description>Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity by xbyteid.</description>
+    <language>en</language>
+    <atom:link href="https://xbyteid.codes/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sun, 16 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</title>
+      <link>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</link>
+      <guid>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</guid>
+      <pubDate>Sun, 16 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Guide lengkap airdrop farming 2026 — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes.</description>
+    </item>
+    <item>
+      <title>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama</title>
+      <link>https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html</link>
+      <guid>https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html</guid>
+      <pubDate>Sat, 15 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Guide lengkap bug bounty untuk pemula Indonesia — tools, workflow, target selection, dan cara nulis report yang valid.</description>
+    </item>
+    <item>
+      <title>Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula</title>
+      <link>https://xbyteid.codes/blog/smart-contract-security-audit-guide.html</link>
+      <guid>https://xbyteid.codes/blog/smart-contract-security-audit-guide.html</guid>
+      <pubDate>Fri, 14 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — xbyteid | Bug Bounty, Web3, Security</title>
+<meta name="description" content="Articles about bug bounty hunting, Web3 security, smart contract auditing, airdrop farming, and cybersecurity by xbyteid.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="bug bounty, web3, smart contract, security, airdrop, crypto, penetration testing, xbyteid, blog">
+<link rel="canonical" href="https://xbyteid.codes/blog/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xbyteid.codes/blog/">
+<meta property="og:title" content="Blog — xbyteid | Bug Bounty, Web3, Security">
+<meta property="og:description" content="Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity.">
+<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — xbyteid">
+<meta name="twitter:description" content="Articles about bug bounty, Web3 security, and cybersecurity.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "xbyteid Blog",
+  "url": "https://xbyteid.codes/blog/",
+  "description": "Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity.",
+  "author": {
+    "@type": "Person",
+    "name": "xbyteid",
+    "url": "https://xbyteid.codes"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula",
+      "url": "https://xbyteid.codes/blog/smart-contract-security-audit-guide.html",
+      "datePublished": "2026-06-14"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama",
+      "url": "https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html",
+      "datePublished": "2026-06-15"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy",
+      "url": "https://xbyteid.codes/blog/airdrop-farming-guide-2026.html",
+      "datePublished": "2026-06-16"
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #0a0a0b; --bg-card: #111114; --bg-card-hover: #16161a;
+  --border: #1e1e24; --border-hover: #2a2a33;
+  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+  --accent-blue: #3b82f6; --accent-purple: #8b5cf6; --accent-pink: #d946ef;
+  --gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+  --font-sans: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.85);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.nav-inner { max-width: 720px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: var(--font-mono); font-weight: 700; font-size: 1rem; color: var(--text); }
+.nav-logo span { color: var(--accent-blue); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: var(--text-dim); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--accent-blue); }
+
+.blog-header { margin: 48px 0 40px; }
+.blog-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800;
+  background: var(--gradient); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+.blog-header p { color: var(--text-dim); font-size: 1rem; }
+
+.post-list { list-style: none; }
+.post-item {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 28px; margin-bottom: 20px;
+  background: var(--bg-card); transition: all 0.2s;
+}
+.post-item:hover {
+  background: var(--bg-card-hover); border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.post-item a { color: inherit; }
+.post-item a:hover { text-decoration: none; }
+.post-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px; }
+.post-item h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+.post-item p { font-size: 0.92rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 12px; }
+.post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.post-tags span {
+  font-size: 0.7rem; padding: 3px 8px; border-radius: 6px;
+  background: rgba(59,130,246,0.08); color: var(--accent-blue);
+  font-family: var(--font-mono);
+}
+.post-read { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); }
+
+footer {
+  margin-top: 80px; padding: 32px 0; border-top: 1px solid var(--border);
+  text-align: center; font-size: 0.8rem; color: var(--text-muted);
+}
+footer a { color: var(--text-dim); }
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .post-item { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>~</span>/xbyteid</a>
+    <ul class="nav-links">
+      <li><a href="/#work">work</a></li>
+      <li><a href="/#stack">stack</a></li>
+      <li><a href="/blog/" class="active">blog</a></li>
+      <li><a href="/#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="blog-header">
+    <h1>blog.</h1>
+    <p>Thoughts on bug bounty, Web3 security, and breaking things.</p>
+  </header>
+
+  <ul class="post-list">
+    <li class="post-item">
+      <a href="/blog/airdrop-farming-guide-2026.html">
+        <div class="post-date">2026-06-16 · 8 min read</div>
+        <h2>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</h2>
+        <p>Guide lengkap airdrop farming 2026 — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.</p>
+        <div class="post-tags">
+          <span>airdrop</span><span>web3</span><span>defi</span><span>farming</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item">
+      <a href="/blog/bug-bounty-pemula-indonesia.html">
+        <div class="post-date">2026-06-15 · 10 min read</div>
+        <h2>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama</h2>
+        <p>Guide lengkap bug bounty untuk pemula Indonesia — dari nol sampai dapetin bounty pertama. Tools, workflow, target selection, dan cara nulis report yang valid.</p>
+        <div class="post-tags">
+          <span>bug bounty</span><span>security</span><span>hackerone</span><span>indonesia</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item">
+      <a href="/blog/smart-contract-security-audit-guide.html">
+        <div class="post-date">2026-06-14 · 9 min read</div>
+        <h2>Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula</h2>
+        <p>Panduan lengkap smart contract security audit — common vulnerabilities, tools, workflow, dan cara mulai karir di Web3 security.</p>
+        <div class="post-tags">
+          <span>smart contract</span><span>solidity</span><span>web3</span><span>security audit</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a> · <a href="https://t.me/xbyteid">telegram</a></p>
+  </div>
+</footer>
+</body>
+</html>

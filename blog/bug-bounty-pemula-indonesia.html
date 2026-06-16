@@ -1,0 +1,266 @@
+1|<!DOCTYPE html>
+2|<html lang="en">
+3|<head>
+4|<meta charset="UTF-8">
+5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+6|<title>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama — xbyteid</title>
+7|<meta name="description" content="Guide lengkap bug bounty untuk pemula Indonesia — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+8|<meta name="robots" content="index, follow">
+9|<meta name="author" content="xbyteid">
+10|<meta name="keywords" content="bug bounty, security, penetration testing, hackerone, indonesia, xbyteid, bug bounty, web3, crypto">
+11|<link rel="canonical" href="https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html">
+12|<meta property="og:type" content="article">
+13|<meta property="og:url" content="https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html">
+14|<meta property="og:title" content="Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama">
+15|<meta property="og:description" content="Guide lengkap bug bounty untuk pemula Indonesia — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+16|<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+17|<meta property="og:site_name" content="xbyteid">
+18|<meta name="twitter:card" content="summary_large_image">
+19|<meta name="twitter:title" content="Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama">
+20|<meta name="twitter:description" content="Guide lengkap bug bounty untuk pemula Indonesia — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.">
+21|<meta name="twitter:site" content="@xbyteid">
+22|<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+23|<link rel="preconnect" href="https://fonts.googleapis.com">
+24|<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+25|<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+26|<script type="application/ld+json">
+27|{
+28|  "@context": "https://schema.org",
+29|  "@type": "BlogPosting",
+30|  "headline": "Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama",
+31|  "description": "Guide lengkap bug bounty untuk pemula Indonesia — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.",
+32|  "url": "https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html",
+33|  "datePublished": "2026-06-15",
+34|  "author": {
+35|    "@type": "Person",
+36|    "name": "xbyteid",
+37|    "url": "https://xbyteid.codes"
+38|  },
+39|  "publisher": {
+40|    "@type": "Person",
+41|    "name": "xbyteid"
+42|  },
+43|  "mainEntityOfPage": {
+44|    "@type": "WebPage",
+45|    "@id": "https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html"
+46|  }
+47|}
+48|</script>
+49|<style>
+50|:root {
+51|  --bg: #0a0a0b; --bg-card: #111114; --border: #1e1e24;
+52|  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+53|  --accent-blue: #3b82f6; --accent-purple: #8b5cf6; --accent-pink: #d946ef;
+54|  --green: #22c55e; --font-sans: 'Inter', sans-serif;
+55|  --font-mono: 'JetBrains Mono', monospace;
+56|}
+57|*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+58|html { scroll-behavior: smooth; }
+59|body {
+60|  font-family: var(--font-sans); background: var(--bg); color: var(--text);
+61|  line-height: 1.8; -webkit-font-smoothing: antialiased;
+62|}
+63|a { color: var(--accent-blue); text-decoration: none; }
+64|a:hover { text-decoration: underline; }
+65|.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+66|nav {
+67|  position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.85);
+68|  backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+69|  padding: 16px 0;
+70|}
+71|.nav-inner { max-width: 720px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+72|.nav-logo { font-family: var(--font-mono); font-weight: 700; font-size: 1rem; color: var(--text); }
+73|.nav-logo span { color: var(--accent-blue); }
+74|.nav-links { display: flex; gap: 24px; list-style: none; }
+75|.nav-links a { color: var(--text-dim); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+76|.nav-links a:hover { color: var(--text); text-decoration: none; }
+77|.breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin: 32px 0 16px; }
+78|.breadcrumb a { color: var(--text-dim); }
+79|.article-header { margin-bottom: 40px; }
+80|.article-header h1 {
+81|  font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800;
+82|  line-height: 1.3; margin-bottom: 16px;
+83|}
+84|.article-meta { display: flex; gap: 16px; font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono); }
+85|.article-meta .dot { color: var(--text-muted); }
+86|.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+87|.tag {
+88|  font-size: 0.72rem; padding: 4px 10px; border-radius: 6px;
+89|  background: rgba(59,130,246,0.1); color: var(--accent-blue);
+90|  font-family: var(--font-mono);
+91|}
+92|.article-body { font-size: 1.05rem; }
+93|.article-body h2 {
+94|  font-size: 1.4rem; font-weight: 700; margin: 48px 0 16px;
+95|  padding-top: 24px; border-top: 1px solid var(--border);
+96|}
+97|.article-body h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 12px; }
+98|.article-body p { margin-bottom: 20px; color: var(--text); }
+99|.article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+100|.article-body li { margin-bottom: 8px; }
+101|.article-body code {
+102|  font-family: var(--font-mono); font-size: 0.88em;
+103|  background: var(--bg-card); padding: 2px 6px; border-radius: 4px;
+104|  border: 1px solid var(--border);
+105|}
+106|.article-body pre {
+107|  background: var(--bg-card); border: 1px solid var(--border);
+108|  border-radius: 8px; padding: 20px; overflow-x: auto;
+109|  margin: 24px 0; font-size: 0.85rem;
+110|}
+111|.article-body pre code { background: none; border: none; padding: 0; }
+112|.article-body blockquote {
+113|  border-left: 3px solid var(--accent-purple); padding: 12px 20px;
+114|  margin: 24px 0; background: rgba(139,92,246,0.05);
+115|  border-radius: 0 8px 8px 0; color: var(--text-dim);
+116|}
+117|.article-body strong { color: var(--text); font-weight: 600; }
+118|.article-body .callout {
+119|  background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2);
+120|  border-radius: 8px; padding: 16px 20px; margin: 24px 0;
+121|}
+122|.article-body .callout-warn {
+123|  background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2);
+124|  border-radius: 8px; padding: 16px 20px; margin: 24px 0;
+125|}
+126|.related { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); }
+127|.related h3 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--text-dim); }
+128|.related-list { list-style: none; }
+129|.related-list li { margin-bottom: 8px; }
+130|.related-list a { font-size: 0.95rem; }
+131|footer {
+132|  margin-top: 80px; padding: 32px 0; border-top: 1px solid var(--border);
+133|  text-align: center; font-size: 0.8rem; color: var(--text-muted);
+134|}
+135|footer a { color: var(--text-dim); }
+136|@media (max-width: 600px) {
+137|  .nav-links { display: none; }
+138|}
+139|</style>
+140|</head>
+141|<body>
+142|<nav>
+143|  <div class="nav-inner">
+144|    <a href="/" class="nav-logo"><span>~</span>/xbyteid</a>
+145|    <ul class="nav-links">
+146|      <li><a href="/#work">work</a></li>
+147|      <li><a href="/#stack">stack</a></li>
+148|      <li><a href="/blog/">blog</a></li>
+149|      <li><a href="/#contact">contact</a></li>
+150|    </ul>
+151|  </div>
+152|</nav>
+153|<div class="container">
+154|  <div class="breadcrumb"><a href="/">home</a> / <a href="/blog/">blog</a> / bug-bounty-pemula-indonesia</div>
+155|  <article>
+156|    <header class="article-header">
+157|      <h1>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama</h1>
+158|      <div class="article-meta">
+159|        <span>2026-06-15</span>
+160|        <span class="dot">·</span>
+161|        <span>10 min read</span>
+162|      </div>
+163|      <div class="tags"><span class="tag">airdrop</span> <span class="tag">web3</span> <span class="tag">defi</span> <span class="tag">farming</span> <span class="tag">multi-wallet</span></div>
+164|    </header>
+165|    <div class="article-body">
+166|      <p>Airdrop farming di 2026 udah bukan game yang sama kayak 2023. Sybil detection makin ketat, requirement makin ribet, tapi reward masih gede buat yang tau cara main-nya. Ini guide lengkap dari pengalaman gue farming 50+ airdrop.</p>
+167|
+168|      <h2>Kenapa Airdrop Masih Worth It di 2026?</h2>
+169|      <p>Banyak orang bilang "airdrop udah mati." Faktanya? <strong>Arbitrum airdrop avg $3K per wallet</strong>, Jito $2K+, Jupiter $1K+. Yang bilang mati biasanya yang kena sybil flag atau ga konsisten.</p>
+170|      <p>Di 2026, airdrop makin selective — mereka mau real users, bukan farmers. Tapi kalau lo emang aktif di ecosystem-nya (swap, bridge, stake, vote), reward-nya tetep gede.</p>
+171|
+172|      <h2>Setup Multi-Wallet yang Aman</h2>
+173|      <p>Ini bagian paling krusial. Salah setup = kena sybil = semua wallet lo di-flag.</p>
+174|
+175|      <div class="callout-warn">
+176|        <strong>⚠️ Golden Rule:</strong> 1 wallet = 1 identity. Jangan pernah transfer langsung antar wallet yang lo pake buat farming. Selalu lewat CEX atau bridge dulu.
+177|      </div>
+178|
+179|      <h3>Step 1: Wallet Generation</h3>
+180|      <ul>
+181|        <li>Pake <code>ethers.js</code> atau <code>solana-keygen</code> buat generate wallet baru</li>
+182|        <li>Simpan seed phrase di password manager (bukan di file biasa!)</li>
+183|        <li>Jangan generate 10 wallet sekaligus dari 1 device — spread out</li>
+184|      </ul>
+185|
+186|      <h3>Step 2: Funding Pattern</h3>
+187|      <p>Ini yang paling sering kena flag:</p>
+188|      <ul>
+189|        <li><strong>JANGAN:</strong> Main wallet → Wallet A → Wallet B → Wallet C (chain transfer = instant sybil flag)</li>
+190|        <li><strong>HARUS:</strong> CEX → Wallet A, CEX → Wallet B, CEX → Wallet C (masing-masing dari exchange, beda amount, beda timing)</li>
+191|        <li>Tambahin random delay 1-7 hari antara funding dan aktivitas pertama</li>
+192|      </ul>
+193|
+194|      <h3>Step 3: Activity Diversification</h3>
+195|      <p>Setiap wallet harus punya "personality" yang beda:</p>
+196|      <ul>
+197|        <li>Wallet A: Suka swap di DEX, volume kecil tapi sering</li>
+198|        <li>Wallet B: Suka LP di pool volatile</li>
+199|        <li>Wallet C: Governance voter aktif</li>
+200|        <li>Wallet D: NFT collector + occasional swap</li>
+201|      </ul>
+202|      <p>Jangan semua wallet lakuin hal yang persis sama di hari yang sama.</p>
+203|
+204|      <h2>Target Airdrop 2026 yang Worth Di-farm</h2>
+205|
+206|      <h3>Layer 2 / Layer 3</h3>
+207|      <ul>
+208|        <li><strong>Abstract Chain</strong> — consumer crypto L2, masih early, gas murah</li>
+209|        <li><strong>Scroll</strong> — ZK rollup, belum TGE, aktif di ecosystem = points</li>
+210|        <li><strong>Linea</strong> — Consensys L2, campaign-based points</li>
+211|      </ul>
+212|
+213|      <h3>DeFi Protocols</h3>
+214|      <ul>
+215|        <li><strong>Ethena</strong> — stablecoin yield, sUSDe farming</li>
+216|        <li><strong>Fluid Protocol</strong> — DEX aggregator, belum token</li>
+217|        <li><strong>Kamino Finance</strong> — Solana DeFi, points system aktif</li>
+218|      </ul>
+219|
+220|      <h3>Infrastructure</h3>
+221|      <ul>
+222|        <li><strong>Validator nodes</strong> (Asentum, dll) — run node, earn token</li>
+223|        <li><strong>RPC providers</strong> — running light nodes buat incentive</li>
+224|      </ul>
+225|
+226|      <h2>Automation Tips</h2>
+227|      <p>Manual farming 10+ wallet = burnout. Ini yang gue automate:</p>
+228|      <ul>
+229|        <li><strong>Cron jobs</strong> — schedule daily swaps, bridge activity per wallet</li>
+230|        <li><strong>Multi-chain bridge</strong> — script buat bridge small amounts weekly (deBridge, Across)</li>
+231|        <li><strong>Points tracker</strong> — scrape points dashboard, alert kalau ada wallet yang idle</li>
+232|      </ul>
+233|
+234|      <div class="callout">
+235|        <strong>💡 Pro tip:</strong> Pakai Playwright buat browser-based farming (quest, social tasks). Selenium kebanyakan kena anti-bot sekarang.
+236|      </div>
+237|
+238|      <h2>Common Mistakes yang Harus Dihindari</h2>
+239|      <ol>
+240|        <li><strong>Gas farming barengan</strong> — semua wallet swap di block yang sama = sybil</li>
+241|        <li><strong>Same IP</strong> — rotate proxy, jangan farming dari 1 IP buat semua wallet</li>
+242|        <li><strong>Transfer antar wallet</strong> — ini yang paling sering ke-flag</li>
+243|        <li><strong>Too fast, too similar</strong> — kalau 5 wallet lakuin 10 tx identik dalam 1 menit, itu bot behavior</li>
+244|        <li><strong>Lupa governance</strong> — voting/DAO participation = strong signal real user</li>
+245|      </ol>
+246|
+247|      <h2>Conclusion</h2>
+248|      <p>Airdrop farming di 2026 = patience + diversification + automation. Yang bikin duid bukan yang paling banyak wallet, tapi yang paling konsisten dan "keliatan real."</p>
+249|      <p>Start kecil: 3-5 wallet, 1-2 ecosystem, farm 3-6 bulan. Kalau hasilnya bagus, scale up.</p>
+250|    </div>
+251|  </article>
+252|  <div class="related">
+253|    <h3>// more articles</h3>
+254|    <ul class="related-list">
+255|      <li><a href="/blog/">← Back to all posts</a></li>
+256|    </ul>
+257|  </div>
+258|</div>
+259|<footer>
+260|  <div class="container">
+261|    <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a></p>
+262|  </div>
+263|</footer>
+264|</body>
+265|</html>
