@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About xbyteid — Bug Bounty Hunter · Web3 Operator · AI Agent Architect</title>
+<meta name="description" content="Learn about xbyteid — Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation. Building since 2024.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="xbyteid, about, bug bounty hunter, web3 operator, AI agent architect, security researcher, indonesia, smart contract security, penetration testing">
+<link rel="canonical" href="https://xbyteid.codes/about.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://xbyteid.codes/about.html">
+<meta property="og:title" content="About xbyteid — Bug Bounty Hunter · Web3 Operator · AI Agent Architect">
+<meta property="og:description" content="Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation. Building since 2024.">
+<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+<meta property="og:site_name" content="xbyteid">
+<meta property="og:locale" content="en_US">
+<meta property="profile:first_name" content="xbyteid">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://xbyteid.codes/about.html">
+<meta name="twitter:title" content="About xbyteid — Bug Bounty Hunter · Web3 Operator · AI Agent Architect">
+<meta name="twitter:description" content="Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation.">
+<meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="twitter:creator" content="@xbyteid">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "xbyteid",
+    "url": "https://xbyteid.codes",
+    "image": "https://xbyteid.codes/og-image.png",
+    "sameAs": [
+      "https://github.com/xbyteid",
+      "https://x.com/xbyteid",
+      "https://hackerone.com/xbyteidcodes"
+    ],
+    "jobTitle": "Bug Bounty Hunter · Web3 Operator · AI Agent Architect",
+    "description": "Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation.",
+    "knowsAbout": ["Bug Bounty", "Web3 Security", "Smart Contract Auditing", "AI Agents", "Airdrop Farming", "OSINT", "Penetration Testing", "Automation"],
+    "nationality": {
+      "@type": "Country",
+      "name": "Indonesia"
+    }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   CSS CUSTOM PROPERTIES
+   ═══════════════════════════════════════════ */
+:root {
+  --bg: #0a0a0b;
+  --bg-card: #111114;
+  --bg-card-hover: #16161a;
+  --border: #1e1e24;
+  --border-hover: #2a2a33;
+  --text: #e4e4e7;
+  --text-dim: #71717a;
+  --text-muted: #52525b;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #d946ef;
+  --accent-cyan: #06b6d4;
+  --gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+  --gradient-subtle: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+  --gradient-border: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --dot-red: #ff5f56;
+  --dot-yellow: #ffbd2e;
+  --dot-green: #27c93f;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+  --nav-height: 64px;
+  --container: min(1100px, 90vw);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scanline / grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes type-cursor {
+  0%, 100% { border-color: var(--accent-blue); }
+  50% { border-color: transparent; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════ */
+.container {
+  width: var(--container);
+  margin: 0 auto;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: var(--accent-cyan); }
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: rgba(10, 10, 11, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(30,30,36,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo .prompt { color: var(--accent-blue); }
+.nav-logo .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent-purple);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-xs);
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-links a.active {
+  color: var(--accent-blue);
+  background: rgba(59,130,246,0.1);
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--green);
+}
+
+.nav-status .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle svg { width: 20px; height: 20px; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-status { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    gap: 4px;
+  }
+  .nav-links.open a {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   HERO / ABOUT HERO
+   ═══════════════════════════════════════════ */
+.about-hero {
+  padding-top: calc(var(--nav-height) + 80px);
+  padding-bottom: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(59,130,246,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -10%;
+  width: 40%;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(139,92,246,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef, #3b82f6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.hero-roles {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.hero-roles .sep {
+  color: var(--text-muted);
+  margin: 0 6px;
+}
+
+.hero-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--green);
+}
+
+.hero-status-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════ */
+.section {
+  padding: 80px 0;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::before {
+  content: '//';
+  color: var(--text-muted);
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+}
+
+/* ═══════════════════════════════════════════
+   BIO SECTION
+   ═══════════════════════════════════════════ */
+.bio-content {
+  max-width: 720px;
+}
+
+.bio-content p {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.bio-content p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   SKILLS GRID
+   ═══════════════════════════════════════════ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.skill-card p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   TIMELINE
+   ═══════════════════════════════════════════ */
+.timeline {
+  margin-top: 32px;
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -33px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent-blue);
+}
+
+.timeline-item:nth-child(2) .timeline-dot { background: var(--accent-purple); box-shadow: 0 0 0 2px var(--accent-purple); }
+.timeline-item:nth-child(3) .timeline-dot { background: var(--accent-pink); box-shadow: 0 0 0 2px var(--accent-pink); }
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  margin-bottom: 8px;
+}
+
+.timeline-item:nth-child(2) .timeline-year { color: var(--accent-purple); }
+.timeline-item:nth-child(3) .timeline-year { color: var(--accent-pink); }
+
+.timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   TERMINAL (whoami)
+   ═══════════════════════════════════════════ */
+.terminal-window {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+  max-width: 680px;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: var(--dot-red); }
+.terminal-dot.yellow { background: var(--dot-yellow); }
+.terminal-dot.green { background: var(--dot-green); }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-right: 44px;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+}
+
+.terminal-prompt {
+  color: var(--text-dim);
+}
+
+.terminal-prompt .path {
+  color: var(--accent-blue);
+}
+
+.terminal-prompt .cmd {
+  color: var(--green);
+}
+
+.terminal-output {
+  color: var(--text-dim);
+}
+
+.terminal-output .key {
+  color: var(--accent-purple);
+}
+
+.terminal-output .val {
+  color: var(--text);
+}
+
+.terminal-output .val-accent {
+  color: var(--accent-cyan);
+}
+
+.terminal-output .val-green {
+  color: var(--green);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--accent-purple);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ═══════════════════════════════════════════
+   SOCIAL LINKS
+   ═══════════════════════════════════════════ */
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-link:hover {
+  border-color: var(--accent-blue);
+  background: rgba(59,130,246,0.08);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59,130,246,0.1);
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.social-link .handle {
+  color: var(--text-dim);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+footer a { color: var(--text-dim); }
+footer a:hover { color: var(--text); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .social-links {
+    flex-direction: column;
+  }
+  .timeline {
+    padding-left: 32px;
+  }
+  .timeline-dot {
+    left: -25px;
+    width: 12px;
+    height: 12px;
+  }
+  .timeline::before {
+    left: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="prompt">~/xbyteid</span>$<span class="cursor"></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#work">work</a></li>
+      <li><a href="/#stack">stack</a></li>
+      <li><a href="/about.html" class="active">about</a></li>
+      <li><a href="/blog/">blog</a></li>
+      <li><a href="/#contact">contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="dot"></span>
+      available
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="about-hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-label">
+        <span style="color:var(--text-muted);">//</span> about me
+      </div>
+      <h1 class="hero-name">xbyteid</h1>
+      <p class="hero-roles">
+        Bug Bounty Hunter<span class="sep">·</span>Web3 Operator<span class="sep">·</span>AI Agent Architect
+      </p>
+      <div class="hero-status-badge">
+        <span class="dot"></span>
+        building since 2024
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BIO ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="bio-content reveal">
+      <div class="section-label">bio</div>
+      <h2 class="section-title">Who I Am</h2>
+      <p>
+        <strong>Indonesian security researcher</strong> and builder. I've been in the trenches since 2024 — hunting bugs, breaking smart contracts, farming airdrops, and automating everything I can get my hands on.
+      </p>
+      <p>
+        My focus sits at the intersection of <strong>security research</strong> and <strong>Web3 infrastructure</strong>. I find vulnerabilities in web applications and decentralized protocols, audit Solidity smart contracts, and build AI-powered agents that automate repetitive workflows.
+      </p>
+      <p>
+        I believe in building tools that break things — and then fixing them. No certifications needed, just curiosity and persistence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">expertise</div>
+      <h2 class="section-title">What I Do</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">🎯</span>
+        <h3>Bug Bounty</h3>
+        <p>Hunting vulnerabilities across web applications on HackerOne and Bugcrowd. Specializing in auth bypass, business logic flaws, and injection attacks.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">⛓️</span>
+        <h3>Web3 / Smart Contracts</h3>
+        <p>Smart contract auditing, Solidity security review, reentrancy detection, flash loan attack vectors, and DeFi protocol analysis.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <span class="skill-icon">🤖</span>
+        <h3>AI Agents</h3>
+        <p>Building autonomous AI agents for security research, reconnaissance, and workflow automation. Integrating LLMs into offensive tooling.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">⚡</span>
+        <h3>Automation</h3>
+        <p>Automating repetitive tasks — from recon pipelines to airdrop farming workflows. If it can be scripted, it will be scripted.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">🔍</span>
+        <h3>OSINT</h3>
+        <p>Open-source intelligence gathering for attack surface mapping. Subdomain enumeration, tech fingerprinting, and asset discovery.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <span class="skill-icon">🛡️</span>
+        <h3>Penetration Testing</h3>
+        <p>Full-spectrum penetration testing — from recon to exploitation. Web apps, APIs, and infrastructure. Methodical, documented, and thorough.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">milestones</div>
+      <h2 class="section-title">The Journey</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024</div>
+        <div class="timeline-title">Started Building</div>
+        <div class="timeline-desc">Dove into security research and Web3. Started learning bug bounty methodology, smart contract basics, and automation tooling. First bug reported.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025</div>
+        <div class="timeline-title">Bug Bounty Hunter</div>
+        <div class="timeline-desc">Leveled up hunting on HackerOne. Expanded into smart contract auditing and DeFi security. Built recon automation pipelines. Started airdrop farming at scale.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2026</div>
+        <div class="timeline-title">Web3 Operator + AI Agent Architect</div>
+        <div class="timeline-desc">Operating across Web3 ecosystems — security, DeFi, and airdrops. Architecting AI agents that automate research, reconnaissance, and exploitation workflows.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ WHOAMI TERMINAL ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">terminal</div>
+      <h2 class="section-title">whoami</h2>
+    </div>
+    <div class="terminal-window reveal reveal-delay-1">
+      <div class="terminal-header">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">xbyteid — zsh</div>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line">
+          <span class="terminal-prompt"><span class="path">~/xbyteid</span> $ <span class="cmd">whoami</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="val">xbyteid</span></span>
+        </div>
+        <br>
+        <div class="terminal-line">
+          <span class="terminal-prompt"><span class="path">~/xbyteid</span> $ <span class="cmd">cat /etc/profile.d/xbyteid.sh</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">name</span>=<span class="val">"xbyteid"</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">role</span>=<span class="val">"Bug Bounty Hunter | Web3 Operator | AI Agent Architect"</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">location</span>=<span class="val-accent">"Indonesia 🇮🇩"</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">status</span>=<span class="val-green">"available"</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">stack</span>=<span class="val">"bug_bounty, web3, solidity, ai_agents, osint, automation"</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="key">motto</span>=<span class="val">"build tools that break things, then fix them"</span></span>
+        </div>
+        <br>
+        <div class="terminal-line">
+          <span class="terminal-prompt"><span class="path">~/xbyteid</span> $ <span class="cmd">echo $FIND_ME</span></span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-output"><span class="val-accent">https://github.com/xbyteid</span> · <span class="val-accent">https://x.com/xbyteid</span> · <span class="val-accent">https://hackerone.com/xbyteidcodes</span></span>
+        </div>
+        <br>
+        <div class="terminal-line">
+          <span class="terminal-prompt"><span class="path">~/xbyteid</span> $ <span class="terminal-cursor"></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════ CONNECT ═══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">connect</div>
+      <h2 class="section-title">Find Me</h2>
+    </div>
+    <div class="social-links reveal reveal-delay-1">
+      <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+        <span class="handle">xbyteid</span>
+      </a>
+      <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X / Twitter
+        <span class="handle">@xbyteid</span>
+      </a>
+      <a href="https://hackerone.com/xbyteidcodes" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24"><path d="M12.959 2.06c-.301-.139-.654-.139-.955 0L1.52 6.87c-.537.247-.537 1.01 0 1.257l10.484 4.81c.301.139.654.139.955 0l10.484-4.81c.537-.247.537-1.01 0-1.257L12.959 2.06zM7.616 9.28L3.27 7.5l4.346-1.78v3.56zm1.6 0V5.72l4.744 2.18 4.744-2.18v3.56l-4.744 2.18-4.744-2.18zm8.084 0l4.346 1.78-4.346 1.78V9.28zM3.27 10.5l4.346 1.78v3.56L3.27 14.06V10.5zm4.346 1.78l4.744 2.18 4.744-2.18v3.56l-4.744 2.18-4.744-2.18v-3.56zm8.084 0L20.046 14v-1.72l-4.346-1.78v3.56z"/></svg>
+        HackerOne
+        <span class="handle">xbyteidcodes</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a></p>
+  </div>
+</footer>
+
+<script>
+/* Nav toggle */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+/* Scroll reveal */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

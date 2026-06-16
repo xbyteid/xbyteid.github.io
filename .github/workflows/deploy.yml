@@ -22,6 +22,42 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Generate sitemap
+        run: |
+          BASE_URL="https://xbyteid.codes"
+          DATE=$(date +%Y-%m-%d)
+
+          # Define pages: path|priority|changefreq
+          PAGES=(
+            "/|1.0|weekly"
+            "/blog/|0.8|weekly"
+            "/blog/airdrop-farming-guide-2026.html|0.7|monthly"
+            "/blog/bug-bounty-pemula-indonesia.html|0.7|monthly"
+            "/blog/smart-contract-security-audit-guide.html|0.7|monthly"
+            "/blog/spacex-ipo-solana-spcx-tokenized-stock.html|0.7|monthly"
+            "/blog/elon-musk-trillionaire-crypto-impact.html|0.7|monthly"
+            "/blog/binance-spcxx-collapse-tokenized-stock.html|0.7|monthly"
+            "/privacy-policy.html|0.3|yearly"
+          )
+
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            for entry in "${PAGES[@]}"; do
+              IFS='|' read -r path priority changefreq <<< "$entry"
+              echo "  <url>"
+              echo "    <loc>${BASE_URL}${path}</loc>"
+              echo "    <lastmod>${DATE}</lastmod>"
+              echo "    <changefreq>${changefreq}</changefreq>"
+              echo "    <priority>${priority}</priority>"
+              echo "  </url>"
+            done
+            echo '</urlset>'
+          } > sitemap.xml
+
+          echo "Sitemap generated with $(grep -c '<url>' sitemap.xml) URLs"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

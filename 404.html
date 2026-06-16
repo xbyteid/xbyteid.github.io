@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — PAGE NOT FOUND | xbyteid</title>
+<meta name="theme-color" content="#0a0a0b">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg-card: #111114;
+  --bg-card-hover: #16161a;
+  --border: #1e1e24;
+  --border-hover: #2a2a33;
+  --text: #e4e4e7;
+  --text-dim: #71717a;
+  --text-muted: #52525b;
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #d946ef;
+  --accent-cyan: #06b6d4;
+  --gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --dot-red: #ff5f56;
+  --dot-yellow: #ffbd2e;
+  --dot-green: #27c93f;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── Scanline overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ── Floating particles ── */
+.particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.particles span {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+/* ── The big 404 glitch text ── */
+.glitch-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.error-code {
+  font-family: var(--font-mono);
+  font-size: clamp(100px, 20vw, 180px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  animation: glitch-skew 4s infinite linear alternate-reverse;
+}
+
+.error-code::before,
+.error-code::after {
+  content: '404';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.error-code::before {
+  animation: glitch-1 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-text-fill-color: transparent;
+}
+
+.error-code::after {
+  animation: glitch-2 2.5s infinite linear alternate-reverse;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes glitch-1 {
+  0%, 90%  { transform: translate(0); }
+  91%      { transform: translate(-4px, -2px); }
+  92%      { transform: translate(4px, 2px); }
+  93%      { transform: translate(-2px, 1px); }
+  94%, 100%{ transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0%, 88%  { transform: translate(0); }
+  89%      { transform: translate(3px, 2px); }
+  90%      { transform: translate(-3px, -1px); }
+  91%      { transform: translate(2px, -2px); }
+  92%, 100%{ transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0%, 95%  { transform: skew(0deg); }
+  96%      { transform: skew(2deg); }
+  97%      { transform: skew(-1deg); }
+  98%      { transform: skew(1.5deg); }
+  99%, 100%{ transform: skew(0deg); }
+}
+
+/* ── Terminal window ── */
+.terminal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  max-width: 560px;
+  margin: 0 auto 32px;
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.08), 0 0 80px rgba(59, 130, 246, 0.04);
+  animation: terminal-appear 0.6s ease-out;
+}
+
+@keyframes terminal-appear {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot.red    { background: var(--dot-red); }
+.terminal-dot.yellow { background: var(--dot-yellow); }
+.terminal-dot.green  { background: var(--dot-green); }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.terminal-line {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: type-in 0.3s ease forwards;
+}
+
+.terminal-line:nth-child(1) { animation-delay: 0.2s; }
+.terminal-line:nth-child(2) { animation-delay: 0.6s; }
+.terminal-line:nth-child(3) { animation-delay: 1.0s; }
+.terminal-line:nth-child(4) { animation-delay: 1.4s; }
+.terminal-line:nth-child(5) { animation-delay: 1.8s; }
+.terminal-line:nth-child(6) { animation-delay: 2.2s; }
+.terminal-line:nth-child(7) { animation-delay: 2.6s; }
+
+@keyframes type-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.prompt { color: var(--green); }
+.command { color: var(--text); }
+.output { color: var(--text-dim); }
+.error-msg { color: var(--red); }
+.warn { color: var(--yellow); }
+.info { color: var(--accent-cyan); }
+.path { color: var(--accent-purple); }
+.highlight { color: var(--accent-blue); }
+
+/* ── Blinking cursor ── */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--green);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Home button ── */
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: transparent;
+  border: 1px solid var(--accent-purple);
+  border-radius: 8px;
+  color: var(--accent-purple);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.home-link:hover {
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.home-link:hover::before {
+  opacity: 1;
+}
+
+.home-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+.home-link:hover .arrow {
+  transform: translateX(-4px);
+}
+
+/* ── Ambient glow orbs ── */
+.glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(139, 92, 246, 0.12);
+  top: -100px;
+  right: -100px;
+  animation: drift 8s ease-in-out infinite alternate;
+}
+
+.glow-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(59, 130, 246, 0.1);
+  bottom: -80px;
+  left: -80px;
+  animation: drift 10s ease-in-out infinite alternate-reverse;
+}
+
+.glow-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(217, 70, 239, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to { transform: translate(40px, 30px); }
+}
+
+/* ── Matrix rain canvas ── */
+#matrix {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .error-code { letter-spacing: -2px; }
+  .terminal-body { font-size: 12px; padding: 16px; }
+  .home-link { padding: 12px 24px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+
+<div class="particles" id="particles"></div>
+
+<div class="container">
+  <div class="glitch-wrapper">
+    <div class="error-code" data-text="404">404</div>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <span class="terminal-title">xbyteid@void:~</span>
+    </div>
+    <div class="terminal-body">
+      <div class="terminal-line">
+        <span class="prompt">❯</span>
+        <span class="command">curl -s <span class="path">/this-page</span></span>
+      </div>
+      <div class="terminal-line">
+        <span class="output">  % Total    % Received</span>
+      </div>
+      <div class="terminal-line">
+        <span class="error-msg">✘ HTTP/1.1 404 Not Found</span>
+      </div>
+      <div class="terminal-line">
+        <span class="warn">⚠ WARNING:</span>
+        <span class="output">Page fell into the void</span>
+      </div>
+      <div class="terminal-line">
+        <span class="info">↳ Suggestion:</span>
+        <span class="output">This endpoint does not exist</span>
+      </div>
+      <div class="terminal-line">
+        <span class="info">↳ Stack:</span>
+        <span class="highlight">void → /dev/null → ∞</span>
+      </div>
+      <div class="terminal-line">
+        <span class="prompt">❯</span>
+        <span class="command">echo <span class="highlight">"taking you home..."</span></span>
+        <span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+
+  <a href="/" class="home-link">
+    <span class="arrow">←</span>
+    <span>cd ~/home</span>
+  </a>
+</div>
+
+<script>
+// ── Matrix rain ──
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+const fontSize = 14;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+function drawMatrix() {
+  ctx.fillStyle = 'rgba(10, 10, 11, 0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#8b5cf6';
+  ctx.font = fontSize + 'px JetBrains Mono';
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 50);
+
+window.addEventListener('resize', () => {
+  columns = Math.floor(canvas.width / fontSize);
+  drops = Array(columns).fill(1);
+});
+
+// ── Floating particles ──
+const particlesEl = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const span = document.createElement('span');
+  span.style.left = Math.random() * 100 + '%';
+  span.style.animationDuration = (6 + Math.random() * 10) + 's';
+  span.style.animationDelay = Math.random() * 8 + 's';
+  span.style.width = span.style.height = (1 + Math.random() * 3) + 'px';
+  span.style.background = ['#8b5cf6', '#3b82f6', '#d946ef', '#06b6d4'][Math.floor(Math.random() * 4)];
+  particlesEl.appendChild(span);
+}
+</script>
+
+</body>
+</html>
