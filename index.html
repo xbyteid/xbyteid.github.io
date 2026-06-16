@@ -944,12 +944,19 @@ nav {
 .latest-post-card:hover::before {
   opacity: 1;
 }
-.latest-post-card a {
+.latest-post-card a,
+.latest-post-card a:hover,
+.latest-post-card a:visited,
+.latest-post-card a *,
+.latest-post-card a *::after {
   color: inherit;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+.latest-post-card a {
   display: block;
   padding: 24px;
 }
-.latest-post-card a:hover { text-decoration: none; }
 .latest-post-date {
   font-family: var(--font-mono);
   font-size: 0.72rem;
