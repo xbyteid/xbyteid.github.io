@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://xbyteid.codes/sitemap.xml
+Sitemap: https://xbyteid.codes/blog/feed.xml
