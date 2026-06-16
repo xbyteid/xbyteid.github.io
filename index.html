@@ -910,6 +910,58 @@ nav {
 /* ═══════════════════════════════════════════
    STACK
    ═══════════════════════════════════════════ */
+.latest-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.latest-post-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--bg-card);
+  transition: all 0.2s;
+}
+.latest-post-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.latest-post-card a { color: inherit; display: block; }
+.latest-post-card a:hover { text-decoration: none; }
+.latest-post-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.latest-post-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.latest-post-card p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+.latest-post-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.latest-post-tags span {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(59,130,246,0.08);
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+}
 .stack-section .terminal-body {
   padding: 28px;
 }
@@ -1204,7 +1256,7 @@ footer {
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card reveal">
-        <div class="stat-number">78+</div>
+        <div class="stat-number">90+</div>
         <div class="stat-label">tools built</div>
       </div>
       <div class="stat-card reveal reveal-delay-1">
@@ -1212,8 +1264,12 @@ footer {
         <div class="stat-label">automations</div>
       </div>
       <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-number">14.6K</div>
+        <div class="stat-number">15K+</div>
         <div class="stat-label">reports analyzed</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-number">3</div>
+        <div class="stat-label">blog posts</div>
       </div>
       <div class="stat-card reveal reveal-delay-3">
         <div class="stat-number">2024</div>
@@ -1314,6 +1370,29 @@ footer {
           <span class="project-link" style="opacity:0.6; cursor:default;">
             <svg viewBox="0 0 16 16"><path d="M4 4v2h-.25A1.75 1.75 0 002 7.75v4.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-4.5A1.75 1.75 0 0012.25 6H12V4a4 4 0 10-8 0zm6.5 2V4a2.5 2.5 0 00-5 0v2h5z"/></svg>
             private suite
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card reveal">
+        <div class="project-card-inner">
+          <div class="project-card-header">
+            <div class="project-icon">📝</div>
+            <span class="project-version">new</span>
+          </div>
+          <h3 class="project-title">Blog — xbyteid.codes</h3>
+          <p class="project-desc">SEO-optimized blog covering bug bounty, Web3 security, smart contract auditing, and airdrop farming. Indonesian + English.</p>
+          <div class="project-tags">
+            <span class="project-tag">SEO</span>
+            <span class="project-tag">Content</span>
+            <span class="project-tag">AdSense</span>
+            <span class="project-tag">GitHub Pages</span>
+          </div>
+          <a href="https://xbyteid.codes/blog/" target="_blank" rel="noopener" class="project-link">
+            <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            xbyteid.codes/blog
+          </a>
+        </div>
           </span>
         </div>
       </div>
@@ -1352,6 +1431,53 @@ footer {
         <span class="marquee-item"><span class="dot">◆</span> Discord Bots</span>
         <span class="marquee-item"><span class="dot">◆</span> Cron Jobs</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LATEST POSTS ═══════════ -->
+<section id="blog-preview">
+  <div class="container">
+    <div class="section-label reveal">writing</div>
+    <h2 class="section-title reveal">latest posts.</h2>
+
+    <div class="latest-posts-grid">
+      <div class="latest-post-card reveal">
+        <a href="/blog/airdrop-farming-guide-2026.html">
+          <div class="latest-post-date">2026-06-16 · 8 min read</div>
+          <h3>Airdrop Farming Guide 2026</h3>
+          <p>Multi-wallet strategy, anti-sybil setup, automation tips, dan target airdrop terbaru.</p>
+          <div class="latest-post-tags">
+            <span>airdrop</span><span>web3</span><span>farming</span>
+          </div>
+        </a>
+      </div>
+      <div class="latest-post-card reveal reveal-delay-1">
+        <a href="/blog/bug-bounty-pemula-indonesia.html">
+          <div class="latest-post-date">2026-06-15 · 10 min read</div>
+          <h3>Bug Bounty untuk Pemula</h3>
+          <p>Dari nol sampai dapetin $1000 pertama. Tools, workflow, target selection.</p>
+          <div class="latest-post-tags">
+            <span>bug bounty</span><span>security</span><span>indonesia</span>
+          </div>
+        </a>
+      </div>
+      <div class="latest-post-card reveal reveal-delay-2">
+        <a href="/blog/smart-contract-security-audit-guide.html">
+          <div class="latest-post-date">2026-06-14 · 9 min read</div>
+          <h3>Smart Contract Security Audit</h3>
+          <p>Panduan lengkap audit Solidity — vulnerabilities, tools, dan cara mulai karir.</p>
+          <div class="latest-post-tags">
+            <span>solidity</span><span>audit</span><span>web3</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px;">
+      <a href="/blog/" class="project-link" style="display:inline-flex;opacity:1;">
+        all posts →
+      </a>
     </div>
   </div>
 </section>
