@@ -129,6 +129,39 @@ nav {
 .related-list { list-style: none; }
 .related-list li { margin-bottom: 8px; }
 .related-list a { font-size: 0.95rem; }
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  transition: all 0.2s;
+  flex: 1;
+}
+.post-nav a:hover {
+  border-color: var(--accent-blue);
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(59,130,246,0.05);
+}
+.post-nav .label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.post-nav .next { text-align: right; }
 footer {
   margin-top: 80px; padding: 32px 0; border-top: 1px solid var(--border);
   text-align: center; font-size: 0.8rem; color: var(--text-muted);
@@ -239,6 +272,12 @@ function withdraw() public {
   </article>
   <div class="related">
     <h3>// more articles</h3>
+    <div class="post-nav">
+      <a href="/blog/bug-bounty-pemula-indonesia.html" class="next" style="text-align:right;margin-left:auto;max-width:50%">
+        <span class="label">next →</span>
+        Bug Bounty untuk Pemula
+      </a>
+    </div>
     <ul class="related-list">
       <li><a href="/blog/">← Back to all posts</a></li>
     </ul>
