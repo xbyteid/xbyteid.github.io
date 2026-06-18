@@ -6,7 +6,14 @@
     <description>Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity by xbyteid.</description>
     <language>en</language>
     <atom:link href="https://xbyteid.codes/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 16 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Q2 2026 DeFi Exploits: $746M Dicuri, Worst Quarter Ever</title>
+      <link>https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html</link>
+      <guid>https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html</guid>
+      <pubDate>Wed, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Q2 2026 jadi quarter terburuk dalam sejarah DeFi — 70+ exploit, $746M dicuri. Analisis attack vectors dan pelajaran.</description>
+    </item>
     <item>
       <title>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</title>
       <link>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</link>
