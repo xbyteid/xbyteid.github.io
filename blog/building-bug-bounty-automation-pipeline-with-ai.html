@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a Bug Bounty Automation Pipeline with AI — xbyteid</title>
+<meta name="description" content="Practical 2026 guide to building an end-to-end bug bounty automation pipeline using AI agents. Recon, vuln discovery, triage, reporting, and continuous monitoring. Tools, architecture, and lessons from production.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="bug bounty automation, AI pipeline, recon automation, nuclei, playwright, hermes agent, offensive security pipeline, bug bounty AI, xbyteid">
+<link rel="canonical" href="https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html">
+<meta property="og:title" content="Building a Bug Bounty Automation Pipeline with AI">
+<meta property="og:description" content="End-to-end practical guide to AI-powered bug bounty automation pipelines in 2026.">
+<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building a Bug Bounty Automation Pipeline with AI">
+<meta name="twitter:description" content="How to build production-grade AI recon + vuln pipelines for bug bounty programs.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a Bug Bounty Automation Pipeline with AI",
+  "description": "Practical guide to building an end-to-end bug bounty automation pipeline powered by AI agents in 2026.",
+  "url": "https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html",
+  "datePublished": "2026-06-24",
+  "author": { "@type": "Person", "name": "xbyteid", "url": "https://xbyteid.codes" },
+  "publisher": { "@type": "Person", "name": "xbyteid" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html" }
+}
+</script>
+<style>
+:root { --bg:#0a0a0b; --bg-card:#111114; --border:#1e1e24; --text:#e4e4e7; --text-dim:#71717a; --text-muted:#52525b; --accent-blue:#3b82f6; --accent-purple:#8b5cf6; --green:#22c55e; --font-sans:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--accent-blue);text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:15px 0}
+.nav-inner{max-width:720px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:var(--font-mono);font-weight:700;font-size:1rem;color:var(--text)}.nav-logo span{color:var(--accent-blue)}
+.nav-links{display:flex;gap:22px;list-style:none}.nav-links a{color:var(--text-dim);font-size:.85rem;font-weight:500}
+.article-header{margin:38px 0 36px}
+.article-header h1{font-size:clamp(1.52rem,4vw,2.28rem);font-weight:800;line-height:1.25;margin-bottom:14px}
+.article-meta{display:flex;gap:14px;font-size:.82rem;color:var(--text-dim);font-family:var(--font-mono);flex-wrap:wrap}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.tag{font-size:.7rem;padding:3px 9px;border-radius:5px;background:rgba(59,130,246,.1);color:var(--accent-blue);font-family:var(--font-mono)}
+.article-body{font-size:1.03rem}
+.article-body h2{font-size:1.36rem;font-weight:700;margin:44px 0 14px;padding-top:22px;border-top:1px solid var(--border)}
+.article-body h3{font-size:1.12rem;font-weight:600;margin:26px 0 10px}
+.article-body p{margin-bottom:18px;color:#d1d1d6}
+.article-body ul,.article-body ol{margin:0 0 18px 22px}
+.article-body li{margin-bottom:7px}
+.article-body code{font-family:var(--font-mono);font-size:.87em;background:var(--bg-card);padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
+.article-body pre{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:17px;overflow-x:auto;margin:20px 0;font-size:.84rem}
+.article-body pre code{background:none;border:none;padding:0}
+.callout{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.22);border-radius:8px;padding:14px 18px;margin:22px 0}
+footer{margin-top:70px;padding:28px 0;border-top:1px solid var(--border);text-align:center;font-size:.78rem;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>~/xbyteid</span>$</a>
+    <ul class="nav-links">
+      <li><a href="/#work">work</a></li><li><a href="/blog/">blog</a></li><li><a href="/about.html">about</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>Building a Bug Bounty Automation Pipeline with AI</h1>
+    <div class="article-meta">
+      <span>2026-06-24</span>
+      <span class="dot">·</span>
+      <span>19 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Automation</span>
+      <span class="tag">Bug Bounty</span>
+      <span class="tag">AI Agents</span>
+      <span class="tag">Recon</span>
+      <span class="tag">Playwright</span>
+    </div>
+  </div>
+  <div class="article-body">
+    <p>In 2026, the hunters who consistently find critical bugs are not the ones with the biggest manual methodology. They are the ones running the fastest, most reliable, continuously improving automation pipelines augmented by AI agents.</p>
+    <p>This is a practical guide based on the system I have run for the past 14 months across 40+ programs. It covers architecture, key components, agent design, monitoring, and how to avoid the common failure modes that waste months of effort.</p>
+
+    <h2>High-Level Architecture</h2>
+    <p>A production bug bounty pipeline has four layers:</p>
+    <ol>
+      <li><strong>Asset Discovery Layer</strong> — continuous passive + active recon</li>
+      <li><strong>Attack Surface Reduction + Prioritization</strong> — AI classification + risk scoring</li>
+      <li><strong>Vulnerability Discovery Layer</strong> — scanners + AI agents + fuzzers</li>
+      <li><strong>Triage + Reporting Layer</strong> — dedup, reproduction, report generation</li>
+    </ol>
+    <p>Data flows through a central job queue (Redis or Postgres) with strong observability (logs + traces + finding DB).</p>
+
+    <h2>1. Asset Discovery Layer</h2>
+    <p>Never rely on a single tool. Combine:</p>
+    <ul>
+      <li>subfinder, amass, assetfinder, crt.sh + certificate transparency logs</li>
+      <li>github + gitlab dorks via custom scrapers</li>
+      <li>Shodan, Censys, SecurityTrails, and other paid feeds</li>
+      <li>JS crawling of known targets for new hostnames in source maps / configs</li>
+      <li>AI-powered subdomain permutation (fine-tuned model on previous good findings)</li>
+    </ul>
+    <p>Output is normalized into a unified asset schema with last-seen, technologies, and a confidence score.</p>
+
+    <h3>AI Classifier Example</h3>
+    <pre><code># Pseudo
+assets = get_new_assets()
+for a in assets:
+    features = extract_features(a)  # tech, headers, cert, ASN, etc
+    score = agent.classify_risk(features)  # returns 0.0 - 1.0
+    if score &gt; 0.78:
+        enqueue_for_deep_recon(a)</code></pre>
+
+    <h2>2. Deep Recon &amp; Attack Surface</h2>
+    <p>This is where most people stop too early. Good pipelines crawl every interesting path.</p>
+    <ul>
+      <li>Full Playwright crawls (authenticated + unauthenticated) with intelligent link following</li>
+      <li>Parameter mining from JS bundles and HAR files</li>
+      <li>GraphQL schema introspection + field fuzzing prep</li>
+      <li>API discovery via traffic replay and OpenAPI guessing</li>
+    </ul>
+
+    <h2>3. Vulnerability Discovery</h2>
+    <p>Hybrid is king:</p>
+    <ul>
+      <li><strong>Deterministic:</strong> Nuclei (thousands of templates), ffuf, custom Burp extensions</li>
+      <li><strong>Agent-driven:</strong> Hermes-powered web agent that explores business flows</li>
+      <li><strong>Fuzzing:</strong> Custom Playwright + property-based or coverage-guided JS fuzzers</li>
+    </ul>
+
+    <h3>Agent Prompt Skeleton (Simplified)</h3>
+    <pre><code>You are an expert bug bounty hunter. Your goal is to find high-impact authorization and business logic issues.
+Current target: {target}
+Tools available: browser.navigate, browser.click, browser.fill, http.request, analyze_dom, ...
+Rules:
+- Never perform destructive actions without confirmation
+- Always capture evidence (screenshots + requests)
+- Think step by step. If stuck, try a different auth context.
+Start by mapping authenticated surfaces for user A and user B.</code></pre>
+
+    <div class="callout">
+      <strong>Important:</strong> The agent must output structured JSON findings including reproduction steps, impact, and PoC curl or browser script. Raw text is useless for the triage layer.
+    </div>
+
+    <h2>4. Triage &amp; Report Generation</h2>
+    <p>90% of raw agent/scanner output is noise. The triage layer:</p>
+    <ol>
+      <li>Deduplicates using URL + param + class signatures</li>
+      <li>Attempts lightweight reproduction in isolated browsers</li>
+      <li>Scores severity using a small LLM + custom rules (scope + impact + ease)</li>
+      <li>Generates clean Markdown + screenshots + request/response bundles</li>
+      <li>Creates draft on HackerOne / Bugcrowd via API when confidence is high</li>
+    </ol>
+
+    <h2>Production Tips from Running This Daily</h2>
+    <ul>
+      <li>Rate limit everything religiously. One noisy agent will get your IPs and accounts banned faster than you think.</li>
+      <li>Rotate residential proxies + browser fingerprints on every major job.</li>
+      <li>Store every request/response + DOM snapshot. You will need it for reports 3 months later.</li>
+      <li>Run the pipeline continuously in small batches, not massive scans. Continuous yields better results and lower cost.</li>
+      <li>Have an allowlist of high-value programs and a separate low-noise mode for the rest of the portfolio.</li>
+      <li>Human review is still mandatory for anything above Medium. AI can write the report, you decide if it's worth submitting.</li>
+    </ul>
+
+    <h2>Tech Stack I Actually Use (2026)</h2>
+    <ul>
+      <li>Recon: custom Go + Python workers + subfinder/amass/crt.sh</li>
+      <li>Browser: Playwright + stealth plugins + CDP instrumentation</li>
+      <li>Agents: Hermes (Nous) with Claude 4 Sonnet + GPT-4o-mini fallback</li>
+      <li>Queue + State: Postgres + Redis + simple scheduler (cron + systemd timers)</li>
+      <li>Findings DB: custom schema + vector search for dedup</li>
+      <li>Observability: OpenTelemetry + Grafana + simple Slack alerts on new P1 candidates</li>
+    </ul>
+
+    <h2>Common Failure Modes</h2>
+    <ul>
+      <li>Over-scanning the same targets every hour → burn money and get blocked</li>
+      <li>Agents without strict tool schemas → garbage JSON</li>
+      <li>No evidence collection → can't submit good reports</li>
+      <li>Treating everything as a vulnerability → alert fatigue and ignored good findings</li>
+    </ul>
+
+    <h2>Getting Started in One Weekend</h2>
+    <p>Start narrow:</p>
+    <ol>
+      <li>Pick 3 in-scope programs.</li>
+      <li>Build a simple subdomain + httpx + nuclei pipeline.</li>
+      <li>Add a basic Playwright crawler that saves HAR + screenshots.</li>
+      <li>Connect a simple agent (even a ReAct script with 5 tools) that looks for IDOR indicators.</li>
+      <li>Run daily for two weeks. Measure what it actually finds.</li>
+    </ol>
+    <p>Iterate from there. The difference between a toy pipeline and a production one is months of tuning + data.</p>
+
+    <p>Automation does not remove the need for skill. It amplifies it. The best hunters are the ones who know exactly where to point their agents and how to read between the lines of the results.</p>
+    <p>Go build your fleet.</p>
+  </div>
+  <div class="related" style="margin-top:50px">
+    <h3>Related</h3>
+    <ul class="related-list">
+      <li><a href="/blog/ai-agents-cybersecurity-2026-landscape.html">AI Agents in Cybersecurity: The 2026 Landscape</a></li>
+      <li><a href="/blog/bug-bounty-pemula-indonesia.html">Bug Bounty untuk Pemula</a></li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a></p>
+</footer>
+<script defer src="http://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>
