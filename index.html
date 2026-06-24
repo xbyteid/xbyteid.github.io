@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>xbyteid — Builder · Operator · Shipper</title>
-<meta name="description" content="xbyteid — Security researcher specializing in bug bounty, smart contract security, recon automation, and AI-powered security tools.">
+<title>xbyteid — Web Development Services · Builder · Operator · Shipper</title>
+<meta name="description" content="Professional web development services. Landing pages, web apps, e-commerce, APIs, and automation tools. Fast delivery, clean code, fair pricing.">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="dTpIUwDdV8h8iXSg5SmsuahnnXYC12smEEI_LAD4Sdg" />
 <meta name="author" content="xbyteid">
-<meta name="keywords" content="xbyteid, bug bounty hunter, web3 operator, AI agent architect, smart contract security, airdrop farming, NFT, crypto automation, penetration testing, security researcher, Indonesia">
+<meta name="keywords" content="xbyteid, web development, landing page, web app, e-commerce, API development, backend, automation, React, Next.js, Indonesia, freelance developer">
 <link rel="canonical" href="https://xbyteid.codes/">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xbyteid.codes/">
-<meta property="og:title" content="xbyteid — Builder · Operator · Shipper">
-<meta property="og:description" content="Web2 & Web3 builder specializing in smart contract tooling, recon automation, and AI-powered agents.">
+<meta property="og:title" content="xbyteid — Web Development Services · Builder · Operator · Shipper">
+<meta property="og:description" content="Professional web development services. Landing pages, web apps, e-commerce, APIs, and automation tools. Fast delivery, clean code, fair pricing.">
 <meta property="og:image" content="https://xbyteid.codes/og-image.png">
 <meta property="og:site_name" content="xbyteid">
 <meta property="og:locale" content="en_US">
@@ -26,8 +26,8 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://xbyteid.codes/">
-<meta name="twitter:title" content="xbyteid — Builder · Operator · Shipper">
-<meta name="twitter:description" content="Web2 & Web3 builder specializing in smart contract tooling, recon automation, and AI-powered agents.">
+<meta name="twitter:title" content="xbyteid — Web Development Services · Builder · Operator · Shipper">
+<meta name="twitter:description" content="Professional web development services. Landing pages, web apps, e-commerce, APIs, and automation tools. Fast delivery, clean code, fair pricing.">
 <meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
 <meta name="twitter:site" content="@xbyteid">
 <meta name="twitter:creator" content="@xbyteid">
@@ -36,22 +36,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "xbyteid",
+  "@type": "ProfessionalService",
+  "name": "xbyteid — Web Development Services",
   "url": "https://xbyteid.codes",
   "image": "https://xbyteid.codes/og-image.png",
+  "description": "Professional web development services. Landing pages, web apps, e-commerce, APIs, and automation tools. Fast delivery, clean code, fair pricing.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Indonesia"
+  },
   "sameAs": [
     "https://github.com/xbyteid",
     "https://x.com/xbyteid",
-    "https://t.me/xbyteid",
-    "https://hackerone.com/xbyteidcodes"
+    "https://t.me/xbyteid"
   ],
-  "jobTitle": "Builder · Operator · Shipper",
-  "description": "Web2 & Web3 builder specializing in smart contract tooling, recon automation, and AI-powered agents.",
-  "knowsAbout": ["Bug Bounty", "Web3 Security", "Smart Contract Auditing", "AI Agents", "Airdrop Farming", "NFT", "Penetration Testing", "Automation"],
-  "nationality": {
-    "@type": "Country",
-    "name": "Indonesia"
+  "provider": {
+    "@type": "Person",
+    "name": "xbyteid",
+    "jobTitle": "Builder · Operator · Shipper"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages & Company Profiles" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Applications" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce & Online Stores" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API & Backend Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bots & Automation" } }
+    ]
   }
 }
 </script>
@@ -395,6 +408,261 @@ nav {
   font-weight: 500;
 }
 
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.services-grid .service-card { grid-column: span 2; }
+.services-grid .service-card:nth-child(4) { grid-column: 2 / span 2; }
+.services-grid .service-card:nth-child(5) { grid-column: 4 / span 2; }
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.service-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-muted);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+.service-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* Process timeline */
+.process-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 48px;
+  position: relative;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 28px);
+  right: calc(-50% + 28px);
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.process-step:last-child::after { display: none; }
+
+.process-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.process-step p {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: rgba(17,17,20,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+[data-theme='light'] .pricing-card { background: rgba(244,244,245,0.7); }
+
+.pricing-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.2), var(--shadow-lg);
+  position: relative;
+}
+.pricing-card.featured::before {
+  content: 'Recommended';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+
+.pricing-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.pricing-price {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.pricing-price span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 24px 0;
+  flex: 1;
+}
+.pricing-features li {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pricing-card .btn { width: 100%; justify-content: center; margin-top: auto; }
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: rgba(17,17,20,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+[data-theme='light'] .testimonial-card { background: rgba(244,244,245,0.7); }
+
+.testimonial-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+  color: var(--yellow);
+}
+.testimonial-stars svg { width: 16px; height: 16px; fill: currentColor; }
+
+.testimonial-quote {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
 /* Projects */
 .projects-grid {
   display: grid;
@@ -725,7 +993,8 @@ nav {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   background: var(--bg);
   border: 1px solid var(--border);
@@ -737,8 +1006,18 @@ nav {
   margin-bottom: 12px;
   transition: border-color 0.2s;
 }
+.contact-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.contact-form select option { background: var(--bg-card); color: var(--text); }
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: var(--accent);
 }
@@ -891,17 +1170,53 @@ footer {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .writeups-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid .service-card,
+  .services-grid .service-card:nth-child(4),
+  .services-grid .service-card:nth-child(5) { grid-column: span 1; }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-card.featured { grid-column: span 2; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-  .stack-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid { grid-template-columns: 1fr; }
-  .writeups-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-grid .service-card,
+  .services-grid .service-card:nth-child(4),
+  .services-grid .service-card:nth-child(5) { grid-column: span 1; }
+  .process-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-left: 20px;
+  }
+  .process-step {
+    text-align: left;
+    padding: 0 0 32px 36px;
+  }
+  .process-step::after {
+    top: 44px;
+    left: 21px;
+    right: auto;
+    width: 2px;
+    height: calc(100% - 24px);
+    bottom: 0;
+  }
+  .process-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 42px;
+    height: 42px;
+  }
+  .process-step p { max-width: none; margin: 0; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.featured { grid-column: span 1; }
+  .testimonials-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
-  .stack-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .contact-wrapper { padding: 24px 20px; }
   .footer-inner { flex-direction: column; text-align: center; }
@@ -909,7 +1224,6 @@ footer {
 
 @media (max-width: 420px) {
   .stats-grid { grid-template-columns: 1fr; }
-  .stack-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .btn { justify-content: center; }
 }
@@ -925,9 +1239,9 @@ footer {
   <div class="nav-inner">
     <a href="#" class="nav-logo">xbyteid</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#writeups">Research</a></li>
-      <li><a href="/about.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
@@ -953,10 +1267,10 @@ footer {
   <div class="hero-inner reveal">
     <p class="hero-eyebrow">xbyteid · Indonesia</p>
     <h1 class="hero-headline">Builder · Operator · Shipper</h1>
-    <p class="hero-subtitle">Full-stack builder specializing in Web2 & Web3, smart contract tooling, recon automation, and AI-powered agents.</p>
+    <p class="hero-subtitle">I build fast, modern websites &amp; web apps for startups, businesses, and creators.</p>
     <div class="hero-actions">
-      <a href="#work" class="btn btn-primary">View Work</a>
-      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      <a href="#services" class="btn btn-primary">View Services</a>
+      <a href="#contact" class="btn btn-secondary">Get a Quote</a>
     </div>
   </div>
 </section>
@@ -992,88 +1306,186 @@ footer {
   </div>
 </section>
 
-<section id="work">
+<section id="services">
   <div class="container">
-    <div class="section-label reveal">Projects</div>
-    <h2 class="section-title reveal">Selected Work</h2>
-    <p class="section-desc reveal">Security tooling, Web3 infrastructure, and AI agents built for production use.</p>
+    <div class="section-label reveal">What I Build</div>
+    <h2 class="section-title reveal">Services.</h2>
+    <p class="section-desc reveal">End-to-end web development — from landing pages to full-stack applications and automation.</p>
 
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-card-header">
-          <span class="badge badge-private">Private</span>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
         </div>
-        <h3 class="project-name">xMint</h3>
-        <p class="project-desc">High-performance NFT mint automation engine. FastAPI backend + web3.py for precise gas, anti-bot bypass, and multi-wallet coordination.</p>
-        <div class="project-tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag">web3.py</span>
-          <span class="tag">Solidity</span>
-          <span class="tag">EVM</span>
-        </div>
-        <span class="project-link project-link-muted">Contributor access only</span>
+        <h3>Landing Pages &amp; Company Profiles</h3>
+        <p>High-converting landing pages and professional company websites that make your brand stand out.</p>
       </div>
 
-      <div class="project-card reveal reveal-delay-1">
-        <div class="project-card-header">
-          <span class="badge badge-contrib">Contributor</span>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <h3 class="project-name">Hermes Agent</h3>
-        <p class="project-desc">Contributor to Nous Research's Hermes Agent framework. Tool-calling robustness, crypto-specific toolkits, and autonomous execution loops.</p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">LLM</span>
-          <span class="tag">Agents</span>
-          <span class="tag">Tool-Use</span>
+        <h3>Web Applications</h3>
+        <p>Full-stack web apps built with React, Next.js, Vue, and modern frameworks. Dashboards, SaaS, tools.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         </div>
-        <a href="https://github.com/NousResearch" target="_blank" rel="noopener" class="project-link">
-          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          NousResearch / hermes
-        </a>
+        <h3>E-Commerce &amp; Online Stores</h3>
+        <p>Custom online stores with payment integration, inventory management, and conversion optimization.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3>API &amp; Backend Development</h3>
+        <p>Scalable backends, REST/GraphQL APIs, database design, and cloud infrastructure.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </div>
+        <h3>Bots &amp; Automation</h3>
+        <p>Telegram bots, Discord bots, web scrapers, workflow automation, and AI-powered tools.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="writeups">
+<section id="process">
   <div class="container">
-    <div class="section-label reveal">Research</div>
-    <h2 class="section-title reveal">Write-ups &amp; CTF</h2>
-    <p class="section-desc reveal">Deep technical analyses covering web application security, smart contracts, recon, and automation.</p>
+    <div class="section-label reveal">Workflow</div>
+    <h2 class="section-title reveal">How I Work.</h2>
+    <p class="section-desc reveal">A transparent process from first call to launch — no surprises, no hidden fees.</p>
 
-    <div class="writeups-grid">
-      <div class="writeup-card reveal">
-        <div class="writeup-meta"><span class="cat-pill">Web</span><span>Jun 2026</span></div>
-        <h4>From IDOR to Full Account Takeover in a Major Fintech App</h4>
-        <p>Critical IDOR chained with weak session validation. Custom tooling accelerated discovery.</p>
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="process-number">1</div>
+        <h3>Discovery</h3>
+        <p>Free call to understand your goals, timeline, and budget.</p>
       </div>
-      <div class="writeup-card reveal reveal-delay-1">
-        <div class="writeup-meta"><span class="cat-pill">Smart Contract</span><span>May 2026</span></div>
-        <h4>Reentrancy via Callback in Token-2022 Extension (Solana)</h4>
-        <p>Novel reentrancy vector abusing Solana Token Extensions callbacks and mitigation patterns.</p>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-number">2</div>
+        <h3>Proposal</h3>
+        <p>Clear scope, milestones, and pricing. No hidden fees.</p>
       </div>
-      <div class="writeup-card reveal reveal-delay-2">
-        <div class="writeup-meta"><span class="cat-pill">Recon</span><span>Apr 2026</span></div>
-        <h4>Scaling Passive Recon to 140k Assets in 9 Minutes</h4>
-        <p>Distributed passive reconnaissance pipeline with AI classification and deduplication.</p>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-number">3</div>
+        <h3>Build</h3>
+        <p>Regular updates, working demos, and feedback loops.</p>
       </div>
-      <div class="writeup-card reveal reveal-delay-3">
-        <div class="writeup-meta"><span class="cat-pill">Automation</span><span>Jun 2026</span></div>
-        <h4>AI Agent That Writes Your Nuclei Templates</h4>
-        <p>Hermes-powered agent that generates, validates, and tunes Nuclei templates from target analysis.</p>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-number">4</div>
+        <h3>Launch</h3>
+        <p>Testing, optimization, and deployment. Production-ready.</p>
       </div>
-      <div class="writeup-card reveal">
-        <div class="writeup-meta"><span class="cat-pill">Web</span><span>Mar 2026</span></div>
-        <h4>Prototype Pollution → RCE in Popular Node.js Framework</h4>
-        <p>Prototype pollution gadget chain leading to sandbox escape and remote code execution.</p>
-      </div>
-      <div class="writeup-card reveal reveal-delay-1">
-        <div class="writeup-meta"><span class="cat-pill">Smart Contract</span><span>Feb 2026</span></div>
-        <h4>Flash Loan + Governance Takeover on a DeFi Lending Protocol</h4>
-        <p>Full exploit path including proposal simulation bypass and on-chain monitoring recommendations.</p>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-number">5</div>
+        <h3>Support</h3>
+        <p>30-day free support. Maintenance plans available.</p>
       </div>
     </div>
-    <p style="margin-top:24px;font-size:0.85rem;color:var(--text-muted);">Detailed write-ups published on the blog. More coming soon.</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Plans</div>
+    <h2 class="section-title reveal">Pricing.</h2>
+    <p class="section-desc reveal">Transparent pricing for every stage. Custom quotes available for larger projects.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">$299<span>+</span></div>
+        <ul class="pricing-features">
+          <li>Landing page, 1–3 pages</li>
+          <li>Responsive design</li>
+          <li>Contact form</li>
+          <li>SEO basics</li>
+          <li>1 revision round</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="pricing-name">Professional</div>
+        <div class="pricing-price">$799<span>+</span></div>
+        <ul class="pricing-features">
+          <li>Multi-page website or web app</li>
+          <li>Up to 10 pages</li>
+          <li>CMS integration</li>
+          <li>Animations &amp; interactions</li>
+          <li>API integration</li>
+          <li>3 revision rounds</li>
+          <li>30-day support</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price">Custom</div>
+        <ul class="pricing-features">
+          <li>Full-stack application</li>
+          <li>Custom features &amp; integrations</li>
+          <li>Database &amp; authentication</li>
+          <li>Deployment &amp; DevOps</li>
+          <li>Ongoing support</li>
+          <li>Dedicated communication</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label reveal">Clients</div>
+    <h2 class="section-title reveal">What Clients Say.</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"Fast delivery, clean code, and great communication. Will hire again!"</p>
+        <div class="testimonial-author">Startup Founder, Jakarta</div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"Exceeded expectations. The web app works flawlessly and looks amazing."</p>
+        <div class="testimonial-author">E-commerce Owner, Bandung</div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"Professional from start to finish. Highly recommended for any web project."</p>
+        <div class="testimonial-author">Agency Partner, Surabaya</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1136,67 +1548,11 @@ footer {
   </div>
 </section>
 
-<section id="stack">
-  <div class="container">
-    <div class="section-label reveal">Technology</div>
-    <h2 class="section-title reveal">Tech Stack</h2>
-    <p class="section-desc reveal">Languages, security tooling, and infrastructure used across projects.</p>
-
-    <div class="stack-grid">
-      <div class="stack-category reveal">
-        <h3>Languages</h3>
-        <div class="stack-tags">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Solidity</span>
-          <span class="stack-tag">Go</span>
-          <span class="stack-tag">Rust</span>
-        </div>
-      </div>
-      <div class="stack-category reveal reveal-delay-1">
-        <h3>Security</h3>
-        <div class="stack-tags">
-          <span class="stack-tag">Nuclei</span>
-          <span class="stack-tag">Burp Suite</span>
-          <span class="stack-tag">ffuf</span>
-          <span class="stack-tag">Slither</span>
-        </div>
-      </div>
-      <div class="stack-category reveal reveal-delay-2">
-        <h3>Web3</h3>
-        <div class="stack-tags">
-          <span class="stack-tag">EVM</span>
-          <span class="stack-tag">Solana</span>
-          <span class="stack-tag">DeFi</span>
-          <span class="stack-tag">web3.py</span>
-        </div>
-      </div>
-      <div class="stack-category reveal reveal-delay-3">
-        <h3>AI / ML</h3>
-        <div class="stack-tags">
-          <span class="stack-tag">Hermes</span>
-          <span class="stack-tag">Claude</span>
-          <span class="stack-tag">MiMo</span>
-          <span class="stack-tag">Agents</span>
-        </div>
-      </div>
-      <div class="stack-category reveal reveal-delay-4">
-        <h3>Infrastructure</h3>
-        <div class="stack-tags">
-          <span class="stack-tag">FastAPI</span>
-          <span class="stack-tag">Playwright</span>
-          <span class="stack-tag">Telegram Bots</span>
-          <span class="stack-tag">Cron</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="container">
     <div class="section-label reveal">Contact</div>
-    <h2 class="section-title reveal">Get in Touch</h2>
-    <p class="section-desc reveal">Available for collaboration, consulting, and tool development.</p>
+    <h2 class="section-title reveal">Start Your Project</h2>
+    <p class="section-desc reveal">Tell me about your project. Free consultation, no commitment.</p>
 
     <div class="contact-wrapper reveal">
       <div class="contact-grid">
@@ -1207,14 +1563,30 @@ footer {
             <a href="https://x.com/xbyteid" target="_blank" rel="noopener" class="contact-link"><span>→</span> @xbyteid</a>
             <a href="https://t.me/xbyteid" target="_blank" rel="noopener" class="contact-link"><span>→</span> t.me/xbyteid</a>
           </div>
-          <p class="contact-note">Prefer Telegram or X for quick questions. For collaboration inquiries, use the form.</p>
+          <p class="contact-note">Prefer Telegram or X for quick questions. For project inquiries, use the form.</p>
         </div>
         <div>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/myzynqgy" method="POST">
-            <input type="text" name="name" placeholder="Name or handle" required>
+            <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="your@email.com" required>
-            <input type="text" name="_subject" value="Website inquiry from xbyteid.codes" style="display:none;">
-            <textarea name="message" placeholder="Tell me about the opportunity, target, or idea..." required></textarea>
+            <select name="project_type" required>
+              <option value="" disabled selected>Project Type</option>
+              <option value="Landing Page">Landing Page</option>
+              <option value="Web App">Web App</option>
+              <option value="E-Commerce">E-Commerce</option>
+              <option value="API/Backend">API/Backend</option>
+              <option value="Bot/Automation">Bot/Automation</option>
+              <option value="Other">Other</option>
+            </select>
+            <select name="budget" required>
+              <option value="" disabled selected>Budget Range</option>
+              <option value="Under $500">Under $500</option>
+              <option value="$500-$2,000">$500–$2,000</option>
+              <option value="$2,000-$5,000">$2,000–$5,000</option>
+              <option value="$5,000+">$5,000+</option>
+            </select>
+            <input type="text" name="_subject" value="Project inquiry from xbyteid.codes" style="display:none;">
+            <textarea name="message" placeholder="Tell me about your project, goals, and timeline..." required></textarea>
             <button type="submit" id="formBtn">Send Message</button>
             <div class="form-status" id="formStatus" style="display:none;"></div>
           </form>
@@ -1229,7 +1601,7 @@ footer {
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <span>© 2026 xbyteid · Indonesia · <a href="/privacy-policy.html">Privacy Policy</a></span>
+      <span>© 2026 xbyteid · Web Development Services · Indonesia · <a href="/privacy-policy.html">Privacy Policy</a></span>
       <div class="footer-social">
         <a href="https://github.com/xbyteid" target="_blank" rel="noopener">GitHub</a>
         <a href="https://x.com/xbyteid" target="_blank" rel="noopener">X</a>
