@@ -36,24 +36,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/spacex-ipo-solana-spcx-tokenized-stock.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/elon-musk-trillionaire-crypto-impact.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/binance-spcxx-collapse-tokenized-stock.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://xbyteid.codes/blog/l2-fragmentation-battle-usability-2026.html</loc>
     <lastmod>2026-06-22</lastmod>
@@ -80,6 +63,42 @@
   </url>
   <url>
     <loc>https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/docker-containers-beginners-practical-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/python-automation-scripts-developers-2026.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xbyteid.codes/blog/web-security-best-practices-developers-2026.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

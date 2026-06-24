@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Production-Ready REST APIs with FastAPI and Python in 2026 — xbyteid</title>
+<meta name="description" content="Step-by-step guide to building production-ready REST APIs with FastAPI — project structure, validation, auth, testing, and deployment.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="FastAPI, Python, REST API, backend, Pydantic, JWT auth, async, 2026">
+<link rel="canonical" href="https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html">
+<meta property="og:title" content="Building Production-Ready REST APIs with FastAPI and Python in 2026">
+<meta property="og:description" content="Step-by-step guide to building production-ready REST APIs with FastAPI — project structure, validation, auth, testing, and deployment.">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building Production-Ready REST APIs with FastAPI and Python in 2026">
+<meta name="twitter:description" content="Step-by-step guide to building production-ready REST APIs with FastAPI — project structure, validation, auth, testing, and deployment.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Building Production-Ready REST APIs with FastAPI and Python in 2026","description":"Step-by-step guide to building production-ready REST APIs with FastAPI — project structure, validation, auth, testing, and deployment.","url":"https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html","datePublished":"2026-06-24","author":{"@type":"Person","name":"xbyteid","url":"https://xbyteid.codes"},"publisher":{"@type":"Person","name":"xbyteid"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html"}}
+</script>
+<style>:root {
+  --bg: #0a0a0b; --bg-card: #111114; --bg-card-hover: #16161a;
+  --border: #1e1e24; --border-hover: #2a2a33;
+  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+  --accent: #3b82f6; --accent-muted: rgba(59,130,246,0.1);
+  --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 10px; --nav-height: 64px;
+}
+[data-theme='light'] {
+  --bg: #ffffff; --bg-card: #f4f4f5; --bg-card-hover: #e4e4e7;
+  --border: #d4d4d8; --border-hover: #a1a1aa;
+  --text: #18181b; --text-dim: #52525b; --text-muted: #71717a;
+  --accent: #2563eb; --accent-muted: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #60a5fa; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); height: var(--nav-height); display: flex; align-items: center; }
+[data-theme='light'] nav { background: rgba(255,255,255,0.85); }
+.nav-inner { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; text-decoration: none; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin: 40px 0 20px; font-family: var(--font-mono); }
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.article-header h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: var(--text); letter-spacing: -0.02em; }
+.article-meta { display: flex; gap: 8px; align-items: center; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 14px; flex-wrap: wrap; }
+.dot { color: var(--text-muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: var(--accent-muted); color: var(--accent); font-family: var(--font-mono); border: 1px solid rgba(59,130,246,0.15); }
+.article-body { font-size: 1rem; }
+.article-body h2 { font-size: 1.35rem; font-weight: 700; margin: 48px 0 16px; color: var(--text); letter-spacing: -0.01em; }
+.article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+.article-body p { margin-bottom: 18px; color: var(--text-dim); }
+.article-body ul, .article-body ol { margin: 0 0 18px 24px; color: var(--text-dim); }
+.article-body li { margin-bottom: 8px; }
+.article-body pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; overflow-x: auto; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
+.article-body code { font-family: var(--font-mono); font-size: 0.88em; }
+.article-body p code, .article-body li code { background: var(--accent-muted); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 20px 0; background: var(--accent-muted); border-radius: 0 8px 8px 0; }
+.article-body blockquote p { margin-bottom: 0; color: var(--text-dim); }
+.callout { background: var(--accent-muted); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 18px 20px; margin: 24px 0; }
+.callout strong { color: var(--accent); }
+.share-section { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--border); }
+.share-section h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.share-buttons { display: flex; gap: 10px; }
+.share-btn { font-size: 0.82rem; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); transition: all 0.2s; text-decoration: none; font-family: var(--font-mono); }
+.share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); text-decoration: none; }
+.related { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+.related h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.related-list { list-style: none; }
+.related-list li { margin-bottom: 8px; }
+.related-list a { font-size: 0.9rem; }
+footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--text); }
+@media (max-width: 768px) { .nav-links { display: none !important; } .nav-toggle { display: block !important; } .article-body pre { padding: 14px; font-size: 0.78rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>Building Production-Ready REST APIs with FastAPI and Python in 2026</h1>
+    <div class="article-meta">
+      <span>2026-06-24</span>
+      <span class="dot">·</span>
+      <span>14 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">API</span><span class="tag">Backend</span></div>
+  </div>
+  <div class="article-body">
+    <p>FastAPI has become the go-to Python framework for building high-performance APIs. In 2026, it powers everything from ML model serving to enterprise backends. This guide walks through building a production-ready REST API from scratch.</p>
+
+    <h2>Project Structure</h2>
+    <p>A clean project structure saves hours of refactoring later:</p>
+    <pre><code>myapi/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # FastAPI app instance
+│   ├── config.py        # Settings via pydantic-settings
+│   ├── database.py      # SQLAlchemy async engine
+│   ├── models/          # SQLAlchemy models
+│   ├── schemas/         # Pydantic request/response schemas
+│   ├── routers/         # API route handlers
+│   ├── services/        # Business logic layer
+│   └── dependencies.py  # Shared dependencies
+├── tests/
+├── alembic/             # Database migrations
+├── Dockerfile
+├── docker-compose.yml
+└── pyproject.toml</code></pre>
+
+    <h2>Pydantic Models for Validation</h2>
+    <p>FastAPI uses Pydantic v2 for automatic request validation and serialization. Define your schemas clearly:</p>
+    <pre><code>from pydantic import BaseModel, EmailStr, Field
+from datetime import datetime
+from uuid import UUID
+
+class UserCreate(BaseModel):
+    email: EmailStr
+    username: str = Field(min_length=3, max_length=50)
+    password: str = Field(min_length=8)
+
+class UserResponse(BaseModel):
+    id: UUID
+    email: str
+    username: str
+    created_at: datetime
+    is_active: bool
+
+    model_config = {"from_attributes": True}</code></pre>
+    <p>The <code>model_config = {"from_attributes": True}</code> line lets Pydantic read directly from SQLAlchemy ORM objects — no manual dict conversion needed.</p>
+
+    <h2>Dependency Injection</h2>
+    <p>FastAPI's DI system is its most powerful feature for production code. Use it for database sessions, auth, and configuration:</p>
+    <pre><code>from fastapi import Depends
+from sqlalchemy.ext.asyncio import AsyncSession
+
+async def get_db() -> AsyncSession:
+    async with async_session_maker() as session:
+        try:
+            yield session
+            await session.commit()
+        except Exception:
+            await session.rollback()
+            raise
+
+async def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: AsyncSession = Depends(get_db)
+) -> User:
+    payload = decode_access_token(token)
+    user = await db.get(User, payload["sub"])
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    return user</code></pre>
+
+    <h2>JWT Authentication</h2>
+    <p>Implement stateless auth with JWT tokens. Use <code>python-jose</code> for encoding and <code>passlib[bcrypt]</code> for password hashing:</p>
+    <pre><code>from jose import jwt, JWTError
+from passlib.context import CryptContext
+from datetime import timedelta
+
+pwd_context = CryptContext(schemes=["bcrypt"])
+SECRET_KEY = settings.secret_key
+ALGORITHM = "HS256"
+
+def create_access_token(data: dict, expires_delta: timedelta = timedelta(hours=1)):
+    to_encode = data.copy()
+    to_encode["exp"] = datetime.utcnow() + expires_delta
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)</code></pre>
+
+    <h2>Testing with pytest</h2>
+    <p>FastAPI ships with <code>TestClient</code> based on httpx. Use it with pytest fixtures for clean test setup:</p>
+    <pre><code>import pytest
+from httpx import AsyncClient, ASGITransport
+from app.main import app
+
+@pytest.fixture
+async def client():
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
+        yield ac
+
+@pytest.mark.asyncio
+async def test_create_user(client):
+    response = await client.post("/users/", json={
+        "email": "test@example.com",
+        "username": "testuser",
+        "password": "securepassword123"
+    })
+    assert response.status_code == 201
+    data = response.json()
+    assert data["email"] == "test@example.com"
+    assert "id" in data</code></pre>
+
+    <h2>Production Deployment Tips</h2>
+    <ul>
+      <li>Use <code>gunicorn</code> with <code>uvicorn.workers.UvicornWorker</code> for multi-process serving</li>
+      <li>Add <code>health_check</code> endpoint for load balancers</li>
+      <li>Use <code>alembic</code> for database migrations — never auto-create tables in production</li>
+      <li>Set <code>workers = 2 * CPU_CORES + 1</code> as a starting point</li>
+      <li>Add request ID middleware for distributed tracing</li>
+      <li>Use structured logging (JSON format) for log aggregation</li>
+      <li>Rate-limit endpoints with <code>slowapi</code> or a reverse proxy</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Use <code>lifespan</code> context manager (not deprecated <code>on_event</code>) for startup/shutdown logic like connection pool initialization and cache warming.
+    </div>
+
+    <p>FastAPI's combination of type safety, async support, and automatic documentation makes it the strongest choice for Python APIs in 2026. Pair it with Pydantic v2, SQLAlchemy 2.0 async, and proper testing — you'll have a production-grade API running in days, not weeks.</p>
+
+  </div>
+  <div class="share-section">
+    <h3>Share</h3>
+    <div class="share-buttons">
+      <a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html" target="_blank">𝕏 Twitter</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html" target="_blank">Telegram</a>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related</h3>
+    <ul class="related-list">
+      <li><a href="/blog/docker-containers-beginners-practical-guide.html">Docker for Developers: A Practical Guide</a></li>
+      <li><a href="/blog/github-actions-cicd-automation-guide.html">GitHub Actions CI/CD Guide</a></li>
+    </ul>
+  </div>
+</div>
+<footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a></p></footer>
+<script defer src="http://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>

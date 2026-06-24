@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026 — xbyteid</title><meta name="description" content="Compare deployment strategies for Next.js — static export to GitHub Pages, Vercel edge, and self-hosted with Docker. Pros, cons, and step-by-step setup."><meta name="robots" content="index,follow"><meta name="author" content="xbyteid"><meta name="keywords" content="Next.js, deployment, GitHub Pages, Vercel, Docker, hosting, frontend, 2026"><link rel="canonical" href="https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html"><meta property="og:type" content="article"><meta property="og:url" content="https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html"><meta property="og:title" content="Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026"><meta property="og:description" content="Compare deployment strategies for Next.js — static export to GitHub Pages, Vercel edge, and self-hosted with Docker. Pros, cons, and step-by-step setup."><meta property="og:site_name" content="xbyteid"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026"><meta name="twitter:description" content="Compare deployment strategies for Next.js — static export to GitHub Pages, Vercel edge, and self-hosted with Docker. Pros, cons, and step-by-step setup."><meta name="twitter:site" content="@xbyteid"><meta name="theme-color" content="#0a0a0b"><link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026","description":"Compare deployment strategies for Next.js — static export to GitHub Pages, Vercel edge, and self-hosted with Docker. Pros, cons, and step-by-step setup.","url":"https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html","datePublished":"2026-06-24","author":{"@type":"Person","name":"xbyteid","url":"https://xbyteid.codes"},"publisher":{"@type":"Person","name":"xbyteid"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html"}}</script><style>:root{--bg:#0a0a0b;--bg-card:#111114;--bg-card-hover:#16161a;--border:#1e1e24;--border-hover:#2a2a33;--text:#e4e4e7;--text-dim:#71717a;--text-muted:#52525b;--accent:#3b82f6;--accent-muted:rgba(59,130,246,0.1);--font-sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-mono:'JetBrains Mono','Fira Code',monospace;--radius:10px;--nav-height:64px}[data-theme='light']{--bg:#fff;--bg-card:#f4f4f5;--bg-card-hover:#e4e4e7;--border:#d4d4d8;--border-hover:#a1a1aa;--text:#18181b;--text-dim:#52525b;--text-muted:#71717a;--accent:#2563eb;--accent-muted:rgba(37,99,235,0.08)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}a{color:var(--accent);text-decoration:none;transition:color .2s}a:hover{color:#60a5fa}.container{max-width:720px;margin:0 auto;padding:0 24px}nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.8);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);height:var(--nav-height);display:flex;align-items:center}[data-theme='light'] nav{background:rgba(255,255,255,.85)}.nav-inner{max-width:720px;width:100%;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;position:relative}.nav-logo{font-family:var(--font-mono);font-weight:600;font-size:.95rem;color:var(--text);text-decoration:none}.nav-links{display:flex;gap:4px;list-style:none;align-items:center}.nav-links a{color:var(--text-dim);font-size:.875rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:color .2s,background .2s;text-decoration:none}.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04);text-decoration:none}.breadcrumb{font-size:.8rem;color:var(--text-muted);margin:40px 0 20px;font-family:var(--font-mono)}.breadcrumb a{color:var(--text-dim)}.breadcrumb a:hover{color:var(--accent);text-decoration:none}.article-header{margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--border)}.article-header h1{font-size:clamp(1.6rem,4vw,2.25rem);font-weight:700;line-height:1.25;margin-bottom:16px;color:var(--text);letter-spacing:-.02em}.article-meta{display:flex;gap:8px;align-items:center;font-size:.82rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:14px;flex-wrap:wrap}.dot{color:var(--text-muted)}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:.68rem;padding:3px 10px;border-radius:100px;background:var(--accent-muted);color:var(--accent);font-family:var(--font-mono);border:1px solid rgba(59,130,246,.15)}.article-body{font-size:1rem}.article-body h2{font-size:1.35rem;font-weight:700;margin:48px 0 16px;color:var(--text);letter-spacing:-.01em}.article-body h3{font-size:1.1rem;font-weight:600;margin:32px 0 12px;color:var(--text)}.article-body p{margin-bottom:18px;color:var(--text-dim)}.article-body ul,.article-body ol{margin:0 0 18px 24px;color:var(--text-dim)}.article-body li{margin-bottom:8px}.article-body pre{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:20px;overflow-x:auto;margin-bottom:20px;font-family:var(--font-mono);font-size:.85rem;line-height:1.6}.article-body code{font-family:var(--font-mono);font-size:.88em}.article-body p code,.article-body li code{background:var(--accent-muted);padding:2px 7px;border-radius:4px;color:var(--accent)}.article-body strong{color:var(--text);font-weight:600}.article-body blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:20px 0;background:var(--accent-muted);border-radius:0 8px 8px 0}.article-body blockquote p{margin-bottom:0;color:var(--text-dim)}.callout{background:var(--accent-muted);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:18px 20px;margin:24px 0}.callout strong{color:var(--accent)}.share-section{margin-top:52px;padding-top:28px;border-top:1px solid var(--border)}.share-section h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}.share-buttons{display:flex;gap:10px}.share-btn{font-size:.82rem;padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-dim);transition:all .2s;text-decoration:none;font-family:var(--font-mono)}.share-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-muted);text-decoration:none}.related{margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}.related h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}.related-list{list-style:none}.related-list li{margin-bottom:8px}.related-list a{font-size:.9rem}footer{margin-top:72px;padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:.8rem;color:var(--text-muted)}footer a{color:var(--text-dim);text-decoration:none}footer a:hover{color:var(--text)}@media(max-width:768px){.nav-links{display:none!important}.nav-toggle{display:block!important}.article-body pre{padding:14px;font-size:.78rem}}</style></head><body><nav><div class="nav-inner"><a href="/" class="nav-logo">xbyteid</a><ul class="nav-links" id="navLinks"><li><a href="/#work">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav><div class="container"><div class="breadcrumb"><a href="/blog/">← all posts</a></div><div class="article-header"><h1>Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026</h1><div class="article-meta"><span>2026-06-24</span><span class="dot">·</span><span>11 min read</span><span class="dot">·</span><span>by xbyteid</span></div><div class="tags"><span class="tag">Next.js</span><span class="tag">Deployment</span><span class="tag">DevOps</span><span class="tag">Frontend</span></div></div><div class="article-body"><p>Next.js offers multiple deployment strategies, each with different trade-offs. This guide compares the three main options and helps you pick the right one for your project.</p>
+<h2>Option 1: Static Export to GitHub Pages</h2><p>For fully static sites (no SSR/ISR), export to static HTML and host free on GitHub Pages:</p>
+<pre><code>// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: { unoptimized: true },
+  basePath: '/my-repo',  // for GitHub Pages subpath
+}
+module.exports = nextConfig</code></pre>
+<p>Deploy with GitHub Actions:</p>
+<pre><code># .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci && npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: './out' }
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4</code></pre>
+<p><strong>Pros:</strong> Free hosting, simple setup, great for portfolios/blogs. <strong>Cons:</strong> No SSR, no API routes, no dynamic content.</p>
+<h2>Option 2: Vercel</h2><p>Vercel is the platform built by the Next.js team. Zero-config deployment with full feature support:</p>
+<pre><code># Install Vercel CLI
+npm i -g vercel
+
+# Deploy to preview
+vercel
+
+# Deploy to production
+vercel --prod</code></pre>
+<p>Vercel automatically detects Next.js and configures everything: ISR, SSR, API routes, middleware, edge functions, image optimization.</p>
+<p><strong>Pros:</strong> Zero config, full Next.js features, edge network, preview deployments per PR. <strong>Cons:</strong> Free tier limits (100GB bandwidth), can get expensive at scale.</p>
+<h2>Option 3: Self-Hosted with Docker</h2><p>For full control, deploy Next.js in a Docker container behind nginx or Caddy:</p>
+<pre><code>FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+EXPOSE 3000
+CMD ["node", "server.js"]</code></pre>
+<p>Enable standalone output in <code>next.config.js</code>:</p>
+<pre><code>const nextConfig = {
+  output: 'standalone',
+}</code></pre>
+<p><strong>Pros:</strong> Full control, no vendor lock-in, cost-effective at scale. <strong>Cons:</strong> You manage SSL, scaling, CDN, and updates yourself.</p>
+<h2>Comparison Table</h2><ul>
+<li><strong>GitHub Pages:</strong> Static only, free, simplest setup, no server costs</li>
+<li><strong>Vercel:</strong> Full features, free tier, fastest deploy, vendor lock-in risk</li>
+<li><strong>Self-Hosted:</strong> Full control, any feature, requires DevOps knowledge</li>
+</ul>
+<div class="callout"><strong>When to choose what:</strong> Portfolio/blog → GitHub Pages. Startup/SaaS → Vercel for speed, migrate to self-hosted when costs justify it. Enterprise → Self-hosted for compliance and control.</div>
+<p>For most developers, start with Vercel for convenience. If bandwidth costs become an issue or you need data sovereignty, Docker + a VPS gives you unlimited flexibility at a predictable $5-20/month.</p></div><div class="share-section"><h3>Share</h3><div class="share-buttons"><a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html" target="_blank">𝕏 Twitter</a><a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html" target="_blank">Telegram</a></div></div><div class="related"><h3>Related</h3><ul class="related-list"><li><a href="/blog/docker-containers-beginners-practical-guide.html">Docker for Developers</a></li><li><a href="/blog/github-actions-cicd-automation-guide.html">GitHub Actions CI/CD Guide</a></li></ul></div></div><footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a></p></footer><script defer src="http://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script></body></html>
