@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /privacy-policy.html
 
 Sitemap: https://xbyteid.codes/sitemap.xml
-Sitemap: https://xbyteid.codes/blog/feed.xml

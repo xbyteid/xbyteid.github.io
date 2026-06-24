@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About xbyteid — Security Researcher & Web3 Operator</title>
-<meta name="description" content="Learn about xbyteid — Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation. Building since 2024.">
+<title>About xbyteid — Indonesia-based Builder</title>
+<meta name="description" content="About xbyteid — Indonesia-based builder for Web2 and Web3. Automation tools, bots, web apps, AI agents. Shipping fast, keeping things clean.">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <meta name="robots" content="index, follow">
 <meta name="author" content="xbyteid">
-<meta name="keywords" content="xbyteid, about, web2 web3 builder, operator, AI agent architect, indonesia, smart contract tooling, automation">
+<meta name="keywords" content="xbyteid, about, web2 web3 builder, developer, automation, AI agents, indonesia, python, typescript, solana">
 <link rel="canonical" href="https://xbyteid.codes/about.html">
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph -->
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://xbyteid.codes/about.html">
-<meta property="og:title" content="About xbyteid — Bug Bounty Hunter · Web3 Operator · AI Agent Architect">
-<meta property="og:description" content="Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation. Building since 2024.">
+<meta property="og:title" content="About xbyteid — Indonesia-based Builder">
+<meta property="og:description" content="Indonesia-based builder for Web2 and Web3. Automation tools, bots, web apps, and everything in between.">
 <meta property="og:image" content="https://xbyteid.codes/og-image.png">
 <meta property="og:site_name" content="xbyteid">
 <meta property="og:locale" content="en_US">
@@ -26,13 +26,13 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://xbyteid.codes/about.html">
-<meta name="twitter:title" content="About xbyteid — Bug Bounty Hunter · Web3 Operator · AI Agent Architect">
-<meta name="twitter:description" content="Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation.">
+<meta name="twitter:title" content="About xbyteid — Indonesia-based Builder">
+<meta name="twitter:description" content="Indonesia-based builder for Web2 and Web3. Automation tools, bots, web apps, and everything in between.">
 <meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
 <meta name="twitter:site" content="@xbyteid">
 <meta name="twitter:creator" content="@xbyteid">
 
-<!-- JSON-LD Structured Data -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,11 +45,11 @@
     "sameAs": [
       "https://github.com/xbyteid",
       "https://x.com/xbyteid",
-      "https://hackerone.com/xbyteidcodes"
+      "https://t.me/xbyteid"
     ],
     "jobTitle": "Builder · Operator · Shipper",
-    "description": "Indonesian security researcher specializing in bug bounty, Web3 security, smart contract auditing, and AI automation.",
-    "knowsAbout": ["Bug Bounty", "Web3 Security", "Smart Contract Auditing", "AI Agents", "Airdrop Farming", "OSINT", "Penetration Testing", "Automation"],
+    "description": "Indonesia-based builder for Web2 and Web3. Automation tools, bots, web apps, and everything in between.",
+    "knowsAbout": ["Web Development", "Automation", "AI Agents", "Web3", "Python", "TypeScript", "Solana"],
     "nationality": {
       "@type": "Country",
       "name": "Indonesia"
@@ -60,106 +60,131 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://ghchart.rshah.org">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --bg: #0a0a0b;
   --bg-card: #111114;
-  --bg-card-hover: #16161a;
   --border: #1e1e24;
   --border-hover: #2a2a33;
   --text: #e4e4e7;
-  --text-dim: #71717a;
-  --text-muted: #52525b;
+  --text-dim: #a1a1aa;
+  --text-muted: #8b8b96;
   --accent: #3b82f6;
   --accent-hover: #60a5fa;
-  --accent-muted: rgba(59,130,246,0.1);
-  --green: #22c55e;
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --accent-muted: rgba(59,130,246,0.08);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --nav-height: 64px;
-  --container: min(1100px, 92vw);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --section-gap: clamp(100px, 14vw, 160px);
+  --container: min(800px, 90vw);
+  --radius: 8px;
+}
+
+@media (min-width: 1280px) {
+  :root { --container: min(880px, 85vw); }
 }
 
 [data-theme='light'] {
   --bg: #ffffff;
   --bg-card: #f4f4f5;
-  --bg-card-hover: #e4e4e7;
   --border: #e4e4e7;
   --border-hover: #d4d4d8;
   --text: #18181b;
   --text-dim: #52525b;
   --text-muted: #71717a;
   --accent: #2563eb;
-  --accent-muted: rgba(37,99,235,0.08);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --accent-hover: #3b82f6;
+  --accent-muted: rgba(37,99,235,0.06);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+
 body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-.container { width: var(--container); margin: 0 auto; padding: 0 20px; }
-a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--accent-hover); }
+::selection { background: rgba(59,130,246,0.2); color: var(--text); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-/* Nav */
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Nav ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
-  background: rgba(10,10,11,0.8);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(10,10,11,0.82);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
   display: flex;
   align-items: center;
 }
-[data-theme='light'] nav { background: rgba(255,255,255,0.85); }
+[data-theme='light'] nav { background: rgba(255,255,255,0.88); }
 
 .nav-inner {
-  width: var(--container);
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  padding: 0 clamp(24px, 5vw, 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo {
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text);
-  text-decoration: none;
+  letter-spacing: -0.02em;
 }
 
-.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  align-items: center;
+}
+
 .nav-links a {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 1rem;
   color: var(--text-dim);
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: color 0.2s, background 0.2s;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
-.nav-links a.active { color: var(--accent); background: var(--accent-muted); }
-
-.nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
-.nav-toggle svg { width: 20px; height: 20px; }
+.nav-links a:hover { color: var(--text); }
 
 .theme-toggle {
   background: none;
@@ -167,13 +192,14 @@ nav {
   color: var(--text-dim);
   cursor: pointer;
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  transition: all 0.2s;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  transition: border-color 0.2s, color 0.2s;
 }
 .theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
 .theme-toggle svg { width: 16px; height: 16px; }
@@ -182,6 +208,211 @@ nav {
 [data-theme='light'] .theme-toggle .icon-sun { display: block; }
 [data-theme='light'] .theme-toggle .icon-moon { display: none; }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle svg { width: 18px; height: 18px; }
+
+/* ── Hero ── */
+.about-page {
+  padding-top: var(--nav-height);
+}
+
+.about-hero {
+  min-height: min(70vh, 640px);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(59,130,246,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(59,130,246,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  animation: mesh-drift 40s ease-in-out infinite;
+}
+@keyframes mesh-drift {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: var(--container);
+  margin: 0 auto;
+  padding: clamp(80px, 14vh, 140px) 24px clamp(60px, 10vh, 100px);
+}
+
+.page-heading {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 7vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+
+.about-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.about-bio {
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: var(--text-dim);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ── Sections ── */
+section { padding: var(--section-gap) 0; }
+section:first-of-type { padding-top: 0; }
+
+.section-heading {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 48px;
+}
+.section-heading::before { content: '// '; color: var(--accent); }
+
+/* ── Skills & timeline lists ── */
+.info-list { list-style: none; }
+
+.info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.info-item:first-child { padding-top: 0; }
+.info-item:last-child { border-bottom: none; }
+
+.info-label {
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 112px;
+}
+
+.info-value {
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.timeline-list { list-style: none; }
+
+.timeline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.timeline-item:first-child { padding-top: 0; }
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-year {
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 56px;
+  letter-spacing: -0.02em;
+}
+
+.timeline-text {
+  color: var(--text-dim);
+  flex: 1;
+}
+
+/* ── Footer ── */
+footer {
+  padding: 64px 0 72px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-dim);
+  letter-spacing: -0.01em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-dim);
+  transition: color 0.2s;
+  position: relative;
+}
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.footer-links a:hover { color: var(--text); }
+.footer-links a:hover::after { width: 100%; }
+
+/* ── Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.06s; }
+.reveal-delay-2 { transition-delay: 0.12s; }
+.reveal-delay-3 { transition-delay: 0.18s; }
+.reveal-delay-4 { transition-delay: 0.24s; }
+.reveal-delay-5 { transition-delay: 0.30s; }
+
+.page-fade { animation: pageEnter 0.35s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes pageEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -189,334 +420,32 @@ nav {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: var(--nav-height);
+    top: 100%;
     left: 0; right: 0;
     background: rgba(10,10,11,0.97);
-    backdrop-filter: blur(16px);
-    padding: 12px 20px 16px;
+    backdrop-filter: blur(12px);
+    padding: 12px clamp(24px, 5vw, 48px) 16px;
     border-bottom: 1px solid var(--border);
-    gap: 2px;
-    align-items: stretch;
+    align-items: flex-start;
   }
   [data-theme='light'] .nav-links.open { background: rgba(255,255,255,0.97); }
-  .nav-links.open a { padding: 10px 12px; }
-}
+  .nav-links.open a { padding: 10px 0; font-size: 1rem; }
 
-/* Hero */
-.about-hero {
-  padding: calc(var(--nav-height) + 80px) 0 72px;
-  position: relative;
-  overflow: hidden;
-}
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
 
-.mesh-bg {
-  position: absolute;
-  inset: -80px;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(59,130,246,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(59,130,246,0.04) 0%, transparent 55%);
-  animation: mesh-drift 28s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-@keyframes mesh-drift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(2%, -2%); }
-}
-
-.about-hero .container { position: relative; z-index: 1; max-width: 720px; }
-
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-.hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: var(--text-dim);
-  margin-bottom: 20px;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 100px;
-  background: var(--accent-muted);
-  border: 1px solid rgba(59,130,246,0.2);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-}
-
-/* Sections */
-.section { padding: 72px 0; }
-.section-divider { height: 1px; background: var(--border); border: none; }
-
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 10px;
-}
-
-.section-title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-  color: var(--text);
-}
-
-.bio-content { max-width: 680px; }
-.bio-content p {
-  font-size: 1.05rem;
-  color: var(--text-dim);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-.bio-content strong { color: var(--text); font-weight: 600; }
-
-/* Skills */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-  margin-top: 8px;
-}
-
-.skill-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-}
-.skill-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-.skill-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.skill-card p {
-  font-size: 0.88rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-  margin-bottom: 14px;
-}
-
-.skill-bar-wrap { margin-top: 4px; }
-.skill-bar-header {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.skill-bar {
-  height: 4px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 100px;
-  overflow: hidden;
-}
-[data-theme='light'] .skill-bar { background: rgba(0,0,0,0.08); }
-
-.skill-fill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 100px;
-  width: 0;
-  transition: width 1s cubic-bezier(0.2, 0.9, 0.2, 1);
-}
-.reveal.visible .skill-fill { width: var(--p, 80%); }
-
-/* Timeline */
-.timeline {
-  margin-top: 8px;
-  position: relative;
-  padding-left: 32px;
-  max-width: 680px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: var(--border);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-}
-.timeline-item:last-child { margin-bottom: 0; }
-
-.timeline-dot {
-  position: absolute;
-  left: -32px;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 1px var(--accent);
-}
-
-.timeline-year {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
-
-.timeline-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-.timeline-desc {
-  font-size: 0.92rem;
-  color: var(--text-dim);
-  line-height: 1.65;
-}
-
-/* Contributions */
-.contributions-chart {
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 8px 0;
-}
-.contributions-chart img {
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  filter: invert(1) hue-rotate(180deg);
-}
-[data-theme='light'] .contributions-chart img { filter: none; }
-
-/* Social */
-.social-links {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  color: var(--text);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.social-link:hover {
-  border-color: var(--accent);
-  background: var(--accent-muted);
-  color: var(--text);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-.social-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
-.social-link .handle { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.8rem; }
-
-/* Footer */
-footer {
-  padding: 40px 0 32px;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-footer a { color: var(--text-dim); text-decoration: none; }
-footer a:hover { color: var(--text); }
-
-/* Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.08s; }
-.reveal-delay-2 { transition-delay: 0.16s; }
-.reveal-delay-3 { transition-delay: 0.24s; }
-
-.scroll-top {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(16px);
-  transition: all 0.25s ease;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.25);
-}
-.scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-.scroll-top svg { width: 18px; height: 18px; stroke: white; fill: none; }
-
-.page-fade { animation: pageEnter 0.4s cubic-bezier(0.16,1,0.3,1) both; }
-@keyframes pageEnter {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 600px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .social-links { flex-direction: column; }
+  .page-heading { font-size: clamp(1.75rem, 7vw, 2.5rem) !important; }
+  .about-tagline { font-size: 1rem !important; }
+  .about-bio { font-size: 0.9375rem !important; }
+  .section-heading { font-size: 0.8125rem !important; }
+  .info-item { font-size: 0.875rem !important; flex-direction: column; gap: 4px; }
+  .info-label { width: auto; }
+  .timeline-item { font-size: 0.875rem !important; flex-direction: column; gap: 4px; }
+  .timeline-year { width: auto; }
+  .footer-copy { font-size: 0.8125rem !important; }
+  .footer-links a { font-size: 0.8125rem !important; }
 }
 </style>
+
 <script defer src="http://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -526,222 +455,122 @@ footer a:hover { color: var(--text); }
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">xbyteid</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#work">Work</a></li>
-      <li><a href="/about.html" class="active">About</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#contact">Contact</a></li>
-      <li>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-      </li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#work">work</a></li>
+        <li><a href="/#writing">writing</a></li>
+        <li><a href="/#contact">contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
+<main class="about-page">
+
 <section class="about-hero">
-  <div class="mesh-bg"></div>
-  <div class="container reveal">
-    <p class="hero-eyebrow">About</p>
-    <h1 class="hero-title">xbyteid</h1>
-    <p class="hero-subtitle">Security Researcher &amp; Web3 Operator</p>
-    <span class="hero-badge">Building since 2024 · Indonesia</span>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="about-hero-inner">
+    <h1 class="page-heading reveal">About.</h1>
+    <p class="about-tagline reveal reveal-delay-1">xbyteid — Indonesia-based builder.</p>
+    <p class="about-bio reveal reveal-delay-2">I build for Web2 and Web3. Automation tools, bots, web apps, and everything in between. I like shipping fast and keeping things clean.</p>
   </div>
 </section>
 
-<section class="section">
+<section id="skills">
   <div class="container">
-    <div class="bio-content reveal">
-      <div class="section-label">Bio</div>
-      <h2 class="section-title">Who I Am</h2>
-      <p>
-        I'm an <strong>Indonesian security researcher</strong> focused on offensive security, Web3 infrastructure, and automation. Since 2024, I've been hunting vulnerabilities, auditing smart contracts, and building tools that make security research more efficient.
-      </p>
-      <p>
-        My work sits at the intersection of <strong>bug bounty programs</strong>, <strong>smart contract security</strong>, and <strong>AI-powered automation</strong>. I find flaws in web applications and decentralized protocols, then build systems to detect them at scale.
-      </p>
-      <p>
-        I approach security with methodical rigor — document everything, automate the repetitive, and focus on high-impact findings.
-      </p>
-    </div>
+    <h2 class="section-heading reveal">skills</h2>
+    <ul class="info-list">
+      <li class="info-item reveal">
+        <span class="info-label">Languages</span>
+        <span class="info-value">Python, TypeScript, JavaScript, Go, Rust</span>
+      </li>
+      <li class="info-item reveal reveal-delay-1">
+        <span class="info-label">Frontend</span>
+        <span class="info-value">React, Next.js, Vue, Tailwind</span>
+      </li>
+      <li class="info-item reveal reveal-delay-2">
+        <span class="info-label">Backend</span>
+        <span class="info-value">FastAPI, Node.js, Express, PostgreSQL</span>
+      </li>
+      <li class="info-item reveal reveal-delay-3">
+        <span class="info-label">Web3</span>
+        <span class="info-value">Solana, EVM, web3.py, ethers.js</span>
+      </li>
+      <li class="info-item reveal reveal-delay-4">
+        <span class="info-label">Tools</span>
+        <span class="info-value">Docker, Git, Linux, Nginx</span>
+      </li>
+      <li class="info-item reveal reveal-delay-5">
+        <span class="info-label">AI/ML</span>
+        <span class="info-value">LLMs, Agents, Prompt Engineering</span>
+      </li>
+    </ul>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<section class="section">
+<section id="timeline">
   <div class="container">
-    <div class="reveal">
-      <div class="section-label">Expertise</div>
-      <h2 class="section-title">Core Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal reveal-delay-1">
-        <h3>Bug Bounty</h3>
-        <p>Hunting vulnerabilities across web applications on HackerOne and Bugcrowd. Auth bypass, business logic flaws, and injection attacks.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>94%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:94%"></div></div>
-        </div>
-      </div>
-      <div class="skill-card reveal reveal-delay-2">
-        <h3>Web3 / Smart Contracts</h3>
-        <p>Smart contract auditing, Solidity security review, reentrancy detection, flash loan attack vectors, and DeFi protocol analysis.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>89%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:89%"></div></div>
-        </div>
-      </div>
-      <div class="skill-card reveal reveal-delay-3">
-        <h3>AI Agents</h3>
-        <p>Building autonomous AI agents for security research, reconnaissance, and workflow automation with LLM tool-calling.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>87%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:87%"></div></div>
-        </div>
-      </div>
-      <div class="skill-card reveal reveal-delay-1">
-        <h3>Automation</h3>
-        <p>Recon pipelines, airdrop farming workflows, and production tooling. If it can be scripted, it will be scripted.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>92%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:92%"></div></div>
-        </div>
-      </div>
-      <div class="skill-card reveal reveal-delay-2">
-        <h3>OSINT &amp; Recon</h3>
-        <p>Attack surface mapping, subdomain enumeration, tech fingerprinting, and asset discovery at scale.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>85%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:85%"></div></div>
-        </div>
-      </div>
-      <div class="skill-card reveal reveal-delay-3">
-        <h3>Penetration Testing</h3>
-        <p>Full-spectrum testing from recon to exploitation. Web apps, APIs, and infrastructure — methodical and documented.</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span>Proficiency</span><span>88%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="--p:88%"></div></div>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-heading reveal">timeline</h2>
+    <ul class="timeline-list">
+      <li class="timeline-item reveal">
+        <span class="timeline-year">2024</span>
+        <span class="timeline-text">Started security research and automation</span>
+      </li>
+      <li class="timeline-item reveal reveal-delay-1">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-text">Bug bounty, Web3 tools, first open-source contributions</span>
+      </li>
+      <li class="timeline-item reveal reveal-delay-2">
+        <span class="timeline-year">2026</span>
+        <span class="timeline-text">AI agents, full-stack development, building for clients</span>
+      </li>
+    </ul>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Timeline</div>
-      <h2 class="section-title">Career Milestones</h2>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2024</div>
-        <div class="timeline-title">Started Security Research</div>
-        <div class="timeline-desc">Began deep security research and Web3. Learned bug bounty methodology, Solidity basics, and recon automation. Reported first valid bugs from Indonesia.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2025</div>
-        <div class="timeline-title">Bug Bounty + Web3 Operator</div>
-        <div class="timeline-desc">Full-time bug bounty on HackerOne. Expanded into smart contract audits, DeFi security, and airdrop farming infrastructure. Built dozens of custom tools.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2026</div>
-        <div class="timeline-title">AI Agents + Automation Architect</div>
-        <div class="timeline-desc">Architecting AI agents for offensive security. Contributing to Hermes (Nous Research). Focus on autonomous recon, vulnerability detection, and multi-chain tooling.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Open Source</div>
-      <h2 class="section-title">GitHub Activity</h2>
-    </div>
-    <div class="contributions-chart reveal reveal-delay-1">
-      <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">
-        <img src="https://ghchart.rshah.org/xbyteid" alt="xbyteid's GitHub contribution chart" loading="lazy" width="720" height="112">
-      </a>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Connect</div>
-      <h2 class="section-title">Find Me</h2>
-    </div>
-    <div class="social-links reveal reveal-delay-1">
-      <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        GitHub
-        <span class="handle">xbyteid</span>
-      </a>
-      <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        X / Twitter
-        <span class="handle">@xbyteid</span>
-      </a>
-      <a href="https://hackerone.com/xbyteidcodes" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg viewBox="0 0 24 24"><path d="M12.959 2.06c-.301-.139-.654-.139-.955 0L1.52 6.87c-.537.247-.537 1.01 0 1.257l10.484 4.81c.301.139.654.139.955 0l10.484-4.81c.537-.247.537-1.01 0-1.257L12.959 2.06zM7.616 9.28L3.27 7.5l4.346-1.78v3.56zm1.6 0V5.72l4.744 2.18 4.744-2.18v3.56l-4.744 2.18-4.744-2.18zm8.084 0l4.346 1.78-4.346 1.78V9.28zM3.27 10.5l4.346 1.78v3.56L3.27 14.06V10.5zm4.346 1.78l4.744 2.18 4.744-2.18v3.56l-4.744 2.18-4.744-2.18v-3.56zm8.084 0L20.046 14v-1.72l-4.346-1.78v3.56z"/></svg>
-        HackerOne
-        <span class="handle">xbyteidcodes</span>
-      </a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="container">
-    <p>© 2026 xbyteid · <a href="/">Home</a> · <a href="/privacy-policy.html">Privacy</a> · <a href="https://github.com/xbyteid">GitHub</a> · <a href="https://x.com/xbyteid">X</a></p>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 xbyteid · built with purpose</span>
+      <div class="footer-links">
+        <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
+        <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </div>
+    </div>
   </div>
 </footer>
-
-<button class="scroll-top" aria-label="Scroll to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
 
 <script>
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
 
-const revealObserver = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-const scrollTopBtn = document.querySelector('.scroll-top');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
-}, { passive: true });
-scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 (function() {
   const saved = localStorage.getItem('theme');
@@ -758,6 +587,10 @@ scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior:
     }
   });
 })();
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') navLinks.classList.remove('open');
+});
 
 document.body.classList.add('page-fade');
 </script>
