@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — xbyteid</title>
+<meta name="description" content="Web development services: landing pages, web apps, e-commerce, API development, and bot automation. Fast delivery, clean code, fair pricing.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="web development services, landing page developer, web app developer, e-commerce developer, API development, bot development, freelancer, Indonesia">
+<link rel="canonical" href="https://xbyteid.codes/services.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xbyteid.codes/services.html">
+<meta property="og:title" content="Services — xbyteid">
+<meta property="og:description" content="Landing pages, web apps, e-commerce, APIs, and bots. Built fast, built right.">
+<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — xbyteid">
+<meta name="twitter:description" content="Landing pages, web apps, e-commerce, APIs, and bots. Built fast, built right.">
+<meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "xbyteid Web Development Services",
+  "url": "https://xbyteid.codes/services.html",
+  "provider": { "@type": "Person", "name": "xbyteid" },
+  "description": "Landing pages, web apps, e-commerce, API development, and bot automation.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page", "description": "Single-page marketing site, responsive, SEO-optimized" }, "price": "499", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application", "description": "Custom web app with auth, database, API integration" }, "price": "1500", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce", "description": "Full online store with payments, inventory, admin panel" }, "price": "2500", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Development", "description": "REST/GraphQL API design, development, documentation" }, "price": "800", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bot Development", "description": "Telegram, Discord, or custom bots with automation" }, "price": "500", "priceCurrency": "USD" }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://formspree.io">
+
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg-card: #111114;
+  --border: #1e1e24;
+  --border-hover: #2a2a33;
+  --text: #e4e4e7;
+  --text-dim: #a1a1aa;
+  --text-muted: #8b8b96;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-muted: rgba(59,130,246,0.08);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --nav-height: 64px;
+  --section-gap: clamp(80px, 12vw, 140px);
+  --container: min(800px, 90vw);
+  --radius: 8px;
+}
+
+@media (min-width: 1280px) {
+  :root { --container: min(880px, 85vw); }
+}
+
+[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-card: #f4f4f5;
+  --border: #e4e4e7;
+  --border-hover: #d4d4d8;
+  --text: #18181b;
+  --text-dim: #52525b;
+  --text-muted: #71717a;
+  --accent: #2563eb;
+  --accent-hover: #3b82f6;
+  --accent-muted: rgba(37,99,235,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(59,130,246,0.2); color: var(--text); }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: rgba(10,10,11,0.82);
+  backdrop-filter: blur(12px) saturate(160%);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+[data-theme='light'] nav { background: rgba(255,255,255,0.88); }
+
+.nav-inner {
+  width: 100%;
+  padding: 0 clamp(24px, 5vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.nav-right { display: flex; align-items: center; gap: 2px; }
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-dim);
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme='light'] .theme-toggle .icon-sun { display: block; }
+[data-theme='light'] .theme-toggle .icon-moon { display: none; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle svg { width: 18px; height: 18px; }
+
+/* ── Page Header ── */
+.page-header {
+  padding-top: calc(var(--nav-height) + clamp(60px, 10vh, 120px));
+  padding-bottom: clamp(40px, 6vh, 80px);
+}
+
+.page-header h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.page-header p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ── Service Cards ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.service-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-name {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.service-price {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent);
+  background: var(--accent-muted);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.service-desc {
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-includes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-includes li {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+[data-theme='light'] .service-includes li {
+  background: rgba(0,0,0,0.03);
+}
+
+/* ── Process ── */
+.process-section {
+  margin-top: var(--section-gap);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.process-step {
+  position: relative;
+  padding-left: 40px;
+}
+
+.process-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.process-title {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.process-desc {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ── CTA ── */
+.cta-section {
+  margin-top: var(--section-gap);
+  padding: 48px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+
+.cta-section p {
+  color: var(--text-dim);
+  margin-bottom: 28px;
+  font-size: 1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  margin-top: var(--section-gap);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text); }
+
+/* ── Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 8px 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 24px; }
+  .nav-toggle { display: block; }
+
+  .page-header h1 { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+  .service-card { padding: 24px; }
+  .service-name { font-size: 1.1rem !important; }
+  .process-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/services.html" class="active">services</a></li>
+        <li><a href="/work.html">work</a></li>
+        <li><a href="/blog/">blog</a></li>
+        <li><a href="/#contact">contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<div class="container">
+  <div class="page-header reveal">
+    <h1>Services</h1>
+    <p>I build things that work. Fast delivery, clean code, no fluff. Every project gets the same attention — whether it's a landing page or a full-stack app.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">Landing Page</span>
+        <span class="service-price">from $499</span>
+      </div>
+      <p class="service-desc">Single-page marketing site that converts. Responsive, fast-loading, SEO-optimized. Built with modern frameworks — not a WordPress template.</p>
+      <ul class="service-includes">
+        <li>responsive design</li>
+        <li>SEO meta + schema</li>
+        <li>contact form</li>
+        <li>analytics setup</li>
+        <li>3-day delivery</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">Web Application</span>
+        <span class="service-price">from $1,500</span>
+      </div>
+      <p class="service-desc">Custom web app with auth, database, and API integrations. Dashboards, SaaS tools, admin panels — whatever your business needs.</p>
+      <ul class="service-includes">
+        <li>auth + user roles</li>
+        <li>database design</li>
+        <li>REST/GraphQL API</li>
+        <li>admin dashboard</li>
+        <li>deployment + CI</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">E-commerce</span>
+        <span class="service-price">from $2,500</span>
+      </div>
+      <p class="service-desc">Full online store with payments, inventory management, and a clean checkout flow. Not Shopify — custom-built for your exact needs.</p>
+      <ul class="service-includes">
+        <li>product catalog</li>
+        <li>payment gateway</li>
+        <li>inventory system</li>
+        <li>order management</li>
+        <li>email notifications</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">API Development</span>
+        <span class="service-price">from $800</span>
+      </div>
+      <p class="service-desc">REST or GraphQL API design, development, and documentation. Clean architecture, proper error handling, and built to scale.</p>
+      <ul class="service-includes">
+        <li>REST / GraphQL</li>
+        <li>auth + rate limiting</li>
+        <li>auto-generated docs</li>
+        <li>database migrations</li>
+        <li>SDK / client libs</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">Bot Development</span>
+        <span class="service-price">from $500</span>
+      </div>
+      <p class="service-desc">Telegram, Discord, or custom bots with automation. Payment processing, notifications, data scraping, or whatever you need automated.</p>
+      <ul class="service-includes">
+        <li>Telegram / Discord</li>
+        <li>payment integration</li>
+        <li>webhook handlers</li>
+        <li>scheduled tasks</li>
+        <li>monitoring + alerts</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-header">
+        <span class="service-name">Automation & Scripts</span>
+        <span class="service-price">from $300</span>
+      </div>
+      <p class="service-desc">Data pipelines, scraping tools, workflow automation. Python scripts that save you hours of manual work every week.</p>
+      <ul class="service-includes">
+        <li>data pipelines</li>
+        <li>web scraping</li>
+        <li>API integrations</li>
+        <li>scheduled runs</li>
+        <li>error handling</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="process-section reveal">
+    <h2 style="font-family:var(--font-mono);font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:700;letter-spacing:-0.03em;">How I Work</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <div class="process-title">Brief</div>
+        <div class="process-desc">You tell me what you need. I ask the right questions to understand scope, goals, and constraints.</div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <div class="process-title">Quote</div>
+        <div class="process-desc">Fixed price, clear timeline. No surprises. I break the project into milestones with deliverables.</div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <div class="process-title">Build</div>
+        <div class="process-desc">I ship fast. You get updates at each milestone. Feedback loops are short — no disappearing for weeks.</div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <div class="process-title">Launch</div>
+        <div class="process-desc">Deployed, tested, documented. 30 days of free bug fixes after launch. Ongoing support available.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section reveal">
+    <h2>Ready to build?</h2>
+    <p>Tell me what you need. I'll reply within 24 hours with a quote.</p>
+    <a href="/#contact" class="cta-btn">Get in touch →</a>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 xbyteid · built with purpose</span>
+      <div class="footer-links">
+        <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
+        <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const saved = localStorage.getItem('theme');
+if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  document.documentElement.setAttribute('data-theme', isLight ? '' : 'light');
+  localStorage.setItem('theme', isLight ? 'dark' : 'light');
+});
+</script>
+
+</body>
+</html>
