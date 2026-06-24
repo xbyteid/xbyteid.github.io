@@ -13,12 +13,26 @@
 <meta property="og:url" content="https://xbyteid.codes/blog/">
 <meta property="og:title" content="Blog — xbyteid | Bug Bounty, Web3, Security">
 <meta property="og:description" content="Articles about web development, automation, Web3, and building things that ship.">
-<meta property="og:image" content="https://xbyteid.codes/blog/og-index.png">
+<meta property="og:image" content="https://xbyteid.codes/blog/og-index.png" id="og-image-meta">
 <meta property="og:site_name" content="xbyteid">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blog — xbyteid">
 <meta name="twitter:description" content="Articles about bug bounty, Web3 security, and cybersecurity.">
+<meta name="twitter:image" content="https://xbyteid.codes/blog/og-index.png" id="twitter-image-meta">
 <meta name="twitter:site" content="@xbyteid">
+<script>
+(function () {
+  var fallback = 'https://xbyteid.codes/og-image.png';
+  var probe = new Image();
+  probe.onerror = function () {
+    var og = document.getElementById('og-image-meta');
+    var tw = document.getElementById('twitter-image-meta');
+    if (og) og.setAttribute('content', fallback);
+    if (tw) tw.setAttribute('content', fallback);
+  };
+  probe.src = '/blog/og-index.png';
+})();
+</script>
 <meta name="theme-color" content="#0a0a0b">
 <link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -225,7 +239,7 @@ footer a:hover { color: var(--text); }
 }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
-<script defer src="http://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
