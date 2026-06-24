@@ -12,16 +12,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root { --bg: #0a0a0b; --border: #1e1e24; --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b; --accent-blue: #3b82f6; --font-sans: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace; }
+:root { --bg: #0a0a0b; --border: #1e1e24; --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b; --accent: #3b82f6; --accent-blue: #3b82f6; --font-sans: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace; --nav-height: 64px; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
-a { color: var(--accent-blue); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 16px 0; }
-.nav-inner { max-width: 720px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; position: relative; }
-.nav-logo { font-family: var(--font-mono); font-weight: 700; font-size: 1rem; color: var(--text); }
-.nav-logo span { color: var(--accent-blue); }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); height: var(--nav-height); display: flex; align-items: center; }
+.nav-inner { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; }
+.nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; text-decoration: none; transition: color 0.2s, background 0.2s; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
 h1 { font-size: 1.8rem; font-weight: 800; margin: 48px 0 8px; }
 .last-updated { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 32px; }
 h2 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
@@ -60,7 +62,7 @@ footer a { color: var(--text-dim); }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: var(--accent);
   border: none;
   cursor: pointer;
   display: flex;
@@ -115,12 +117,12 @@ footer a { color: var(--text-dim); }
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><span>~</span>/xbyteid</a>
-
+    <a href="/" class="nav-logo">xbyteid</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/">home</a></li>
-      <li><a href="/about.html">about</a></li>
-      <li><a href="/blog/">blog</a></li>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
     </ul>
 
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
