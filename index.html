@@ -252,17 +252,19 @@ nav {
   z-index: 1;
   width: var(--container);
   margin: 0 auto;
-  padding: clamp(120px, 16vh, 160px) 20px clamp(140px, 18vh, 180px);
+  padding: clamp(80px, 16vh, 160px) 24px clamp(100px, 18vh, 180px);
 }
 
 .hero-headline {
   font-family: var(--font-mono);
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-size: clamp(2rem, 7vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 28px;
   color: var(--text);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .hero-subtitle {
@@ -705,10 +707,10 @@ footer {
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
 
   /* Mobile font size overrides — keep compact on small screens */
-  .hero-headline { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; }
-  .hero-subtitle { font-size: 1rem !important; }
-  .hero-links a { font-size: 0.875rem !important; }
-  .about-strip p { font-size: 0.875rem !important; }
+  .hero-headline { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+  .hero-subtitle { font-size: 0.9375rem !important; }
+  .hero-links a { font-size: 0.8125rem !important; }
+  .about-strip p { font-size: 0.8125rem !important; }
   .section-heading { font-size: 0.8125rem !important; }
   .project-name { font-size: 0.9375rem !important; }
   .project-desc { font-size: 0.875rem !important; }
