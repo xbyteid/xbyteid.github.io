@@ -574,6 +574,7 @@ a.project-name:hover { color: var(--accent); }
 footer {
   padding: 64px 0 72px;
   border-top: 1px solid var(--border);
+  margin-bottom: 0;
 }
 
 .footer-inner {
@@ -588,6 +589,7 @@ footer {
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--text-dim);
+  letter-spacing: -0.01em;
 }
 
 .footer-links {
@@ -700,7 +702,21 @@ footer {
 
   .project-header { flex-direction: column; gap: 4px; align-items: flex-start; }
 
-  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  /* Mobile font size overrides — keep compact on small screens */
+  .hero-headline { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; }
+  .hero-subtitle { font-size: 1rem !important; }
+  .hero-links a { font-size: 0.875rem !important; }
+  .about-strip p { font-size: 0.875rem !important; }
+  .section-heading { font-size: 0.8125rem !important; }
+  .project-name { font-size: 0.9375rem !important; }
+  .project-desc { font-size: 0.875rem !important; }
+  .service-list li { font-size: 0.875rem !important; }
+  .post-title { font-size: 0.9375rem !important; }
+  .post-date { font-size: 0.8125rem !important; }
+  .footer-copy { font-size: 0.8125rem !important; }
+  .footer-links a { font-size: 0.8125rem !important; }
 }
 
 @media (max-width: 420px) {
@@ -871,7 +887,7 @@ footer {
         <span class="contact-label">links</span>
         <span class="contact-value">
           <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
           <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
         </span>
       </div>
@@ -905,7 +921,7 @@ footer {
       <span class="footer-copy">© 2026 xbyteid · built with purpose</span>
       <div class="footer-links">
         <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
         <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
       </div>
     </div>
