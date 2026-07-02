@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Automation Scripts Every Developer Should Know — xbyteid</title>
+<meta name="description" content="Practical Python automation scripts every developer should know. File management, web scraping, database tasks, notifications, and scheduling — real code you can use today.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="Python, automation, scripts, productivity, developer tools, 2026">
+<link rel="canonical" href="https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html">
+<meta property="og:title" content="Python Automation Scripts Every Developer Should Know">
+<meta property="og:description" content="Practical Python automation scripts every developer should know. File management, web scraping, database tasks, notifications, and scheduling — real code you can use today.">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python Automation Scripts Every Developer Should Know">
+<meta name="twitter:description" content="Practical Python automation scripts every developer should know. File management, web scraping, database tasks, notifications, and scheduling — real code you can use today.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python Automation Scripts Every Developer Should Know","description":"Practical Python automation scripts every developer should know. File management, web scraping, database tasks, notifications, and scheduling — real code you can use today.","url":"https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html","datePublished":"2026-07-02","author":{"@type":"Person","name":"xbyteid","url":"https://xbyteid.codes"},"publisher":{"@type":"Person","name":"xbyteid"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html"}}
+</script>
+<style>:root {
+  --bg: #0a0a0b; --bg-card: #111114; --bg-card-hover: #16161a;
+  --border: #1e1e24; --border-hover: #2a2a33;
+  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+  --accent: #3b82f6; --accent-muted: rgba(59,130,246,0.1);
+  --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 10px; --nav-height: 64px;
+}
+[data-theme='light'] {
+  --bg: #ffffff; --bg-card: #f4f4f5; --bg-card-hover: #e4e4e7;
+  --border: #d4d4d8; --border-hover: #a1a1aa;
+  --text: #18181b; --text-dim: #52525b; --text-muted: #71717a;
+  --accent: #2563eb; --accent-muted: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #60a5fa; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); height: var(--nav-height); display: flex; align-items: center; }
+[data-theme='light'] nav { background: rgba(255,255,255,0.85); }
+.nav-inner { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; text-decoration: none; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin: 40px 0 20px; font-family: var(--font-mono); }
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.article-header h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: var(--text); letter-spacing: -0.02em; }
+.article-meta { display: flex; gap: 8px; align-items: center; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 14px; flex-wrap: wrap; }
+.dot { color: var(--text-muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: var(--accent-muted); color: var(--accent); font-family: var(--font-mono); border: 1px solid rgba(59,130,246,0.15); }
+.article-body { font-size: 1rem; }
+.article-body h2 { font-size: 1.35rem; font-weight: 700; margin: 48px 0 16px; color: var(--text); letter-spacing: -0.01em; }
+.article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+.article-body p { margin-bottom: 18px; color: var(--text-dim); }
+.article-body ul, .article-body ol { margin: 0 0 18px 24px; color: var(--text-dim); }
+.article-body li { margin-bottom: 8px; }
+.article-body pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; overflow-x: auto; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
+.article-body code { font-family: var(--font-mono); font-size: 0.88em; }
+.article-body p code, .article-body li code { background: var(--accent-muted); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 20px 0; background: var(--accent-muted); border-radius: 0 8px 8px 0; }
+.article-body blockquote p { margin-bottom: 0; color: var(--text-dim); }
+.callout { background: var(--accent-muted); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 18px 20px; margin: 24px 0; }
+.callout strong { color: var(--accent); }
+.share-section { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--border); }
+.share-section h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.share-buttons { display: flex; gap: 10px; }
+.share-btn { font-size: 0.82rem; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); transition: all 0.2s; text-decoration: none; font-family: var(--font-mono); }
+.share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); text-decoration: none; }
+.related { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+.related h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.related-list { list-style: none; }
+.related-list li { margin-bottom: 8px; }
+.related-list a { font-size: 0.9rem; }
+footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--text); }
+@media (max-width: 768px) { .nav-links { display: none !important; } .nav-toggle { display: block !important; } .article-body pre { padding: 14px; font-size: 0.78rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+<li><a href="/services.html">Services</a></li>
+<li><a href="/work.html">Work</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>Python Automation Scripts Every Developer Should Know</h1>
+    <div class="article-meta">
+      <span>2026-07-02</span>
+      <span class="dot">·</span>
+      <span>14 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags"><span class="tag">Python</span><span class="tag">Automation</span><span class="tag">Productivity</span><span class="tag">Scripts</span></div>
+  </div>
+  <div class="article-body">
+    <p>Python's standard library is a goldmine for automation. Most scripts need zero external dependencies — just the modules that ship with Python. Here are practical automation scripts that save real time in a developer's daily workflow.</p>
+
+    <h2>Bulk File Renaming</h2>
+    <p>Rename hundreds of files with a pattern — camera photos, downloaded reports, log files:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Rename files matching a pattern in a directory."""
+
+import argparse
+from pathlib import Path
+
+def rename_files(directory: Path, pattern: str, replacement: str, dry_run: bool = True):
+    """Rename files: replace `pattern` with `replacement` in filenames."""
+    count = 0
+    for f in sorted(directory.iterdir()):
+        if not f.is_file():
+            continue
+        if pattern not in f.name:
+            continue
+        new_name = f.name.replace(pattern, replacement)
+        new_path = f.parent / new_name
+        if dry_run:
+            print(f"  {f.name} → {new_name}")
+        else:
+            f.rename(new_path)
+            print(f"  Renamed: {new_name}")
+        count += 1
+    return count
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Bulk rename files")
+    parser.add_argument("directory", type=Path)
+    parser.add_argument("pattern", help="String to find in filenames")
+    parser.add_argument("replacement", help="Replacement string")
+    parser.add_argument("--execute", action="store_true", help="Actually rename (default: dry run)")
+    args = parser.parse_args()
+
+    print(f"{'DRY RUN' if not args.execute else 'EXECUTING'}: Replace '{args.pattern}' with '{args.replacement}'")
+    count = rename_files(args.directory, args.pattern, args.replacement, dry_run=not args.execute)
+    print(f"\n{count} files {'would be' if not args.execute else ''} renamed")</code></pre>
+    <p>Usage: <code>python rename.py ./photos "IMG_" "vacation_"</code>. The dry-run default prevents accidents — add <code>--execute</code> to actually rename.</p>
+
+    <h2>Directory Monitor</h2>
+    <p>Watch a directory for new files and process them automatically — convert images, parse CSVs, move downloads:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Watch a directory for new files and process them."""
+
+import time
+from pathlib import Path
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+class NewFileHandler(FileSystemEventHandler):
+    def __init__(self, extensions: set[str] | None = None):
+        self.extensions = extensions
+
+    def on_created(self, event):
+        if event.is_directory:
+            return
+        path = Path(event.src_path)
+        if self.extensions and path.suffix.lower() not in self.extensions:
+            return
+        # Wait for file to finish writing
+        prev_size = -1
+        while prev_size != path.stat().st_size:
+            prev_size = path.stat().st_size
+            time.sleep(0.5)
+        self.process(path)
+
+    def process(self, path: Path):
+        print(f"New file: {path.name} ({path.stat().st_size} bytes)")
+        # Add your processing logic here
+        # e.g., convert image, parse CSV, upload to S3
+
+if __name__ == "__main__":
+    import sys
+    watch_dir = sys.argv[1] if len(sys.argv) > 1 else "."
+    handler = NewFileHandler(extensions={".csv", ".json", ".xlsx"})
+    observer = Observer()
+    observer.schedule(handler, watch_dir, recursive=False)
+    observer.start()
+    print(f"Watching {watch_dir}...")
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()</code></pre>
+    <p>Install watchdog with <code>pip install watchdog</code>. The file-size polling loop ensures you don't process a file that's still being written.</p>
+
+    <h2>Database Backup Script</h2>
+    <p>Automate PostgreSQL or MySQL backups with rotation — keep last 7 daily, 4 weekly:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Automated database backup with rotation."""
+
+import subprocess
+import shutil
+from datetime import datetime
+from pathlib import Path
+
+BACKUP_DIR = Path.home() / "backups" / "db"
+KEEP_DAILY = 7
+KEEP_WEEKLY = 4
+
+def backup_postgres(db_name: str, output: Path):
+    """Dump a PostgreSQL database."""
+    result = subprocess.run(
+        ["pg_dump", "-Fc", "--no-owner", db_name],
+        capture_output=True, check=True
+    )
+    output.write_bytes(result.stdout)
+    size_mb = output.stat().st_size / (1024 * 1024)
+    print(f"Backup: {output.name} ({size_mb:.1f} MB)")
+
+def rotate_backups(backup_dir: Path):
+    """Keep recent daily and weekly backups, delete older ones."""
+    backups = sorted(backup_dir.glob("*.dump"), key=lambda f: f.stat().st_mtime, reverse=True)
+    daily = backups[:KEEP_DAILY]
+    # Keep one per week beyond daily window
+    weekly = backups[KEEP_DAILY::7][:KEEP_WEEKLY]
+    keep = set(daily + weekly)
+    for f in backups:
+        if f not in keep:
+            f.unlink()
+            print(f"Deleted old backup: {f.name}")
+
+if __name__ == "__main__":
+    db_name = "myapp_production"
+    today = datetime.now().strftime("%Y-%m-%d")
+    backup_dir = BACKUP_DIR / db_name
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    output = backup_dir / f"{db_name}_{today}.dump"
+    backup_postgres(db_name, output)
+    rotate_backups(backup_dir)
+    print("Backup complete")</code></pre>
+    <p>Add to cron: <code>0 2 * * * python3 /path/to/backup.py</code> for daily 2 AM backups. The rotation logic keeps storage bounded without manual cleanup.</p>
+
+    <h2>CSV Report Generator</h2>
+    <p>Read data from a CSV, compute stats, and write a formatted report:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Generate summary report from CSV data."""
+
+import csv
+import json
+from pathlib import Path
+from collections import Counter
+
+def analyze_csv(filepath: Path) -> dict:
+    """Analyze a CSV file and return summary stats."""
+    with open(filepath, newline="") as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+
+    if not rows:
+        return {"error": "Empty file"}
+
+    columns = reader.fieldnames or []
+    numeric_cols = []
+    categorical_cols = []
+
+    # Detect column types
+    for col in columns:
+        try:
+            float(rows[0][col])
+            numeric_cols.append(col)
+        except (ValueError, TypeError):
+            categorical_cols.append(col)
+
+    stats = {"total_rows": len(rows), "columns": len(columns)}
+
+    # Numeric summaries
+    for col in numeric_cols:
+        values = [float(row[col]) for row in rows if row[col]]
+        if values:
+            stats[col] = {
+                "min": min(values),
+                "max": max(values),
+                "avg": sum(values) / len(values),
+                "count": len(values)
+            }
+
+    # Top values for categorical columns
+    for col in categorical_cols:
+        counts = Counter(row[col] for row in rows if row[col])
+        stats[col] = {"unique": len(counts), "top_5": counts.most_common(5)}
+
+    return stats
+
+if __name__ == "__main__":
+    import sys
+    filepath = Path(sys.argv[1])
+    report = analyze_csv(filepath)
+    print(json.dumps(report, indent=2, default=str))</code></pre>
+    <p>Uses only stdlib. Run <code>python report.py sales.csv</code> and get instant stats on any CSV — column types, min/max/avg for numbers, top values for categories.</p>
+
+    <h2>Batch HTTP Status Checker</h2>
+    <p>Check if a list of URLs are responding — useful for monitoring sites, checking link rot, or verifying deployments:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Check HTTP status of multiple URLs concurrently."""
+
+import asyncio
+import aiohttp
+import sys
+from pathlib import Path
+
+async def check_url(session: aiohttp.ClientSession, url: str) -> dict:
+    """Check a single URL and return status info."""
+    try:
+        async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as resp:
+            return {
+                "url": url,
+                "status": resp.status,
+                "ok": 200 <= resp.status < 400,
+                "time_ms": int(resp.headers.get("X-Response-Time", 0))
+            }
+    except Exception as e:
+        return {"url": url, "status": None, "ok": False, "error": str(e)[:80]}
+
+async def check_all(urls: list[str]) -> list[dict]:
+    """Check all URLs concurrently."""
+    async with aiohttp.ClientSession() as session:
+        tasks = [check_url(session, url) for url in urls]
+        return await asyncio.gather(*tasks)
+
+if __name__ == "__main__":
+    urls_file = Path(sys.argv[1]) if len(sys.argv) > 1 else None
+    if urls_file and urls_file.exists():
+        urls = [line.strip() for line in urls_file.read_text().splitlines() if line.strip() and not line.startswith("#")]
+    else:
+        urls = [
+            "https://example.com",
+            "https://httpbin.org/get",
+            "https://httpbin.org/status/404",
+        ]
+
+    results = asyncio.run(check_all(urls))
+
+    ok = sum(1 for r in results if r["ok"])
+    fail = len(results) - ok
+    print(f"\nResults: {ok} OK, {fail} FAILED\n")
+
+    for r in results:
+        icon = "✓" if r["ok"] else "✗"
+        status = r["status"] or r.get("error", "timeout")
+        print(f"  {icon} [{status}] {r['url']}")</code></pre>
+    <p>Uses <code>asyncio</code> + <code>aiohttp</code> for concurrent checks. Reads URLs from a file (one per line, <code>#</code> for comments) or uses defaults. Install with <code>pip install aiohttp</code>.</p>
+
+    <h2>Git Repository Cleanup</h2>
+    <p>Clean up merged branches, prune stale remotes, and report repo health across multiple projects:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Clean up git repos: prune branches, gc, report status."""
+
+import subprocess
+from pathlib import Path
+
+def git(repo: Path, *args) -> str:
+    """Run a git command in the given repo."""
+    result = subprocess.run(
+        ["git", *args], cwd=repo, capture_output=True, text=True
+    )
+    return result.stdout.strip()
+
+def cleanup_repo(repo: Path):
+    """Clean up a single git repository."""
+    print(f"\n{'=' * 50}")
+    print(f"Repository: {repo.name}")
+    print(f"{'=' * 50}")
+
+    # Fetch and prune
+    git(repo, "fetch", "--all", "--prune")
+    print("  Fetched and pruned remotes")
+
+    # List merged branches (exclude main/master/develop)
+    protected = {"main", "master", "develop", "HEAD"}
+    merged = [b.strip() for b in git(repo, "branch", "--merged", "main").splitlines() if b.strip("* ").strip() not in protected]
+    if merged:
+        print(f"  Merged branches to delete: {len(merged)}")
+        for branch in merged:
+            branch = branch.strip("* ")
+            git(repo, "branch", "-d", branch)
+            print(f"    Deleted: {branch}")
+    else:
+        print("  No merged branches to clean")
+
+    # Garbage collect
+    git(repo, "gc", "--auto")
+    print("  Ran garbage collection")
+
+    # Report size
+    size = subprocess.run(["du", "-sh", str(repo / ".git")], capture_output=True, text=True)
+    print(f"  Repo size: {size.stdout.split()[0]}")
+
+if __name__ == "__main__":
+    import sys
+    base = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / "projects"
+    repos = [d for d in sorted(base.iterdir()) if (d / ".git").is_dir()]
+    print(f"Found {len(repos)} git repositories in {base}")
+    for repo in repos:
+        cleanup_repo(repo)
+    print(f"\nDone. Cleaned {len(repos)} repositories.")</code></pre>
+    <p>Run <code>python git-cleanup.py ~/projects</code> and it finds all git repos, prunes stale branches, runs GC, and reports sizes. No external dependencies.</p>
+
+    <h2>Environment File Sync</h2>
+    <p>Keep <code>.env.example</code> in sync with <code>.env</code> — detect missing variables, flag unused ones:</p>
+    <pre><code>#!/usr/bin/env python3
+"""Sync .env.example with .env — find missing and extra variables."""
+
+from pathlib import Path
+
+def parse_env(path: Path) -> dict[str, str]:
+    """Parse a .env file into a dict."""
+    env = {}
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" in line:
+            key, _, value = line.partition("=")
+            env[key.strip()] = value.strip().strip('"').strip("'")
+    return env
+
+def sync_env(base_dir: Path):
+    env = parse_env(base_dir / ".env")
+    example = parse_env(base_dir / ".env.example")
+
+    missing = set(env) - set(example)
+    extra = set(example) - set(env)
+
+    if missing:
+        print("Variables in .env but missing from .env.example:")
+        for key in sorted(missing):
+            print(f"  + {key}={env[key]}")
+
+    if extra:
+        print("Variables in .env.example but missing from .env:")
+        for key in sorted(extra):
+            print(f"  - {key}={example[key]}")
+
+    if not missing and not extra:
+        print("✓ .env and .env.example are in sync")
+
+if __name__ == "__main__":
+    import sys
+    sync_env(Path(sys.argv[1]) if len(sys.argv) > 1 else Path("."))</code></pre>
+
+    <h2>Scheduling with Cron and systemd</h2>
+    <p>Run your scripts on schedule. Two options:</p>
+
+    <h3>Option 1: crontab</h3>
+    <pre><code># Edit crontab
+crontab -e
+
+# Run backup daily at 2 AM
+0 2 * * * /usr/bin/python3 /home/user/scripts/backup.py >> /var/log/backup.log 2>&1
+
+# Run git cleanup every Sunday at 6 AM
+0 6 * * 0 /usr/bin/python3 /home/user/scripts/git-cleanup.py >> /var/log/git-cleanup.log 2>&1</code></pre>
+
+    <h3>Option 2: systemd timer (more flexible)</h3>
+    <pre><code># ~/.config/systemd/user/backup.service
+[Unit]
+Description=Database backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/user/scripts/backup.py
+
+# ~/.config/systemd/user/backup.timer
+[Unit]
+Description=Daily database backup
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target</code></pre>
+    <p>Enable with <code>systemctl --user enable --now backup.timer</code>. Systemd timers give you logging, dependency management, and <code>Persistent=true</code> catches up on missed runs.</p>
+
+    <div class="callout">
+      <strong>Key principle:</strong> Every script here uses Python's standard library or one small dependency. Before reaching for a framework, check what <code>pathlib</code>, <code>csv</code>, <code>json</code>, <code>subprocess</code>, and <code>asyncio</code> can do. Python ships with batteries included — use them.
+    </div>
+
+    <p>The best automation scripts are the ones you actually use. Start with one task that wastes your time weekly, script it, and add it to cron. Over time, you build a personal toolkit that handles the boring stuff while you focus on the interesting problems.</p>
+
+  </div>
+  <div class="share-section">
+    <h3>Share</h3>
+    <div class="share-buttons">
+      <a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html" target="_blank">𝕏 Twitter</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html" target="_blank">Telegram</a>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related</h3>
+    <ul class="related-list">
+      <li><a href="/blog/python-automation-scripts-developers-2026.html">Python Automation for Developers</a></li>
+      <li><a href="/blog/github-actions-cicd-automation-guide.html">GitHub Actions CI/CD Guide</a></li>
+      <li><a href="/blog/build-rest-api-nodejs-express-2026.html">Build a REST API with Node.js and Express</a></li>
+    </ul>
+  </div>
+</div>
+<footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a> · <a href="/privacy-policy.html">privacy policy</a></p></footer>
+<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>
