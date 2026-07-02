@@ -37,37 +37,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/ai-agents-cybersecurity-2026-landscape.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -80,12 +50,6 @@
   </url>
   <url>
     <loc>https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/l2-fragmentation-battle-usability-2026.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -104,18 +68,6 @@
   </url>
   <url>
     <loc>https://xbyteid.codes/blog/python-automation-scripts-developers-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/smart-contract-security-audit-guide.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
