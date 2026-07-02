@@ -7,22 +7,396 @@
 <meta name="description" content="Articles about web development, automation, bots, Web3, and building things that ship. By xbyteid.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="xbyteid">
-<meta name="keywords" content="web development, automation, bots, web3, landing pages, API, freelancer, xbyteid, blog">
 <link rel="canonical" href="https://xbyteid.codes/blog/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://xbyteid.codes/blog/">
-<meta property="og:title" content="Blog — xbyteid | Bug Bounty, Web3, Security">
-<meta property="og:description" content="Articles about web development, automation, Web3, and building things that ship.">
-<meta property="og:image" content="https://xbyteid.codes/blog/og-index.png" id="og-image-meta">
-<meta property="og:site_name" content="xbyteid">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog — xbyteid">
-<meta name="twitter:description" content="Articles about bug bounty, Web3 security, and cybersecurity.">
-<meta name="twitter:image" content="https://xbyteid.codes/blog/og-index.png" id="twitter-image-meta">
-<meta name="twitter:site" content="@xbyteid">
-<button class="scroll-top" aria-label="Scroll to top">
+<meta property="og:title" content="Blog — xbyteid">
+<meta property="og:description" content="Articles about web development, automation, and building things that ship.">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #111;
+  --bg-card-hover: #1a1a1a;
+  --text: #e5e5e5;
+  --text-dim: #888;
+  --text-muted: #555;
+  --accent: #3b82f6;
+  --accent-muted: rgba(59,130,246,0.1);
+  --border: #222;
+  --border-hover: #333;
+  --radius: 8px;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme='light'] {
+  --bg: #fff;
+  --bg-card: #f5f5f5;
+  --bg-card-hover: #eee;
+  --text: #111;
+  --text-dim: #555;
+  --text-muted: #888;
+  --border: #ddd;
+  --border-hover: #bbb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,11,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+[data-theme='light'] nav { background: rgba(255,255,255,0.95); }
+nav .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+
+/* Main */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+h1 {
+  font-size: 2rem;
+  margin: 40px 0 16px;
+  color: var(--text);
+}
+.blog-intro {
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+/* Tag Filters */
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.tag-filter-btn {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+}
+.tag-filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.tag-filter-btn.active { background: var(--accent-muted); border-color: var(--accent); color: var(--accent); }
+
+/* Posts Grid */
+.posts-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.post-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: var(--bg-card);
+  transition: all 0.2s ease;
+}
+.post-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.post-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.post-item h2 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.post-item p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.post-tags span {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+}
+
+/* Footer */
+footer {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+footer .container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+footer a:hover { color: var(--text); }
+
+/* Scroll to top */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 50;
+}
+.scroll-top:hover { border-color: var(--accent); color: var(--accent); }
+.scroll-top.visible { display: flex; }
+.scroll-top svg { width: 18px; height: 18px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,11,0.98);
+    flex-direction: column;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  [data-theme='light'] .nav-links { background: rgba(255,255,255,0.98); }
+  .nav-links.open { display: flex; }
+  .container { padding: 0 16px; }
+  h1 { font-size: 1.5rem; margin: 24px 0 12px; }
+  .post-item { padding: 16px; }
+  .post-item h2 { font-size: 1.05rem; }
+  .post-item p { font-size: 0.9rem; }
+  footer .container { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <h1>Blog</h1>
+  <p class="blog-intro">Thoughts on web development, automation, and building things that matter.</p>
+  
+  <div class="tag-filters">
+    <button class="tag-filter-btn active" data-tag="all">All</button>
+    <button class="tag-filter-btn" data-tag="node">Node.js</button>
+    <button class="tag-filter-btn" data-tag="python">Python</button>
+    <button class="tag-filter-btn" data-tag="docker">Docker</button>
+    <button class="tag-filter-btn" data-tag="devops">DevOps</button>
+  </div>
+
+  <ul class="posts-grid">
+    <li class="post-item" data-tags="node api">
+      <a href="/blog/build-rest-api-nodejs-express-2026.html">
+        <h2>How to Build a REST API with Node.js and Express in 2026</h2>
+        <p>Learn how to build a production-ready REST API using Node.js and Express. Covers routing, middleware, error handling, and deployment.</p>
+        <div class="post-tags">
+          <span>node.js</span><span>express</span><span>api</span><span>backend</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="docker devops">
+      <a href="/blog/deploying-docker-containers-production-guide.html">
+        <h2>Deploying Docker Containers to Production: A Complete Guide</h2>
+        <p>Everything you need to know about deploying Docker containers to production — from building optimized images to orchestration.</p>
+        <div class="post-tags">
+          <span>docker</span><span>devops</span><span>containers</span><span>deployment</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="python automation">
+      <a href="/blog/python-automation-scripts-developers-2026.html">
+        <h2>Python Automation Scripts Every Developer Should Know</h2>
+        <p>Boost your productivity with these essential Python automation scripts — file management, web scraping, data processing.</p>
+        <div class="post-tags">
+          <span>python</span><span>automation</span><span>productivity</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="python api">
+      <a href="/blog/building-rest-apis-fastapi-python-2026.html">
+        <h2>Building Production-Ready REST APIs with FastAPI and Python in 2026</h2>
+        <p>Complete guide to building modern APIs with FastAPI — async support, automatic documentation, type hints.</p>
+        <div class="post-tags">
+          <span>fastapi</span><span>python</span><span>api</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="docker devops">
+      <a href="/blog/docker-containers-beginners-practical-guide.html">
+        <h2>Docker for Developers: A Practical Guide to Containers in 2026</h2>
+        <p>Hands-on guide to Docker — from basics to advanced concepts. Learn containerization, Docker Compose, networking.</p>
+        <div class="post-tags">
+          <span>docker</span><span>containers</span><span>tutorial</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="devops ci-cd">
+      <a href="/blog/github-actions-cicd-automation-guide.html">
+        <h2>GitHub Actions CI/CD: Automate Your Dev Workflow from Zero</h2>
+        <p>Set up continuous integration and deployment with GitHub Actions — automated testing, building, and deploying.</p>
+        <div class="post-tags">
+          <span>github</span><span>ci-cd</span><span>automation</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="node deploy">
+      <a href="/blog/nextjs-deploy-github-pages-vercel-guide.html">
+        <h2>Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026</h2>
+        <p>Compare deployment options for Next.js applications — GitHub Pages, Vercel, and self-hosted solutions.</p>
+        <div class="post-tags">
+          <span>nextjs</span><span>deploy</span><span>vercel</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="web business">
+      <a href="/blog/landing-page-cost-2026.html">
+        <h2>How Much Does a Landing Page Cost in 2026?</h2>
+        <p>Complete breakdown of landing page costs — DIY vs professional, factors affecting price, and tips to maximize your budget.</p>
+        <div class="post-tags">
+          <span>landing-page</span><span>web-design</span><span>cost</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="web security">
+      <a href="/blog/web-security-best-practices-developers-2026.html">
+        <h2>Web Security Best Practices for Developers in 2026</h2>
+        <p>Essential security practices every web developer should follow — input validation, authentication, HTTPS, CORS.</p>
+        <div class="post-tags">
+          <span>security</span><span>web-dev</span><span>best-practices</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="python automation">
+      <a href="/blog/python-automation-scripts-developer-productivity-2026.html">
+        <h2>Python Automation Scripts for Developer Productivity</h2>
+        <p>Essential Python scripts to automate your daily workflow — file management, database backups, monitoring.</p>
+        <div class="post-tags">
+          <span>python</span><span>automation</span><span>productivity</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="https://github.com/xbyteid" target="_blank">GitHub</a>
+    <a href="https://x.com/xbyteid" target="_blank">X/Twitter</a>
+    <a href="https://t.me/xbyteid" target="_blank">Telegram</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle
@@ -53,9 +427,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       document.documentElement.setAttribute('data-theme', isLight ? '' : 'light');
       localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      themeBtn.textContent = isLight ? '🌙' : '☀️';
     });
+  }
+
+  // Scroll to top
+  const scrollBtn = document.getElementById('scrollTop');
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
   }
 });
 </script>
 </body>
-</html><!-- mobile fix 1782962842 -->
+</html>
