@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a REST API with Node.js and Express in 2026 — xbyteid</title>
+<meta name="description" content="Learn how to build a production-ready REST API with Node.js and Express in 2026. Covers routing, validation, error handling, authentication, and deployment.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="Node.js, Express, REST API, backend, JavaScript, TypeScript, 2026">
+<link rel="canonical" href="https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html">
+<meta property="og:title" content="How to Build a REST API with Node.js and Express in 2026">
+<meta property="og:description" content="Learn how to build a production-ready REST API with Node.js and Express in 2026. Covers routing, validation, error handling, authentication, and deployment.">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Build a REST API with Node.js and Express in 2026">
+<meta name="twitter:description" content="Learn how to build a production-ready REST API with Node.js and Express in 2026. Covers routing, validation, error handling, authentication, and deployment.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Build a REST API with Node.js and Express in 2026","description":"Learn how to build a production-ready REST API with Node.js and Express in 2026. Covers routing, validation, error handling, authentication, and deployment.","url":"https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html","datePublished":"2026-07-02","author":{"@type":"Person","name":"xbyteid","url":"https://xbyteid.codes"},"publisher":{"@type":"Person","name":"xbyteid"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html"}}
+</script>
+<style>:root {
+  --bg: #0a0a0b; --bg-card: #111114; --bg-card-hover: #16161a;
+  --border: #1e1e24; --border-hover: #2a2a33;
+  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+  --accent: #3b82f6; --accent-muted: rgba(59,130,246,0.1);
+  --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 10px; --nav-height: 64px;
+}
+[data-theme='light'] {
+  --bg: #ffffff; --bg-card: #f4f4f5; --bg-card-hover: #e4e4e7;
+  --border: #d4d4d8; --border-hover: #a1a1aa;
+  --text: #18181b; --text-dim: #52525b; --text-muted: #71717a;
+  --accent: #2563eb; --accent-muted: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #60a5fa; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); height: var(--nav-height); display: flex; align-items: center; }
+[data-theme='light'] nav { background: rgba(255,255,255,0.85); }
+.nav-inner { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; text-decoration: none; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin: 40px 0 20px; font-family: var(--font-mono); }
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.article-header h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: var(--text); letter-spacing: -0.02em; }
+.article-meta { display: flex; gap: 8px; align-items: center; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 14px; flex-wrap: wrap; }
+.dot { color: var(--text-muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: var(--accent-muted); color: var(--accent); font-family: var(--font-mono); border: 1px solid rgba(59,130,246,0.15); }
+.article-body { font-size: 1rem; }
+.article-body h2 { font-size: 1.35rem; font-weight: 700; margin: 48px 0 16px; color: var(--text); letter-spacing: -0.01em; }
+.article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+.article-body p { margin-bottom: 18px; color: var(--text-dim); }
+.article-body ul, .article-body ol { margin: 0 0 18px 24px; color: var(--text-dim); }
+.article-body li { margin-bottom: 8px; }
+.article-body pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; overflow-x: auto; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
+.article-body code { font-family: var(--font-mono); font-size: 0.88em; }
+.article-body p code, .article-body li code { background: var(--accent-muted); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 20px 0; background: var(--accent-muted); border-radius: 0 8px 8px 0; }
+.article-body blockquote p { margin-bottom: 0; color: var(--text-dim); }
+.callout { background: var(--accent-muted); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 18px 20px; margin: 24px 0; }
+.callout strong { color: var(--accent); }
+.share-section { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--border); }
+.share-section h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.share-buttons { display: flex; gap: 10px; }
+.share-btn { font-size: 0.82rem; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); transition: all 0.2s; text-decoration: none; font-family: var(--font-mono); }
+.share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); text-decoration: none; }
+.related { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+.related h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.related-list { list-style: none; }
+.related-list li { margin-bottom: 8px; }
+.related-list a { font-size: 0.9rem; }
+footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--text); }
+@media (max-width: 768px) { .nav-links { display: none !important; } .nav-toggle { display: block !important; } .article-body pre { padding: 14px; font-size: 0.78rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+<li><a href="/services.html">Services</a></li>
+<li><a href="/work.html">Work</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>How to Build a REST API with Node.js and Express in 2026</h1>
+    <div class="article-meta">
+      <span>2026-07-02</span>
+      <span class="dot">·</span>
+      <span>15 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">API</span><span class="tag">Backend</span></div>
+  </div>
+  <div class="article-body">
+    <p>Node.js continues to be one of the most popular choices for building APIs in 2026. With the latest Express 5 release and Node 22+ features like native ESM and the built-in test runner, building REST APIs has never been more productive. This tutorial walks through building a production-grade API from scratch.</p>
+
+    <h2>Project Setup</h2>
+    <p>Start with a clean project structure. We'll use ES modules and TypeScript throughout:</p>
+    <pre><code>mkdir api-server && cd api-server
+npm init -y
+npm install express cors helmet morgan
+npm install -D typescript @types/express @types/node tsx nodemon</code></pre>
+    <p>Update <code>package.json</code> to use ESM:</p>
+    <pre><code>{
+  "name": "api-server",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
+}</code></pre>
+
+    <h2>Application Architecture</h2>
+    <p>Organize your code by feature, not by type. This scales better as your API grows:</p>
+    <pre><code>src/
+├── index.ts              # Entry point
+├── app.ts                # Express app setup
+├── config/
+│   └── env.ts            # Environment variables
+├── middleware/
+│   ├── errorHandler.ts   # Global error handler
+│   ├── validate.ts       # Request validation
+│   └── auth.ts           # Authentication
+├── modules/
+│   ├── users/
+│   │   ├── users.routes.ts
+│   │   ├── users.controller.ts
+│   │   ├── users.service.ts
+│   │   └── users.validation.ts
+│   └── posts/
+│       ├── posts.routes.ts
+│       ├── posts.controller.ts
+│       ├── posts.service.ts
+│       └── posts.validation.ts
+└── utils/
+    ├── ApiError.ts
+    └── asyncHandler.ts</code></pre>
+    <p>Each module has its own routes, controller (HTTP layer), service (business logic), and validation schemas. This separation makes testing straightforward and keeps components focused.</p>
+
+    <h2>Setting Up Express</h2>
+    <p>Create the Express app with essential middleware:</p>
+    <pre><code>// src/app.ts
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import { errorHandler } from './middleware/errorHandler.js';
+import { usersRouter } from './modules/users/users.routes.js';
+import { postsRouter } from './modules/posts/posts.routes.js';
+
+const app = express();
+
+// Security headers
+app.use(helmet());
+
+// CORS - restrict in production
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true
+}));
+
+// Logging
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+
+// Body parsing
+app.use(express.json({ limit: '10mb' }));
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Routes
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/posts', postsRouter);
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
+
+// Global error handler (must be last)
+app.use(errorHandler);
+
+export { app };</code></pre>
+    <p>The <code>app.ts</code> file exports the app without starting the server. This lets you import it for testing without binding to a port.</p>
+
+    <h3>Async Error Handling</h3>
+    <p>Express 4 doesn't catch async errors automatically. Use a simple wrapper:</p>
+    <pre><code>// src/utils/asyncHandler.ts
+import { Request, Response, NextFunction } from 'express';
+
+export const asyncHandler = (
+  fn: (req: Request, res: Response, next: NextFunction) => Promise&lt;any&gt;
+) => (req: Request, res: Response, next: NextFunction) => {
+  fn(req, res, next).catch(next);
+};</code></pre>
+    <p>Wrap every async route handler with <code>asyncHandler</code> and any thrown error will reach your global error handler. Express 5 handles this natively, but if you're still on Express 4, this wrapper is essential.</p>
+
+    <h2>Request Validation with Zod</h2>
+    <p>Zod is the standard for request validation in the Node.js ecosystem. Define schemas once and derive TypeScript types automatically:</p>
+    <pre><code>// src/modules/users/users.validation.ts
+import { z } from 'zod';
+
+export const createUserSchema = z.object({
+  body: z.object({
+    email: z.string().email('Invalid email address'),
+    name: z.string().min(2).max(100),
+    role: z.enum(['user', 'admin']).default('user')
+  })
+});
+
+export const updateUserSchema = z.object({
+  params: z.object({ id: z.string().uuid() }),
+  body: z.object({
+    email: z.string().email().optional(),
+    name: z.string().min(2).max(100).optional()
+  }).refine(data => Object.keys(data).length > 0, {
+    message: 'At least one field must be provided'
+  })
+});
+
+export type CreateUserInput = z.infer&lt;typeof createUserSchema&gt;['body'];
+export type UpdateUserInput = z.infer&lt;typeof updateUserSchema&gt;['body'];</code></pre>
+
+    <p>Create a validation middleware that parses and validates requests:</p>
+    <pre><code>// src/middleware/validate.ts
+import { Request, Response, NextFunction } from 'express';
+import { AnyZodObject, ZodError } from 'zod';
+
+export const validate = (schema: AnyZodObject) => (
+  req: Request, res: Response, next: NextFunction
+) => {
+  try {
+    schema.parse({
+      body: req.body,
+      query: req.query,
+      params: req.params
+    });
+    next();
+  } catch (error) {
+    if (error instanceof ZodError) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        details: error.errors.map(e => ({
+          field: e.path.join('.'),
+          message: e.message
+        }))
+      });
+    }
+    next(error);
+  }
+};</code></pre>
+
+    <h2>Building the Controller and Service</h2>
+    <p>Keep controllers thin — they parse input and send responses. Services contain the business logic:</p>
+    <pre><code>// src/modules/users/users.service.ts
+import { CreateUserInput } from './users.validation.js';
+
+// ponytail: in-memory store, swap for database (Drizzle/Prisma) in production
+const users: Map&lt;string, any&gt; = new Map();
+
+export const usersService = {
+  create(data: CreateUserInput) {
+    const id = crypto.randomUUID();
+    const user = { id, ...data, createdAt: new Date().toISOString() };
+    users.set(id, user);
+    return user;
+  },
+
+  findAll(page = 1, limit = 20) {
+    const all = Array.from(users.values());
+    const start = (page - 1) * limit;
+    return {
+      data: all.slice(start, start + limit),
+      total: all.length,
+      page,
+      totalPages: Math.ceil(all.length / limit)
+    };
+  },
+
+  findById(id: string) {
+    return users.get(id) || null;
+  },
+
+  delete(id: string) {
+    return users.delete(id);
+  }
+};</code></pre>
+
+    <pre><code>// src/modules/users/users.controller.ts
+import { Response } from 'express';
+import { asyncHandler } from '../../utils/asyncHandler.js';
+import { usersService } from './users.service.js';
+
+export const usersController = {
+  create: asyncHandler(async (req, res) => {
+    const user = usersService.create(req.body);
+    res.status(201).json(user);
+  }),
+
+  findAll: asyncHandler(async (req, res) => {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+    const result = usersService.findAll(page, limit);
+    res.json(result);
+  }),
+
+  findById: asyncHandler(async (req, res) => {
+    const user = usersService.findById(req.params.id);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json(user);
+  }),
+
+  delete: asyncHandler(async (req, res) => {
+    const deleted = usersService.delete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'User not found' });
+    res.status(204).send();
+  })
+};</code></pre>
+
+    <h2>Route Definitions</h2>
+    <p>Wire everything together with routes:</p>
+    <pre><code>// src/modules/users/users.routes.ts
+import { Router } from 'express';
+import { usersController } from './users.controller.js';
+import { validate } from '../../middleware/validate.js';
+import { createUserSchema } from './users.validation.js';
+
+const router = Router();
+
+router.post('/', validate(createUserSchema), usersController.create);
+router.get('/', usersController.findAll);
+router.get('/:id', usersController.findById);
+router.delete('/:id', usersController.delete);
+
+export { router as usersRouter };</code></pre>
+
+    <h2>Global Error Handler</h2>
+    <p>A centralized error handler catches all errors and returns consistent responses:</p>
+    <pre><code>// src/middleware/errorHandler.ts
+import { Request, Response, NextFunction } from 'express';
+
+export class ApiError extends Error {
+  constructor(public statusCode: number, message: string) {
+    super(message);
+    this.name = 'ApiError';
+  }
+}
+
+export const errorHandler = (
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  console.error(`[ERROR] ${req.method} ${req.path}:`, err.message);
+
+  if (err instanceof ApiError) {
+    return res.status(err.statusCode).json({ error: err.message });
+  }
+
+  // Don't leak internal details in production
+  const message = process.env.NODE_ENV === 'production'
+    ? 'Internal server error'
+    : err.message;
+
+  res.status(500).json({ error: message });
+};</code></pre>
+
+    <h2>Testing with the Built-in Test Runner</h2>
+    <p>Node 22+ has a built-in test runner — no need for Jest or Mocha for basic tests:</p>
+    <pre><code>// src/__tests__/users.test.ts
+import { describe, it, before, after } from 'node:test';
+import assert from 'node:assert/strict';
+
+const BASE = 'http://localhost:3000/api/v1';
+
+describe('Users API', () => {
+  it('creates a user', async () => {
+    const res = await fetch(`${BASE}/users`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'test@example.com',
+        name: 'Test User'
+      })
+    });
+    assert.equal(res.status, 201);
+    const data = await res.json();
+    assert.ok(data.id);
+    assert.equal(data.email, 'test@example.com');
+  });
+
+  it('returns 400 for invalid input', async () => {
+    const res = await fetch(`${BASE}/users`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'not-an-email' })
+    });
+    assert.equal(res.status, 400);
+  });
+
+  it('lists users with pagination', async () => {
+    const res = await fetch(`${BASE}/users?page=1&limit=10`);
+    assert.equal(res.status, 200);
+    const data = await res.json();
+    assert.ok(Array.isArray(data.data));
+    assert.ok(typeof data.total === 'number');
+  });
+});</code></pre>
+    <p>Run with <code>node --test src/__tests__/**/*.test.ts</code> — zero dependencies needed.</p>
+
+    <h2>Environment Configuration</h2>
+    <p>Use <code>dotenv</code> or Node 22's built-in <code>--env-file</code> flag:</p>
+    <pre><code>// src/config/env.ts
+const env = {
+  PORT: parseInt(process.env.PORT || '3000'),
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  CORS_ORIGIN: process.env.CORS_ORIGIN || '*',
+  DATABASE_URL: process.env.DATABASE_URL || ''
+};
+
+export default env;</code></pre>
+    <p>Run with <code>node --env-file=.env dist/index.js</code> — no dotenv package needed on Node 20+.</p>
+
+    <h2>Production Checklist</h2>
+    <ul>
+      <li><strong>Security headers</strong> — <code>helmet()</code> covers most (CSP, HSTS, X-Frame-Options)</li>
+      <li><strong>Rate limiting</strong> — use <code>express-rate-limit</code> to prevent abuse</li>
+      <li><strong>Request logging</strong> — <code>morgan</code> for HTTP, structured JSON logs for app-level logging</li>
+      <li><strong>Graceful shutdown</strong> — handle SIGTERM, drain connections before exit</li>
+      <li><strong>Process management</strong> — use PM2 or Docker restart policies, not just <code>node</code></li>
+      <li><strong>Health endpoint</strong> — return 200 when app can serve traffic, include dependency checks</li>
+      <li><strong>CORS</strong> — set explicit origins in production, never use <code>*</code></li>
+      <li><strong>Input size limits</strong> — <code>express.json({ limit: '10mb' })</code> prevents memory exhaustion</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Express 5 (released late 2025) finally catches async errors natively. If you're starting a new project in 2026, use Express 5 — you can drop the <code>asyncHandler</code> wrapper entirely.
+    </div>
+
+    <h2>Next Steps</h2>
+    <p>This gives you a solid foundation. From here, add a real database (Drizzle ORM with PostgreSQL is the current sweet spot), authentication with JWT or session tokens, and CI/CD with GitHub Actions. The architecture scales — swap the in-memory store for a database, add a Redis cache layer, and deploy behind an Nginx reverse proxy when you're ready for production traffic.</p>
+
+  </div>
+  <div class="share-section">
+    <h3>Share</h3>
+    <div class="share-buttons">
+      <a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html" target="_blank">𝕏 Twitter</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html" target="_blank">Telegram</a>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related</h3>
+    <ul class="related-list">
+      <li><a href="/blog/building-rest-apis-fastapi-python-2026.html">Building REST APIs with FastAPI</a></li>
+      <li><a href="/blog/deploying-docker-containers-production-guide.html">Deploying Docker Containers to Production</a></li>
+      <li><a href="/blog/github-actions-cicd-automation-guide.html">GitHub Actions CI/CD Guide</a></li>
+    </ul>
+  </div>
+</div>
+<footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a> · <a href="/privacy-policy.html">privacy policy</a></p></footer>
+<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>

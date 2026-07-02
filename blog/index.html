@@ -148,7 +148,6 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: #60a5fa; }
 .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-
 nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(10,10,11,0.8); backdrop-filter: blur(16px) saturate(180%);
@@ -163,11 +162,9 @@ nav {
 .nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; text-decoration: none; }
 .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
 .nav-links a.active { color: var(--accent); background: var(--accent-muted); }
-
 .blog-header { margin: 52px 0 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
 .blog-header h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin-bottom: 8px; }
 .blog-header p { color: var(--text-dim); font-size: 1rem; }
-
 .post-list { list-style: none; }
 .post-item {
   border: 1px solid var(--border); border-radius: var(--radius);
@@ -188,7 +185,6 @@ nav {
   border: 1px solid rgba(59,130,246,0.15);
 }
 .post-item.hidden { display: none; }
-
 .tag-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
 .tag-filter-btn {
   font-size: 0.8rem; padding: 6px 14px; border-radius: 100px;
@@ -197,11 +193,9 @@ nav {
 }
 .tag-filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
 .tag-filter-btn.active { background: var(--accent-muted); border-color: var(--accent); color: var(--accent); }
-
 footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
 footer a { color: var(--text-dim); text-decoration: none; }
 footer a:hover { color: var(--text); }
-
 .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
 .nav-toggle svg { width: 20px; height: 20px; }
 .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-dim); cursor: pointer; padding: 6px; border-radius: 6px; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; transition: all 0.2s; }
@@ -211,7 +205,6 @@ footer a:hover { color: var(--text); }
 .theme-toggle .icon-moon { display: block; }
 [data-theme='light'] .theme-toggle .icon-sun { display: block; }
 [data-theme='light'] .theme-toggle .icon-moon { display: none; }
-
 .scroll-top {
   position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px;
   border-radius: 50%; background: var(--accent); border: none; cursor: pointer;
@@ -222,7 +215,6 @@ footer a:hover { color: var(--text); }
 }
 .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .scroll-top svg { width: 18px; height: 18px; stroke: white; fill: none; }
-
 @media (max-width: 768px) {
   .nav-links { display: none !important; }
   .nav-toggle { display: block !important; }
@@ -245,25 +237,87 @@ footer a:hover { color: var(--text); }
 </head>
 <body>
 <nav>
-  
-        <h2>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</h2>
-        <p>Guide lengkap airdrop farming 2026 — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.</p>
-        
+        <h2>How to Build a REST API with Node.js and Express in 2026</h2>
+        <p>Learn how to build a production-ready REST API using Node.js and Express. Covers routing, middleware, error handling, and deployment best practices.</p>
+        <div class="post-tags">
+          <span>node.js</span><span>express</span><span>api</span><span>backend</span>
+        </div>
       </a>
     </li>
-    <li class="post-item" data-tags="bug-bounty security">
-      <a href="/blog/bug-bounty-pemula-indonesia.html">
-        
-        <h2>Smart Contract Security: Panduan Lengkap Audit Solidity untuk Pemula</h2>
-        <p>Panduan lengkap smart contract security audit — common vulnerabilities, tools, workflow, dan cara mulai karir di Web3 security.</p>
+    <li class="post-item" data-tags="docker devops">
+      <a href="/blog/deploying-docker-containers-production-guide.html">
+        <h2>Deploying Docker Containers to Production: A Complete Guide</h2>
+        <p>Everything you need to know about deploying Docker containers to production — from building optimized images to orchestration with Docker Compose and Kubernetes.</p>
         <div class="post-tags">
-          <span>smart contract</span><span>solidity</span><span>web3</span><span>security audit</span>
+          <span>docker</span><span>devops</span><span>containers</span><span>deployment</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="python automation">
+      <a href="/blog/python-automation-scripts-developers-2026.html">
+        <h2>Python Automation Scripts Every Developer Should Know</h2>
+        <p>Boost your productivity with these essential Python automation scripts — file management, web scraping, data processing, and system administration tasks.</p>
+        <div class="post-tags">
+          <span>python</span><span>automation</span><span>productivity</span><span>scripts</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="fastapi python api">
+      <a href="/blog/building-rest-apis-fastapi-python-2026.html">
+        <h2>Building Production-Ready REST APIs with FastAPI and Python in 2026</h2>
+        <p>Complete guide to building modern APIs with FastAPI — async support, automatic documentation, type hints, and deployment strategies.</p>
+        <div class="post-tags">
+          <span>fastapi</span><span>python</span><span>api</span><span>backend</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="docker devops">
+      <a href="/blog/docker-containers-beginners-practical-guide.html">
+        <h2>Docker for Developers: A Practical Guide to Containers in 2026</h2>
+        <p>Hands-on guide to Docker — from basics to advanced concepts. Learn containerization, Docker Compose, networking, and production best practices.</p>
+        <div class="post-tags">
+          <span>docker</span><span>containers</span><span>devops</span><span>tutorial</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="github ci-cd">
+      <a href="/blog/github-actions-cicd-automation-guide.html">
+        <h2>GitHub Actions CI/CD: Automate Your Dev Workflow from Zero</h2>
+        <p>Set up continuous integration and deployment with GitHub Actions — automated testing, building, and deploying your applications.</p>
+        <div class="post-tags">
+          <span>github</span><span>ci-cd</span><span>automation</span><span>devops</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="nextjs deploy">
+      <a href="/blog/nextjs-deploy-github-pages-vercel-guide.html">
+        <h2>Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026</h2>
+        <p>Compare deployment options for Next.js applications — GitHub Pages, Vercel, and self-hosted solutions with Docker.</p>
+        <div class="post-tags">
+          <span>nextjs</span><span>deploy</span><span>vercel</span><span>github-pages</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="web landing-page">
+      <a href="/blog/landing-page-cost-2026.html">
+        <h2>How Much Does a Landing Page Cost in 2026?</h2>
+        <p>Complete breakdown of landing page costs — DIY vs professional, factors affecting price, and tips to maximize your budget.</p>
+        <div class="post-tags">
+          <span>landing-page</span><span>web-design</span><span>cost</span><span>business</span>
+        </div>
+      </a>
+    </li>
+    <li class="post-item" data-tags="web security best-practices">
+      <a href="/blog/web-security-best-practices-developers-2026.html">
+        <h2>Web Security Best Practices for Developers in 2026</h2>
+        <p>Essential security practices every web developer should follow — input validation, authentication, HTTPS, CORS, and more.</p>
+        <div class="post-tags">
+          <span>security</span><span>web-dev</span><span>best-practices</span><span>authentication</span>
         </div>
       </a>
     </li>
   </ul>
 </div>
-
 <footer>
   <div class="container">
     <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a> · <a href="https://t.me/xbyteid">telegram</a></p>
@@ -275,7 +329,6 @@ const navLinks = document.getElementById('navLinks');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 }
-
 (function() {
   const saved = localStorage.getItem('theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
@@ -291,7 +344,6 @@ if (navToggle && navLinks) {
     }
   });
 })();
-
 document.querySelectorAll('.tag-filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tag-filter-btn').forEach(b => b.classList.remove('active'));
@@ -307,7 +359,6 @@ document.querySelectorAll('.tag-filter-btn').forEach(btn => {
     });
   });
 });
-
 const scrollTopBtn = document.querySelector('.scroll-top');
 if (scrollTopBtn) {
   window.addEventListener('scroll', () => {
@@ -316,7 +367,6 @@ if (scrollTopBtn) {
   scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 </script>
-
 <button class="scroll-top" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
