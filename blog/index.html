@@ -21,6 +21,50 @@
 <meta name="twitter:image" content="https://xbyteid.codes/blog/og-index.png" id="twitter-image-meta">
 <meta name="twitter:site" content="@xbyteid">
 <script>
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+
+// Tag filtering
+document.querySelectorAll('.tag-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tag = btn.dataset.tag;
+    
+    // Update active button
+    document.querySelectorAll('.tag-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Filter posts
+    document.querySelectorAll('.post-item').forEach(post => {
+      if (tag === 'all' || post.dataset.tags.includes(tag)) {
+        post.style.display = '';
+      } else {
+        post.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Theme toggle
+const saved = localStorage.getItem('theme');
+if (saved) document.documentElement.setAttribute('data-theme', saved);
+const themeBtn = document.getElementById('themeToggle');
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
+
 (function () {
   var fallback = 'https://xbyteid.codes/og-image.png';
   var probe = new Image();
@@ -284,6 +328,249 @@ footer a:hover { color: var(--text); }
     line-height: 1.6 !important;
   }
 }
+
+
+/* Blog Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 40px 0 16px;
+  color: var(--text);
+}
+
+.blog-intro {
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+.posts-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--bg-card);
+  transition: all 0.2s ease;
+}
+
+.post-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.post-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.post-item h2 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.post-item p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tags span {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+}
+
+/* Tag Filters */
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag-filter-btn {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+}
+
+.tag-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.tag-filter-btn.active {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,11,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Footer */
+footer {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+footer a:hover {
+  color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,11,0.98);
+    flex-direction: column;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .nav-links.open {
+    display: flex;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    margin: 24px 0 12px;
+  }
+  
+  .post-item {
+    padding: 16px;
+  }
+  
+  .post-item h2 {
+    font-size: 1.05rem;
+  }
+  
+  .post-item p {
+    font-size: 0.9rem;
+  }
+  
+  footer .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
 <script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
@@ -292,6 +579,35 @@ footer a:hover { color: var(--text); }
 </head>
 <body>
 <nav>
+  <div class="container">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/work">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <h1>Blog</h1>
+  <p class="blog-intro">Thoughts on web development, automation, and building things that matter.</p>
+  
+  <div class="tag-filters">
+    <button class="tag-filter-btn active" data-tag="all">All</button>
+    <button class="tag-filter-btn" data-tag="node">Node.js</button>
+    <button class="tag-filter-btn" data-tag="docker">Docker</button>
+    <button class="tag-filter-btn" data-tag="python">Python</button>
+    <button class="tag-filter-btn" data-tag="devops">DevOps</button>
+  </div>
+
+  <ul class="posts-grid">
+    <li class="post-item" data-tags="node api">
+      <a href="/blog/build-rest-api-nodejs-express-2026.html">
         <h2>How to Build a REST API with Node.js and Express in 2026</h2>
         <p>Learn how to build a production-ready REST API using Node.js and Express. Covers routing, middleware, error handling, and deployment best practices.</p>
         <div class="post-tags">
@@ -383,6 +699,9 @@ footer a:hover { color: var(--text); }
     </li>
   </ul>
 </div>
+  </ul>
+</main>
+
 <footer>
   <div class="container">
     <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a> · <a href="https://t.me/xbyteid">telegram</a></p>
