@@ -6,6 +6,37 @@
     <description>Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity by xbyteid.</description>
     <language>en</language>
     <atom:link href="https://xbyteid.codes/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jul 2026 00:00:00 +0700</lastBuildDate>
+  <item>
+    <title>Building a Telegram Bot with Python: From Zero to Production</title>
+    <link>https://xbyteid.codes/blog/telegram-bot-python-production-2026.html</link>
+    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
+    <description>Complete guide to building production-ready Telegram bots with Python. Webhook setup, inline keyboards, file handling, deployment with systemd.</description>
+  </item>
+  <item>
+    <title>How to Build an EVM Blockchain Monitor with Python</title>
+    <link>https://xbyteid.codes/blog/evm-chain-monitoring-python-2026.html</link>
+    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
+    <description>Build a multi-chain EVM monitor with Python and free RPCs. Track token transfers, contract events, and gas prices across 15+ chains.</description>
+  </item>
+  <item>
+    <title>Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026</title>
+    <link>https://xbyteid.codes/blog/self-hosted-analytics-2026.html</link>
+    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
+    <description>Compare self-hosted analytics alternatives to Google Analytics. Full Docker deployment guides for Umami, Matomo, and Plausible.</description>
+  </item>
+  <item>
+    <title>Browser Automation in 2026: Playwright Tips You Actually Need</title>
+    <link>https://xbyteid.codes/blog/playwright-automation-2026.html</link>
+    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
+    <description>Production-ready Playwright patterns: stealth mode, network interception, proxy rotation, mobile emulation, and Docker deployment.</description>
+  </item>
+  <item>
+    <title>Free VPS Guide 2026: Azure, Tencent, Oracle Cloud Free Tier Compared</title>
+    <link>https://xbyteid.codes/blog/free-vps-cloud-2026.html</link>
+    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
+    <description>Complete guide to free VPS options in 2026. Real specs, what you can actually run, and initial server hardening.</description>
+  </item>
+
   </channel>
 </rss>

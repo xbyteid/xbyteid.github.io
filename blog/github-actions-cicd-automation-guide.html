@@ -4,8 +4,12 @@
 nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,.8);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);height:var(--nav-height);display:flex;align-items:center}[data-theme='light'] nav{background:rgba(255,255,255,.85)}.nav-inner{max-width:720px;width:100%;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;position:relative}.nav-logo{font-family:var(--font-mono);font-weight:600;font-size:.95rem;color:var(--text);text-decoration:none}.nav-links{display:flex;gap:4px;list-style:none;align-items:center}.nav-links a{color:var(--text-dim);font-size:.875rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:color .2s,background .2s;text-decoration:none}.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04);text-decoration:none}
 .breadcrumb{font-size:.8rem;color:var(--text-muted);margin:40px 0 20px;font-family:var(--font-mono)}.breadcrumb a{color:var(--text-dim)}.breadcrumb a:hover{color:var(--accent);text-decoration:none}.article-header{margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--border)}.article-header h1{font-size:clamp(1.6rem,4vw,2.25rem);font-weight:700;line-height:1.25;margin-bottom:16px;color:var(--text);letter-spacing:-.02em}.article-meta{display:flex;gap:8px;align-items:center;font-size:.82rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:14px;flex-wrap:wrap}.dot{color:var(--text-muted)}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:.68rem;padding:3px 10px;border-radius:100px;background:var(--accent-muted);color:var(--accent);font-family:var(--font-mono);border:1px solid rgba(59,130,246,.15)}
 .article-body{font-size:1rem}.article-body h2{font-size:1.35rem;font-weight:700;margin:48px 0 16px;color:var(--text);letter-spacing:-.01em}.article-body h3{font-size:1.1rem;font-weight:600;margin:32px 0 12px;color:var(--text)}.article-body p{margin-bottom:18px;color:var(--text-dim)}.article-body ul,.article-body ol{margin:0 0 18px 24px;color:var(--text-dim)}.article-body li{margin-bottom:8px}.article-body pre{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:20px;overflow-x:auto;margin-bottom:20px;font-family:var(--font-mono);font-size:.85rem;line-height:1.6}.article-body code{font-family:var(--font-mono);font-size:.88em}.article-body p code,.article-body li code{background:var(--accent-muted);padding:2px 7px;border-radius:4px;color:var(--accent)}.article-body strong{color:var(--text);font-weight:600}.article-body blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:20px 0;background:var(--accent-muted);border-radius:0 8px 8px 0}.article-body blockquote p{margin-bottom:0;color:var(--text-dim)}.callout{background:var(--accent-muted);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:18px 20px;margin:24px 0}.callout strong{color:var(--accent)}
-.share-section{margin-top:52px;padding-top:28px;border-top:1px solid var(--border)}.share-section h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}.share-buttons{display:flex;gap:10px}.share-btn{font-size:.82rem;padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-dim);transition:all .2s;text-decoration:none;font-family:var(--font-mono)}.share-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-muted);text-decoration:none}.related{margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}.related h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}.related-list{list-style:none}.related-list li{margin-bottom:8px}.related-list a{font-size:.9rem}footer{margin-top:72px;padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:.8rem;color:var(--text-muted)}footer a{color:var(--text-dim);text-decoration:none}footer a:hover{color:var(--text)}@media(max-width:768px){.nav-links{display:none!important}.nav-toggle{display:block!important}.article-body pre{padding:14px;font-size:.78rem}}</style></head><body><nav><div class="nav-inner"><a href="/" class="nav-logo">xbyteid</a><ul class="nav-links" id="navLinks"><li><a href="/services.html">Services</a></li><li><a href="/work.html">Work</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav><div class="container"><div class="breadcrumb"><a href="/blog/">← all posts</a></div><div class="article-header"><h1>GitHub Actions CI/CD: Automate Your Dev Workflow from Zero</h1><div class="article-meta"><span>2026-06-24</span><span class="dot">·</span><span>12 min read</span><span class="dot">·</span><span>by xbyteid</span></div><div class="tags"><span class="tag">CI/CD</span><span class="tag">GitHub</span><span class="tag">Automation</span><span class="tag">DevOps</span></div></div><div class="article-body"><p>GitHub Actions lets you automate everything from linting to deployment directly from your repository. Here's how to build real CI/CD pipelines that actually work in production.</p>
-<h2>Workflow Basics</h2><p>Every workflow lives in <code>.github/workflows/</code> as a YAML file. Here's a minimal Node.js CI pipeline:</p>
+.share-section{margin-top:52px;padding-top:28px;border-top:1px solid var(--border)}.share-section h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}.share-buttons{display:flex;gap:10px}.share-btn{font-size:.82rem;padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-dim);transition:all .2s;text-decoration:none;font-family:var(--font-mono)}.share-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-muted);text-decoration:none}.related{margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}.related h3{font-size:.9rem;font-weight:600;color:var(--text-dim);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}.related-list{list-style:none}.related-list li{margin-bottom:8px}.related-list a{font-size:.9rem}footer{margin-top:72px;padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:.8rem;color:var(--text-muted)}footer a{color:var(--text-dim);text-decoration:none}footer a:hover{color:var(--text)}@media(max-width:768px){.nav-links{display:none!important}.nav-toggle{display:block!important}.article-body pre{padding:14px;font-size:.78rem}}</style></head><body><nav><div class="nav-inner"><a href="/" class="nav-logo">xbyteid</a><ul class="nav-links" id="navLinks"><li><a href="/services.html">Services</a></li><li><a href="/work.html">Work</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#contact">Contact</a></li></ul></div></nav><div class="container"><div class="breadcrumb"><a href="/blog/">← all posts</a></div><div class="article-header"><h1>GitHub Actions CI/CD: Automate Your Dev Workflow from Zero</h1><div class="article-meta"><span>2026-06-24</span><span class="dot">·</span><span>12 min read</span><span class="dot">·</span><span>by xbyteid</span></div><div class="tags"><span class="tag">CI/CD</span><span class="tag">GitHub</span><span class="tag">Automation</span><span class="tag">DevOps</span></div></div><div class="article-body">
+<h2>Why GitHub Actions</h2>
+<p>GitHub Actions runs CI/CD workflows directly in your GitHub repository — no external service, no separate login, no webhook configuration. When you push code, a YAML file in <code>.github/workflows/</code> triggers a pipeline that can test, build, deploy, notify, and more. It's the most integrated CI/CD platform for GitHub-hosted projects, with 20,000+ community actions in the marketplace.</p>
+
+<h2>Workflow Basics</h2>
+<p>Every workflow lives in <code>.github/workflows/</code> as a YAML file. Here's a minimal Node.js CI pipeline:</p>
 <pre><code>name: CI
 on:
   push:
@@ -25,7 +29,31 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run lint</code></pre>
-<h2>Secrets Management</h2><p>Never hardcode credentials. Use GitHub Secrets for tokens, API keys, and deploy credentials:</p>
+<p>The <code>on</code> block defines triggers — push to <code>main</code>, pull requests targeting <code>main</code>. Jobs run on GitHub-hosted runners (Ubuntu, macOS, Windows). Each job gets a fresh VM — nothing persists between runs unless you use caching or artifacts.</p>
+
+<h3>Understanding the YAML Structure</h3>
+<p>A workflow has three levels:</p>
+<pre><code># Top level: name, triggers, permissions
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+
+# Job level: runner, dependencies, environment
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: staging
+
+# Step level: individual commands or actions
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test</code></pre>
+<p>Jobs run in parallel by default. Use <code>needs</code> to create dependencies between jobs. Steps within a job run sequentially and share the same filesystem.</p>
+
+<h2>Secrets Management</h2>
+<p>Never hardcode credentials. Use GitHub Secrets for tokens, API keys, and deploy credentials:</p>
 <pre><code>jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -39,7 +67,18 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: ./deploy.sh</code></pre>
 <p>Access secrets via <code>${{ secrets.MY_SECRET }}</code>. They're masked in logs automatically. Use Environment secrets for per-stage (staging/production) separation.</p>
-<h2>Matrix Builds</h2><p>Test across multiple versions and OS in parallel:</p>
+
+<h3>Secret Scoping</h3>
+<p>Three levels of secrets, each with different access:</p>
+<ul>
+<li><strong>Repository secrets</strong> — available to all workflows in the repo</li>
+<li><strong>Environment secrets</strong> — scoped to specific environments (staging, production). Can require manual approval before use.</li>
+<li><strong>Organization secrets</strong> — shared across repos. Use for common infra credentials (cloud provider keys, container registry tokens).</li>
+</ul>
+<p>Always use the narrowest scope. Production deploy keys should be environment-scoped with required reviewers. Never expose secrets to pull request workflows from forks — <code>pull_request</code> events from forks don't have access to secrets by default (this is intentional).</p>
+
+<h2>Matrix Builds</h2>
+<p>Test across multiple versions and OS in parallel:</p>
 <pre><code>jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -53,7 +92,24 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci && npm test</code></pre>
-<h2>Caching Dependencies</h2><p>Cache node_modules, pip packages, or any directory to speed up workflows:</p>
+<p>This creates 9 parallel jobs (3 OS × 3 Node versions). Use <code>fail-fast: false</code> to let all combinations complete even if one fails — useful for finding all compatibility issues at once.</p>
+
+<h3>Conditional Matrix Entries</h3>
+<p>Skip expensive combinations with <code>exclude</code> and <code>include</code>:</p>
+<pre><code>strategy:
+  matrix:
+    os: [ubuntu-latest, macos-latest, windows-latest]
+    node-version: [18, 20, 22]
+    exclude:
+      - os: windows-latest
+        node-version: 18  # don't test old Node on Windows
+    include:
+      - os: ubuntu-latest
+        node-version: 22
+        experimental: true  # add extra metadata</code></pre>
+
+<h2>Caching Dependencies</h2>
+<p>Cache node_modules, pip packages, or any directory to speed up workflows:</p>
 <pre><code>    steps:
       - uses: actions/cache@v4
         with:
@@ -61,7 +117,23 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-</code></pre>
 <p>Or use the built-in cache option in <code>actions/setup-node</code> and <code>actions/setup-python</code> — simpler and handles key generation automatically.</p>
-<h2>Deployment Workflows</h2><p>Deploy to different environments based on branch or tag:</p>
+
+<h3>Cache vs Artifacts</h3>
+<p><strong>Caches</strong> store dependencies between runs (node_modules, pip cache, Go modules). They're keyed by content hash and restored automatically. <strong>Artifacts</strong> store build outputs that downstream jobs need (compiled binaries, test reports, coverage data). Use <code>actions/upload-artifact</code> and <code>actions/download-artifact</code> for inter-job data transfer.</p>
+<pre><code># Upload in build job
+- uses: actions/upload-artifact@v4
+  with:
+    name: build-output
+    path: dist/
+
+# Download in deploy job
+- uses: actions/download-artifact@v4
+  with:
+    name: build-output
+    path: dist/</code></pre>
+
+<h2>Deployment Workflows</h2>
+<p>Deploy to different environments based on branch or tag:</p>
 <pre><code>name: Deploy
 on:
   push:
@@ -82,7 +154,28 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'</code></pre>
-<h2>Reusable Workflows</h2><p>Avoid duplication with reusable workflows. Create <code>.github/workflows/reusable-deploy.yml</code>:</p>
+
+<h3>Multi-Environment Deployment</h3>
+<p>Use environments for staging → production pipelines with approval gates:</p>
+<pre><code>jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - run: ./deploy.sh staging
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    environment:
+      name: production
+      url: https://myapp.com
+    steps:
+      - run: ./deploy.sh production</code></pre>
+<p>In your GitHub environment settings, add required reviewers for production. The workflow pauses until a reviewer approves the deployment — essential for production safety.</p>
+
+<h2>Reusable Workflows</h2>
+<p>Avoid duplication with reusable workflows. Create <code>.github/workflows/reusable-deploy.yml</code>:</p>
 <pre><code>on:
   workflow_call:
     inputs:
@@ -98,5 +191,158 @@ jobs:
       - uses: actions/checkout@v4
       - run: ./deploy.sh ${{ inputs.environment }}</code></pre>
 <p>Call it from other workflows: <code>uses: ./.github/workflows/reusable-deploy.yml</code></p>
-<div class="callout"><strong>Pro tip:</strong> Use <code>concurrency</code> groups to cancel in-progress runs when you push again: <code>concurrency: { group: deploy-${{ github.ref }}, cancel-in-progress: true }</code></div>
-<p>GitHub Actions is the most integrated CI/CD platform for GitHub-hosted projects. With caching, matrix builds, and reusable workflows, you can build pipelines that rival any dedicated CI service — without leaving your repo.</p></div><div class="share-section"><h3>Share</h3><div class="share-buttons"><a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html" target="_blank">𝕏 Twitter</a><a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html" target="_blank">Telegram</a></div></div><div class="related"><h3>Related</h3><ul class="related-list"><li><a href="/blog/docker-containers-beginners-practical-guide.html">Docker for Developers</a></li><li><a href="/blog/building-rest-apis-fastapi-python-2026.html">Building REST APIs with FastAPI</a></li></ul></div></div><footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a> · <a href="/privacy-policy.html">privacy policy</a></p></footer><script defer src="https://43.156.62.160/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script></body></html>
+
+<h3>Composite Actions</h3>
+<p>For reusable step sequences (not full workflows), use composite actions:</p>
+<pre><code># .github/actions/setup-project/action.yml
+name: Setup Project
+description: Install deps and configure environment
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with: { node-version: '20', cache: 'npm' }
+    - run: npm ci
+      shell: bash
+    - run: cp .env.example .env
+      shell: bash</code></pre>
+<p>Use in any workflow: <code>uses: ./.github/actions/setup-project</code>. Keeps your workflow files DRY.</p>
+
+<h2>Scheduled and Event-Driven Workflows</h2>
+<p>Run workflows on a schedule (cron) or in response to external events:</p>
+<pre><code># Run security scan every Monday at 9am UTC
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:  # manual trigger button
+
+# Trigger on issue creation
+on:
+  issues:
+    types: [opened]
+
+# Trigger on external webhook
+on:
+  repository_dispatch:
+    types: [deploy-command]</code></pre>
+<p><code>workflow_dispatch</code> adds a "Run workflow" button in the GitHub UI — useful for manual deploys, on-demand scans, or one-off tasks.</p>
+
+<h2>Performance Optimization</h2>
+<p>Speed up your pipelines with these techniques:</p>
+<ul>
+<li><strong>Parallelize independent jobs</strong> — lint, type-check, and test can run simultaneously</li>
+<li><strong>Use caching aggressively</strong> — npm, pip, Go modules, Docker layers</li>
+<li><strong>Fail fast</strong> — run the fastest checks first (lint before tests before builds)</li>
+<li><strong>Use larger runners</strong> — <code>ubuntu-latest-4-cores</code> for CPU-heavy builds (paid feature)</li>
+<li><strong>Skip unchanged paths</strong> — use <code>paths</code> filter to skip CI for docs-only changes</li>
+</ul>
+<pre><code>on:
+  push:
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.github/CODEOWNERS'</code></pre>
+
+<h2>Security in CI/CD</h2>
+<p>Your CI/CD pipeline is a high-value target — it has access to production credentials, deploy keys, and source code. Harden it:</p>
+<pre><code># Pin action versions to commit SHAs (not tags)
+# BAD - tag can be force-pushed to point to malicious code
+- uses: actions/checkout@v4
+
+# GOOD - immutable reference
+- uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1</code></pre>
+<ul>
+<li><strong>Pin actions to SHAs</strong> — tags can be force-pushed; commit SHAs are immutable</li>
+<li><strong>Use minimal permissions</strong> — set <code>permissions: contents: read</code> at workflow level, grant write only where needed</li>
+<li><strong>Audit third-party actions</strong> — review the source code before using it. A compromised action can exfiltrate secrets.</li>
+<li><strong>Use OIDC for cloud auth</strong> — instead of storing AWS/GCP keys as secrets, use GitHub's OIDC provider for short-lived tokens</li>
+</ul>
+<pre><code># OIDC-based AWS deployment (no long-lived keys)
+permissions:
+  id-token: write
+  contents: read
+
+steps:
+  - uses: aws-actions/configure-aws-credentials@v4
+    with:
+      role-to-assume: arn:aws:iam::123456789:role/github-actions
+      aws-region: us-east-1</code></pre>
+
+<h2>Cost Optimization</h2>
+<p>GitHub Actions pricing: 2,000 free minutes/month for private repos (unlimited for public). macOS runners cost 10x minutes, Windows costs 2x. Strategies to stay within free tier:</p>
+<ul>
+<li>Use Ubuntu runners (1x cost) over macOS/Windows when possible</li>
+<li>Cache dependencies aggressively to reduce build time</li>
+<li>Use <code>paths</code> filters to skip CI for docs-only changes</li>
+<li>Cancel redundant runs with concurrency groups</li>
+</ul>
+
+<div class="callout"><strong>Pro tip:</strong><h2>Real-World Pipeline: Full Stack Deploy</h2>
+<p>Here's a complete pipeline that tests, builds, and deploys a full-stack app with database migrations:</p>
+<pre><code>name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: "npm" }
+      - run: npm ci
+      - run: npm test
+        env:
+          DATABASE_URL: postgresql://postgres:test@localhost:5432/test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm run build
+      - run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - run: ./deploy.sh</code></pre>
+<p>The <code>services</code> key spins up a Postgres container alongside your test job — no external database needed for CI. The deploy job runs migrations before deploying, ensuring the database schema matches the new code.</p>
+
+<div class="callout"><strong>Pro tip:</strong> Use <code>concurrency</code> groups to cancel in-progress runs when you push again: <code>concurrency: { group: deploy-${{ github.ref }}, cancel-in-progress: true }</code>. This prevents wasted compute and avoids deploying stale commits.</div>
+
+<h2>Debugging Workflows</h2>
+<p>When workflows fail, these techniques help:</p>
+<ul>
+<li>Enable debug logging: set <code>ACTIONS_RUNNER_DEBUG</code> and <code>ACTIONS_STEP_DEBUG</code> secrets to <code>true</code></li>
+<li>Use <code>tmate</code> action for SSH into the runner: <code>mxschmitt/action-tmate@v3</code></li>
+<li>Add <code>run: env</code> to see all environment variables (secrets are masked)</li>
+<li>Use <code>act</code> to run workflows locally: <code>act -j test</code></li>
+</ul>
+
+<h2>Notifications and Integrations</h2>
+<p>Get notified when builds fail or deploys succeed. GitHub Actions integrates natively with Slack, Discord, Microsoft Teams, and email. Use community actions or simple webhook calls:</p>
+<pre><code>- name: Notify Slack
+  if: failure()
+  uses: slackapi/slack-github-action@v1
+  with:
+    payload: |
+      {"text": "Build failed on ${{ github.ref }} by ${{ github.actor }}"}
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}</code></pre>
+<p>Combine notifications with environment protection rules — get a Slack alert when a production deploy is pending approval, so the team can review before it goes live.</p>
+
+<h2>Wrapping Up</h2>
+<p>GitHub Actions is the most integrated CI/CD platform for GitHub-hosted projects. With caching, matrix builds, and reusable workflows, you can build pipelines that rival any dedicated CI service — without leaving your repo. Start with a simple test pipeline, add caching for speed, then layer on deployment and security scanning as your project matures.</p></div>
+<div class="share-section"><h3>Share</h3><div class="share-buttons"><a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html" target="_blank">𝕏 Twitter</a><a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html" target="_blank">Telegram</a></div></div><div class="related"><h3>Related</h3><ul class="related-list"><li><a href="/blog/docker-containers-beginners-practical-guide.html">Docker for Developers</a></li><li><a href="/blog/building-rest-apis-fastapi-python-2026.html">Building REST APIs with FastAPI</a></li></ul></div></div><footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a> · <a href="/privacy-policy.html">privacy policy</a></p></footer><script defer src="https://43.156.62.160/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script></body></html>

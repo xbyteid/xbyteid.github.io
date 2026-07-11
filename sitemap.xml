@@ -2,104 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xbyteid.codes/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://xbyteid.codes/services.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xbyteid.codes/work.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xbyteid.codes/about.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://xbyteid.codes/privacy-policy.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://xbyteid.codes/blog/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <loc>https://xbyteid.codes/blog/telegram-bot-python-production-2026.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/docker-containers-beginners-practical-guide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <loc>https://xbyteid.codes/blog/evm-chain-monitoring-python-2026.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <loc>https://xbyteid.codes/blog/self-hosted-analytics-2026.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/landing-page-cost-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <loc>https://xbyteid.codes/blog/playwright-automation-2026.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <loc>https://xbyteid.codes/blog/free-vps-cloud-2026.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/python-automation-scripts-developers-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/web-security-best-practices-developers-2026.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/build-rest-api-nodejs-express-2026.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/deploying-docker-containers-production-guide.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://xbyteid.codes/blog/python-automation-scripts-developer-productivity-2026.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>

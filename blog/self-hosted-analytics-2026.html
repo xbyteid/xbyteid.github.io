@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026 — xbyteid</title>
+<meta name="description" content="Compare self-hosted analytics alternatives to Google Analytics. Umami, Matomo, and Plausible compared on features, privacy, resource usage, and setup difficulty. Full Docker deployment guides included.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="analytics, umami, matomo, plausible, self-hosting, privacy, google analytics alternative, docker, 2026">
+<link rel="canonical" href="https://xbyteid.codes/blog/self-hosted-analytics-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/self-hosted-analytics-2026.html">
+<meta property="og:title" content="Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026">
+<meta property="og:description" content="Compare self-hosted analytics alternatives to Google Analytics. Umami, Matomo, and Plausible compared on features, privacy, resource usage, and setup difficulty. Full Docker deployment guides included.">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026">
+<meta name="twitter:description" content="Compare self-hosted analytics alternatives to Google Analytics. Umami, Matomo, and Plausible compared on features, privacy, resource usage, and setup difficulty. Full Docker deployment guides included.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026","description":"Compare self-hosted analytics alternatives to Google Analytics. Umami, Matomo, and Plausible compared on features, privacy, resource usage, and setup difficulty. Full Docker deployment guides included.","url":"https://xbyteid.codes/blog/self-hosted-analytics-2026.html","datePublished":"2026-07-11","author":{"@type":"Person","name":"xbyteid","url":"https://xbyteid.codes"},"publisher":{"@type":"Person","name":"xbyteid"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xbyteid.codes/blog/self-hosted-analytics-2026.html"}}
+</script>
+<style>:root {
+  --bg: #0a0a0b; --bg-card: #111114; --bg-card-hover: #16161a;
+  --border: #1e1e24; --border-hover: #2a2a33;
+  --text: #e4e4e7; --text-dim: #71717a; --text-muted: #52525b;
+  --accent: #3b82f6; --accent-muted: rgba(59,130,246,0.1);
+  --green: #22c55e; --yellow: #eab308; --red: #ef4444;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 10px; --nav-height: 64px;
+}
+[data-theme='light'] {
+  --bg: #ffffff; --bg-card: #f4f4f5; --bg-card-hover: #e4e4e7;
+  --border: #d4d4d8; --border-hover: #a1a1aa;
+  --text: #18181b; --text-dim: #52525b; --text-muted: #71717a;
+  --accent: #2563eb; --accent-muted: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #60a5fa; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.8); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); height: var(--nav-height); display: flex; align-items: center; }
+[data-theme='light'] nav { background: rgba(255,255,255,0.85); }
+.nav-inner { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+.nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-dim); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; text-decoration: none; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin: 40px 0 20px; font-family: var(--font-mono); }
+.breadcrumb a { color: var(--text-dim); }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.article-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.article-header h1 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: var(--text); letter-spacing: -0.02em; }
+.article-meta { display: flex; gap: 8px; align-items: center; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 14px; flex-wrap: wrap; }
+.dot { color: var(--text-muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 0.68rem; padding: 3px 10px; border-radius: 100px; background: var(--accent-muted); color: var(--accent); font-family: var(--font-mono); border: 1px solid rgba(59,130,246,0.15); }
+.article-body { font-size: 1rem; }
+.article-body h2 { font-size: 1.35rem; font-weight: 700; margin: 48px 0 16px; color: var(--text); letter-spacing: -0.01em; }
+.article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+.article-body p { margin-bottom: 18px; color: var(--text-dim); }
+.article-body ul, .article-body ol { margin: 0 0 18px 24px; color: var(--text-dim); }
+.article-body li { margin-bottom: 8px; }
+.article-body pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; overflow-x: auto; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; }
+.article-body code { font-family: var(--font-mono); font-size: 0.88em; }
+.article-body p code, .article-body li code { background: var(--accent-muted); padding: 2px 7px; border-radius: 4px; color: var(--accent); }
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 20px 0; background: var(--accent-muted); border-radius: 0 8px 8px 0; }
+.article-body blockquote p { margin-bottom: 0; color: var(--text-dim); }
+.callout { background: var(--accent-muted); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 18px 20px; margin: 24px 0; }
+.callout strong { color: var(--accent); }
+.share-section { margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--border); }
+.share-section h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.share-buttons { display: flex; gap: 10px; }
+.share-btn { font-size: 0.82rem; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); transition: all 0.2s; text-decoration: none; font-family: var(--font-mono); }
+.share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); text-decoration: none; }
+.related { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+.related h3 { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.related-list { list-style: none; }
+.related-list li { margin-bottom: 8px; }
+.related-list a { font-size: 0.9rem; }
+footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--text); }
+@media (max-width: 768px) { .nav-links { display: none !important; } .nav-toggle { display: block !important; } .article-body pre { padding: 14px; font-size: 0.78rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+<li><a href="/services.html">Services</a></li>
+<li><a href="/work.html">Work</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026</h1>
+    <div class="article-meta">
+      <span>2026-07-11</span>
+      <span class="dot">·</span>
+      <span>13 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags"><span class="tag">Analytics</span><span class="tag">Privacy</span><span class="tag">Self-Hosting</span><span class="tag">DevOps</span></div>
+  </div>
+  <div class="article-body">
+
+    <p>Google Analytics is the default for most websites, but it comes with a cost: privacy concerns, cookie consent banners, GDPR headaches, and giving Google even more data about your visitors. In 2026, self-hosted analytics alternatives are mature, lightweight, and easy to deploy. I've tested three of the best — here's what actually works.</p>
+
+    <h2>The Contenders</h2>
+    <ul>
+      <li><strong>Umami</strong> — Node.js + PostgreSQL/MySQL. Ultra-lightweight script (2KB), real-time dashboard, privacy-first (no cookies, no personal data). My personal choice.</li>
+      <li><strong>Matomo</strong> — PHP + MySQL. The most feature-rich alternative. Full Google Analytics replacement with heatmaps, session recordings, A/B testing. Heavier resource usage.</li>
+      <li><strong>Plausible</strong> — Elixir + ClickHouse. Beautiful single-page dashboard, <1KB script, EU-hosted option. Open source but the hosted version is paid.</li>
+    </ul>
+
+    <h2>Quick Comparison</h2>
+    <ul>
+      <li><strong>Script size:</strong> Plausible (&lt;1KB) &lt; Umami (2KB) &lt;&lt; Matomo (22KB) &lt;&lt; GA4 (45KB)</li>
+      <li><strong>Memory usage:</strong> Umami (~100MB) &lt; Plausible (~500MB with ClickHouse) &lt; Matomo (~1GB+)</li>
+      <li><strong>Features:</strong> Matomo (most) &gt; Umami (good) &gt; Plausible (basic but clean)</li>
+      <li><strong>Setup difficulty:</strong> Umami (easiest) &lt; Plausible (moderate) &lt; Matomo (complex)</li>
+      <li><strong>Database:</strong> Umami supports PostgreSQL or MySQL. Matomo needs MySQL. Plausible requires ClickHouse (resource-heavy).</li>
+    </ul>
+
+    <h2>Deploying Umami with Docker</h2>
+    <p>Umami is the easiest to self-host. One Docker Compose file and you're running:</p>
+    <pre><code># docker-compose.yml
+version: '3'
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: your-random-secret-here
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - umami-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  umami-db:</code></pre>
+    <p>Run: <code>docker compose up -d</code></p>
+    <p>Default login: <code>admin</code> / <code>umami</code>. Change the password immediately. Add your website in the dashboard, copy the tracking script, and paste it into your HTML <code>&lt;head&gt;</code>:</p>
+    <pre><code>&lt;script defer src="https://analytics.yourdomain.com/script.js" data-website-id="your-website-id"&gt;&lt;/script&gt;</code></pre>
+
+    <h2>Nginx Reverse Proxy</h2>
+    <p>Put Nginx in front for SSL and a clean domain:</p>
+    <pre><code>server {{
+    listen 443 ssl http2;
+    server_name analytics.yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/analytics.yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/analytics.yourdomain.com/privkey.pem;
+
+    location / {{
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }}
+}}</code></pre>
+
+    <h2>Deploying Plausible</h2>
+    <p>Plausible requires ClickHouse, which uses more memory (~500MB minimum):</p>
+    <pre><code># docker-compose.yml
+version: '3'
+services:
+  plausible:
+    image: ghcr.io/plausible/community-edition:v2.1
+    ports:
+      - "8000:8000"
+    environment:
+      BASE_URL: https://analytics.yourdomain.com
+      SECRET_KEY_BASE: your-random-secret-64-chars
+      DATABASE_URL: postgres://postgres:postgres@plausible_db:5432/plausible
+      CLICKHOUSE_DATABASE_URL: http://plausible_events_db:8123/plausible
+    depends_on:
+      - plausible_db
+      - plausible_events_db
+    restart: unless-stopped
+
+  plausible_db:
+    image: postgres:15-alpine
+    volumes:
+      - plausible-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    restart: unless-stopped
+
+  plausible_events_db:
+    image: clickhouse/clickhouse-server:24.3-alpine
+    volumes:
+      - event-data:/var/lib/clickhouse
+      - event-logs:/var/log/clickhouse-server
+    restart: unless-stopped
+
+volumes:
+  plausible-db:
+  event-data:
+  event-logs:</code></pre>
+
+    <h2>Deploying Matomo</h2>
+    <p>Matomo is PHP-based, needs MySQL, and uses more resources. But it's the most feature-complete:</p>
+    <pre><code># docker-compose.yml
+version: '3'
+services:
+  matomo:
+    image: matomo:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - matomo-data:/var/www/html
+    environment:
+      MATOMO_DATABASE_HOST: matomo-db
+      MATOMO_DATABASE_ADAPTER: mysql
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_USERNAME: matomo
+      MATOMO_DATABASE_PASSWORD: matomo
+      MATOMO_DATABASE_DBNAME: matomo
+    depends_on:
+      - matomo-db
+    restart: unless-stopped
+
+  matomo-db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: matomo
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - matomo-db:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  matomo-data:
+  matomo-db:</code></pre>
+
+    <h2>My Setup: Umami on a $5 VPS</h2>
+    <p>I run Umami on the same VPS as my other tools. It uses about 100MB of RAM and handles traffic from multiple websites without breaking a sweat. The dashboard is fast, the data is accurate, and I don't need to worry about cookie consent banners or GDPR compliance.</p>
+    <p>Key configuration I use:</p>
+    <ul>
+      <li><strong>PostgreSQL</strong> over MySQL — better for concurrent writes</li>
+      <li><strong>Nginx reverse proxy</strong> with SSL via Let's Encrypt</li>
+      <li><strong>Systemd service</strong> for auto-restart on crash</li>
+      <li><strong>Backup</strong> — daily <code>pg_dump</code> to a separate directory</li>
+    </ul>
+
+    <h2>Tracking Script Placement</h2>
+    <p>Where you put the tracking script matters. Always place it in the <code>&lt;head&gt;</code> section, not at the bottom of <code>&lt;body&gt;</code>. This ensures it captures page views even if the user navigates away before the full page loads:</p>
+    <pre><code>&lt;head&gt;
+  &lt;!-- other head content --&gt;
+  &lt;script defer src="https://analytics.yourdomain.com/script.js" 
+          data-website-id="abc-123"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+    <p>The <code>defer</code> attribute ensures it doesn't block page rendering.</p>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> If you're migrating from Google Analytics, keep both scripts running for 2-4 weeks to compare numbers. Umami/Plausible typically show 10-20% fewer pageviews than GA because they don't count bots and don't use cookies (so returning visitors aren't double-counted). This is actually more accurate.
+    </div>
+
+    <h2>When to Choose Each</h2>
+    <ul>
+      <li><strong>Umami:</strong> You want something simple, lightweight, and easy to maintain. Perfect for personal sites, portfolios, small businesses. Runs on minimal resources.</li>
+      <li><strong>Plausible:</strong> You want the cleanest dashboard and don't mind the higher memory usage from ClickHouse. Good for marketing-focused sites that need UTM tracking.</li>
+      <li><strong>Matomo:</strong> You need full GA replacement — heatmaps, session recordings, A/B testing, custom dimensions, e-commerce tracking. Worth the extra complexity for large sites.</li>
+    </ul>
+    <p>For most developers self-hosting analytics, <strong>Umami is the sweet spot</strong> — simple enough to set up in 5 minutes, powerful enough for real-world use, and light enough to run alongside your other services on a cheap VPS.</p>
+
+  </div>
+  <div class="share-section">
+    <h3>Share</h3>
+    <div class="share-buttons">
+      <a class="share-btn" href="https://x.com/intent/tweet?url=https://xbyteid.codes/blog/self-hosted-analytics-2026.html" target="_blank">𝕏 Twitter</a>
+      <a class="share-btn" href="https://t.me/share/url?url=https://xbyteid.codes/blog/self-hosted-analytics-2026.html" target="_blank">Telegram</a>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related</h3>
+    <ul class="related-list">
+<li><a href="/blog/deploying-docker-containers-production-guide.html">Deploying Docker Containers to Production</a></li><li><a href="/blog/web-security-best-practices-developers-2026.html">Web Security Best Practices</a></li><li><a href="/blog/free-vps-cloud-2026.html">Free VPS Guide 2026</a></li>
+    </ul>
+  </div>
+</div>
+<footer><p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a> · <a href="/privacy-policy.html">privacy policy</a></p></footer>
+<script defer src="https://43.156.62.160/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>
