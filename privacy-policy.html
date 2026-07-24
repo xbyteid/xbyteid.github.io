@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/base.css">
 <style>
 :root {
   --bg: #0a0a0b;
@@ -41,7 +42,6 @@
   --accent: #2563eb;
   --accent-hover: #3b82f6;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: var(--font-sans);
   background: var(--bg);
@@ -50,7 +50,6 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--accent-hover); }
 .container {
@@ -71,7 +70,6 @@ nav {
   display: flex;
   align-items: center;
 }
-[data-theme='light'] nav { background: rgba(255,255,255,0.88); }
 .nav-inner {
   width: min(100%, var(--nav-max));
   margin: 0 auto;
@@ -89,8 +87,6 @@ nav {
   text-decoration: none;
   letter-spacing: -0.02em;
 }
-.nav-right { display: flex; align-items: center; gap: 2px; }
-.nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
 .nav-links a {
   font-family: var(--font-mono);
   color: var(--text-dim);
@@ -101,7 +97,6 @@ nav {
   transition: color 0.2s var(--ease), background 0.2s var(--ease);
 }
 .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.03); text-decoration: none; }
-[data-theme='light'] .nav-links a:hover { background: rgba(0,0,0,0.03); }
 h1 {
   font-family: var(--font-mono);
   font-size: clamp(1.75rem, 4vw, 2.25rem);
@@ -138,9 +133,6 @@ footer a { color: var(--text-dim); }
 footer a:hover { color: var(--accent); }
 [data-theme='light'] footer a:hover { color: #2563eb; }
 
-.nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; }
-.nav-toggle svg { width: 18px; height: 18px; }
-
 .theme-toggle {
   background: none;
   border: 1px solid var(--border);
@@ -156,12 +148,6 @@ footer a:hover { color: var(--accent); }
   margin-left: 8px;
   transition: border-color 0.2s, color 0.2s;
 }
-.theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
-.theme-toggle svg { width: 16px; height: 16px; }
-.theme-toggle .icon-sun { display: none; }
-.theme-toggle .icon-moon { display: block; }
-[data-theme='light'] .theme-toggle .icon-sun { display: block; }
-[data-theme='light'] .theme-toggle .icon-moon { display: none; }
 
 .scroll-top {
   position: fixed;
@@ -219,8 +205,7 @@ footer a:hover { color: var(--accent); }
   h2 { font-size: 1rem !important; }
   p, li { font-size: 0.875rem !important; }
   .scroll-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
-}
-</style>
+}</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
 <script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -314,56 +299,7 @@ footer a:hover { color: var(--accent); }
   </div>
 </footer>
 
-<script>
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-const scrollTopBtn = document.querySelector('.scroll-top');
-if (scrollTopBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) scrollTopBtn.classList.add('visible');
-    else scrollTopBtn.classList.remove('visible');
-  }, { passive: true });
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-(function(){
-  const toggle = document.getElementById('themeToggle');
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') document.documentElement.setAttribute('data-theme','light');
-  if (toggle) toggle.addEventListener('click', function(){
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-})();
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && navLinks) {
-    navLinks.classList.remove('open');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  }
-});
-</script>
+<script src="/assets/js/site.js"></script>
 
 <button class="scroll-top" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
