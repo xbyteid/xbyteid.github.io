@@ -39,11 +39,11 @@
     "@type": "OfferCatalog",
     "name": "Web Development Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page", "description": "Single-page marketing site, responsive, SEO-optimized" }, "price": "499", "priceCurrency": "USD" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application", "description": "Custom web app with auth, database, API integration" }, "price": "1500", "priceCurrency": "USD" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce", "description": "Full online store with payments, inventory, admin panel" }, "price": "2500", "priceCurrency": "USD" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Development", "description": "REST/GraphQL API design, development, documentation" }, "price": "800", "priceCurrency": "USD" },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bot Development", "description": "Telegram, Discord, or custom bots with automation" }, "price": "500", "priceCurrency": "USD" }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page", "description": "Single-page marketing site, responsive, SEO-optimized. Pricing via DM." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application", "description": "Custom web app with auth, database, API integration. Pricing via DM." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce", "description": "Full online store with payments, inventory, admin panel. Pricing via DM." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Development", "description": "REST/GraphQL API design, development, documentation. Pricing via DM." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bot Development", "description": "Telegram, Discord, or custom bots with automation. Pricing via DM." } }
     ]
   }
 }
@@ -69,9 +69,11 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --nav-height: 64px;
-  --section-gap: clamp(80px, 12vw, 140px);
+  --section-gap: clamp(88px, 12vw, 140px);
   --container: min(800px, 90vw);
   --radius: 8px;
+  --nav-max: 1200px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 1280px) {
@@ -109,6 +111,7 @@ body {
 }
 
 ::selection { background: rgba(59,130,246,0.2); color: var(--text); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 a { color: inherit; text-decoration: none; }
 
 .container {
@@ -117,13 +120,13 @@ a { color: inherit; text-decoration: none; }
   padding: 0 20px;
 }
 
-/* ── Nav ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
   background: rgba(10,10,11,0.82);
   backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
   display: flex;
@@ -132,11 +135,13 @@ nav {
 [data-theme='light'] nav { background: rgba(255,255,255,0.88); }
 
 .nav-inner {
-  width: 100%;
+  width: min(100%, var(--nav-max));
+  margin: 0 auto;
   padding: 0 clamp(24px, 5vw, 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-logo {
@@ -158,13 +163,15 @@ nav {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--text-dim);
-  padding: 10px 16px;
-  border-radius: 4px;
-  transition: color 0.2s;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
 }
-.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.03); }
+[data-theme='light'] .nav-links a:hover,
+[data-theme='light'] .nav-links a.active { background: rgba(0,0,0,0.03); }
 
 .theme-toggle {
   background: none;
@@ -172,7 +179,7 @@ nav {
   color: var(--text-dim);
   cursor: pointer;
   padding: 6px;
-  border-radius: 4px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,15 +205,14 @@ nav {
 }
 .nav-toggle svg { width: 18px; height: 18px; }
 
-/* ── Page Header ── */
 .page-header {
-  padding-top: calc(var(--nav-height) + clamp(60px, 10vh, 120px));
-  padding-bottom: clamp(40px, 6vh, 80px);
+  padding-top: calc(var(--nav-height) + clamp(56px, 10vh, 110px));
+  padding-bottom: clamp(36px, 6vh, 64px);
 }
 
 .page-header h1 {
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.1;
@@ -214,64 +220,56 @@ nav {
 }
 
 .page-header p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--text-dim);
   max-width: 560px;
   line-height: 1.7;
 }
 
-/* ── Service Cards ── */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 14px;
+  margin-top: 32px;
 }
 
 .service-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 32px;
-  transition: border-color 0.25s, transform 0.25s;
+  padding: 28px;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .service-card:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--accent-muted), 0 16px 40px rgba(0,0,0,0.28);
+}
+[data-theme='light'] .service-card:hover {
+  box-shadow: 0 0 0 1px var(--accent-muted), 0 14px 36px rgba(0,0,0,0.14);
 }
 
 .service-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .service-name {
   font-family: var(--font-mono);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--text);
-}
-
-.service-price {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--accent);
-  background: var(--accent-muted);
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-weight: 600;
-  white-space: nowrap;
 }
 
 .service-desc {
   color: var(--text-dim);
   font-size: 0.9375rem;
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .service-includes {
@@ -283,7 +281,7 @@ nav {
 
 .service-includes li {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
@@ -294,9 +292,13 @@ nav {
   background: rgba(0,0,0,0.03);
 }
 
-/* ── Process ── */
-.process-section {
-  margin-top: var(--section-gap);
+.process-section { margin-top: var(--section-gap); }
+
+.process-section h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 .process-grid {
@@ -316,7 +318,7 @@ nav {
   left: 0;
   top: 0;
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
@@ -336,7 +338,6 @@ nav {
   line-height: 1.6;
 }
 
-/* ── CTA ── */
 .cta-section {
   margin-top: var(--section-gap);
   padding: 48px 0;
@@ -358,25 +359,26 @@ nav {
 }
 
 .cta-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.9375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
   background: var(--accent);
   color: #fff;
-  padding: 14px 32px;
+  padding: 12px 24px;
   border-radius: var(--radius);
   transition: background 0.2s, transform 0.15s;
 }
 .cta-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
+  color: #fff;
 }
 
-/* ── Footer ── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 28px 0;
+  padding: 40px 0 48px;
   margin-top: var(--section-gap);
 }
 
@@ -385,63 +387,81 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .footer-copy {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
 }
 
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 
 .footer-links a {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
   transition: color 0.2s;
+  position: relative;
 }
-.footer-links a:hover { color: var(--text); }
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover::after { width: 100%; }
+[data-theme='light'] .footer-links a:hover { color: #2563eb; }
 
-/* ── Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .service-card, .cta-btn { transition: none; }
+  .service-card:hover, .cta-btn:hover { transform: none; }
 }
 
-/* ── Mobile ── */
 @media (max-width: 768px) {
+  body { font-size: 14px; }
   .nav-links {
     display: none;
     position: absolute;
-    top: var(--nav-height);
+    top: 100%;
     left: 0;
     right: 0;
-    background: var(--bg);
+    background: rgba(10,10,11,0.97);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
-    padding: 8px 0;
+    padding: 12px clamp(24px, 5vw, 48px) 16px;
+    align-items: flex-start;
   }
+  [data-theme='light'] .nav-links.open { background: rgba(255,255,255,0.97); }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 24px; }
+  .nav-links a { padding: 10px 0; font-size: 0.9375rem; }
   .nav-toggle { display: block; }
 
   .page-header h1 { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
-  .service-card { padding: 24px; }
-  .service-name { font-size: 1.1rem !important; }
+  .page-header p { font-size: 0.9375rem !important; }
+  .service-card { padding: 20px 16px; }
+  .service-name { font-size: 1rem !important; }
+  .service-desc { font-size: 0.875rem !important; }
   .process-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-}
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-copy, .footer-links a { font-size: 0.8125rem !important; }
+  }
 </style>
+<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
 </head>
 
 <body>
@@ -460,7 +480,7 @@ footer {
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
@@ -483,7 +503,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">Landing Page</span>
+        <strong class="service-name">Landing Page</strong>
       </div>
       <p class="service-desc">Single-page marketing site that converts. Responsive, fast-loading, SEO-optimized. Built with modern frameworks — not a WordPress template.</p>
       <ul class="service-includes">
@@ -497,7 +517,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">Web Application</span>
+        <strong class="service-name">Web Application</strong>
       </div>
       <p class="service-desc">Custom web app with auth, database, and API integrations. Dashboards, SaaS tools, admin panels — whatever your business needs.</p>
       <ul class="service-includes">
@@ -511,7 +531,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">E-commerce</span>
+        <strong class="service-name">E-commerce</strong>
       </div>
       <p class="service-desc">Full online store with payments, inventory management, and a clean checkout flow. Not Shopify — custom-built for your exact needs.</p>
       <ul class="service-includes">
@@ -525,7 +545,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">API Development</span>
+        <strong class="service-name">API Development</strong>
       </div>
       <p class="service-desc">REST or GraphQL API design, development, and documentation. Clean architecture, proper error handling, and built to scale.</p>
       <ul class="service-includes">
@@ -539,7 +559,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">Bot Development</span>
+        <strong class="service-name">Bot Development</strong>
       </div>
       <p class="service-desc">Telegram, Discord, or custom bots with automation. Payment processing, notifications, data scraping, or whatever you need automated.</p>
       <ul class="service-includes">
@@ -553,7 +573,7 @@ footer {
 
     <div class="service-card reveal">
       <div class="service-header">
-        <span class="service-name">Automation & Scripts</span>
+        <strong class="service-name">Automation & Scripts</strong>
       </div>
       <p class="service-desc">Data pipelines, scraping tools, workflow automation. Python scripts that save you hours of manual work every week.</p>
       <ul class="service-includes">
@@ -568,7 +588,7 @@ footer {
   </div>
 
   <div class="process-section reveal">
-    <h2 style="font-family:var(--font-mono);font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:700;letter-spacing:-0.03em;">How I Work</h2>
+    <h2>How I Work</h2>
     <div class="process-grid">
       <div class="process-step">
         <span class="process-num">01</span>
@@ -595,7 +615,7 @@ footer {
 
   <div class="cta-section reveal">
     <h2>Ready to build?</h2>
-    <p>Tell me what you need. I'll reply within 24 hours with a quote.</p>
+    <p>Tell me what you need. Pricing via DM — reply within 24 hours.</p>
     <a href="/#contact" class="cta-btn">Get in touch →</a>
   </div>
 
@@ -611,7 +631,7 @@ footer {
         <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
         <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/privacy-policy.html">Privacy</a>
       </div>
     </div>
   </div>
@@ -620,27 +640,53 @@ footer {
 <script>
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotion) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+} else {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
     }
   });
-}, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
 
-const saved = localStorage.getItem('theme');
-if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  document.documentElement.setAttribute('data-theme', isLight ? '' : 'light');
-  localStorage.setItem('theme', isLight ? 'dark' : 'light');
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
 });
 </script>
 

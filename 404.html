@@ -7,19 +7,23 @@
 <meta name="theme-color" content="#0a0a0b">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0a0a0b;
   --border: #1e1e24;
   --text: #e4e4e7;
-  --text-dim: #71717a;
-  --text-muted: #52525b;
+  --text-dim: #a1a1aa;
+  --text-muted: #8b8b96;
   --accent: #3b82f6;
-  --font-sans: 'Inter', sans-serif;
+  --accent-hover: #60a5fa;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --radius: 8px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,13 +41,16 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .mesh-bg {
   position: fixed;
   inset: -80px;
   background:
-    radial-gradient(circle at 30% 40%, rgba(59,130,246,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 30% 40%, rgba(59,130,246,0.07) 0%, transparent 50%),
     radial-gradient(circle at 70% 60%, rgba(59,130,246,0.04) 0%, transparent 55%);
   pointer-events: none;
   z-index: 0;
@@ -59,23 +66,28 @@ body {
 
 .error-code {
   font-family: var(--font-mono);
-  font-size: clamp(5rem, 18vw, 8rem);
+  font-size: clamp(5rem, 18vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   color: var(--text);
   line-height: 1;
   margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .error-title {
-  font-size: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 12px;
   color: var(--text);
 }
 
 .error-desc {
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   color: var(--text-dim);
   line-height: 1.65;
   margin-bottom: 32px;
@@ -85,24 +97,25 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 12px 22px;
   background: var(--accent);
-  border-radius: 8px;
+  border-radius: var(--radius);
   color: #fff;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.15s var(--ease);
 }
 
 .home-link:hover {
-  background: #60a5fa;
+  background: var(--accent-hover);
   transform: translateY(-1px);
   color: #fff;
 }
 
 .secondary-links {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -110,18 +123,31 @@ body {
 }
 
 .secondary-links a {
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .secondary-links a:hover { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-link { transition: none; }
+  .home-link:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .error-title { font-size: 1rem !important; }
+  .error-desc { font-size: 0.875rem !important; }
+  .home-link { font-size: 0.8125rem !important; }
+}
 </style>
 </head>
 <body>
 
-<div class="mesh-bg"></div>
+<div class="mesh-bg" aria-hidden="true"></div>
 
 <div class="container">
   <div class="error-code">404</div>
@@ -129,9 +155,10 @@ body {
   <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
   <a href="/" class="home-link">← Back to Home</a>
   <div class="secondary-links">
-    <a href="/blog/">Blog</a>
-    <a href="/about.html">About</a>
-    <a href="/#contact">Contact</a>
+    <a href="/services.html">services</a>
+    <a href="/work.html">work</a>
+    <a href="/blog/">blog</a>
+    <a href="/#contact">contact</a>
   </div>
 </div>
 
