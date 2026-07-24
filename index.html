@@ -845,8 +845,8 @@ a.project-name:hover { color: var(--accent); }
     if (e.key !== 'Enter') return;
     const val = input.value.trim().toLowerCase();
     appendLine('$ ' + val);
-    if (val === 'clear') { out.innerHTML = ''; }
-    else if (cmds[val]) appendLine('→ ' + cmds[val]);
+    if (val === 'clear') { out.replaceChildren(); }
+    else if (Object.prototype.hasOwnProperty.call(cmds, val)) appendLine('→ ' + cmds[val]);
     else if (val) appendLine('command not found. try help');
     input.value = '';
     out.scrollTop = out.scrollHeight;

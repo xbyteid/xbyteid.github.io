@@ -6,9 +6,26 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function readStoredTheme() {
+    try {
+      return localStorage.getItem('theme');
+    } catch (err) {
+      console.warn('theme: localStorage unavailable, falling back to default', err);
+      return null;
+    }
+  }
+
+  function storeTheme(value) {
+    try {
+      localStorage.setItem('theme', value);
+    } catch (err) {
+      console.warn('theme: unable to persist preference', err);
+    }
+  }
+
   /* ── Theme ── */
   var themeBtn = document.getElementById('themeToggle');
-  var savedTheme = localStorage.getItem('theme');
+  var savedTheme = readStoredTheme();
   if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
   syncThemeLabel();
 
@@ -24,7 +41,7 @@
       var isLight = document.documentElement.getAttribute('data-theme') === 'light';
       if (isLight) document.documentElement.removeAttribute('data-theme');
       else document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      storeTheme(isLight ? 'dark' : 'light');
       syncThemeLabel();
     });
   }
@@ -56,7 +73,7 @@
   /* ── Reveal on scroll ── */
   var revealables = document.querySelectorAll('.reveal');
   if (revealables.length) {
-    if (reduceMotion) {
+    if (reduceMotion || typeof IntersectionObserver !== 'function') {
       revealables.forEach(function (el) { el.classList.add('visible'); });
     } else {
       var observer = new IntersectionObserver(function (entries) {
@@ -76,8 +93,17 @@
     anchor.addEventListener('click', function (e) {
       var href = anchor.getAttribute('href');
       if (href === '#') return;
-      var target = document.querySelector(href);
-      if (!target) return;
+      var target;
+      try {
+        target = document.querySelector(href);
+      } catch (err) {
+        console.warn('smooth scroll: invalid target selector ' + href, err);
+        return;
+      }
+      if (!target) {
+        console.warn('smooth scroll: no element matches ' + href);
+        return;
+      }
       e.preventDefault();
       var navHeight =
         parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 56;
@@ -115,10 +141,11 @@
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        if (!res.ok) throw new Error('failed');
+        if (!res.ok) throw new Error('contact form: ' + res.status + ' ' + (res.statusText || ''));
         if (status) { status.textContent = "sent. i'll get back to you."; status.className = 'form-status success'; }
         form.reset();
-      } catch {
+      } catch (err) {
+        console.error('contact form submission failed', err);
         if (status) { status.textContent = 'error — try telegram @xbyteid'; status.className = 'form-status error'; }
       } finally {
         if (submitBtn) submitBtn.disabled = false;
@@ -128,5 +155,7 @@
   }
 
   /* ── Page fade-in (opt-in via <body data-page-fade>) ── */
-  if (document.body.dataset.pageFade !== undefined) document.body.classList.add('page-fade');
+  if (document.body && document.body.dataset.pageFade !== undefined) {
+    document.body.classList.add('page-fade');
+  }
 })();

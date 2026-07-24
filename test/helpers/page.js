@@ -5,8 +5,18 @@ import { JSDOM, VirtualConsole } from 'jsdom';
 
 export const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
+const SITE_JS = readFileSync(join(repoRoot, 'assets/js/site.js'), 'utf8');
+
+/**
+ * Inline first-party /assets/js/site.js so jsdom can execute it without network.
+ * External third-party scripts (ads, analytics) stay as-is and are never fetched.
+ */
 export function readPage(relativePath) {
-  return readFileSync(join(repoRoot, relativePath), 'utf8');
+  const html = readFileSync(join(repoRoot, relativePath), 'utf8');
+  return html.replace(
+    /<script\b[^>]*\bsrc=["']\/assets\/js\/site\.js["'][^>]*>\s*<\/script>/gi,
+    () => `<script>${SITE_JS}</script>`
+  );
 }
 
 class FakeIntersectionObserver {
@@ -34,10 +44,10 @@ class FakeIntersectionObserver {
 }
 
 /**
- * Loads a page from the repository into jsdom, runs its inline scripts and
- * resolves once DOMContentLoaded has fired. External scripts (ads, analytics)
- * are never fetched because jsdom resources stay disabled, so only
- * first-party behaviour is exercised.
+ * Loads a page from the repository into jsdom, runs its scripts (inline +
+ * inlined first-party site.js) and resolves once DOMContentLoaded has fired.
+ * External third-party scripts are never fetched because jsdom resources stay
+ * disabled.
  */
 export async function loadPage(relativePath, { reduceMotion = false, storage = {}, fetchImpl } = {}) {
   const virtualConsole = new VirtualConsole();
