@@ -2,13 +2,14 @@
 
 ## Getting Started
 1. Fork the repository
-2. Create a feature branch from `dev`
+2. Create a feature branch from `main`
 3. Make your changes
-4. Test thoroughly
-5. Submit a pull request to `dev`
+4. Run `npm test`
+5. Submit a pull request to `main`
 
 ## Testing
-The site has no build step, but the inline page scripts and static assets are covered by a
+The site has no build step. Shared behaviour lives in `assets/js/site.js`; page-specific
+scripts stay inline. Both are covered by a
 [Vitest](https://vitest.dev) + [jsdom](https://github.com/jsdom/jsdom) suite that loads the real HTML files.
 
 ```bash

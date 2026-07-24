@@ -5,8 +5,9 @@ description: How to serve, run tests against, and browser-test the xbyteid.githu
 
 # Testing xbyteid.github.io
 
-Pure static site — **no build step**, no framework, no credentials required. All page
-logic lives inline in `<script>` blocks at the bottom of each `.html` file.
+Pure static site — **no build step**, no framework, no credentials required. Shared
+behaviour lives in `assets/js/site.js`; page-specific logic (terminal egg, blog tag
+filters) stays in inline `<script>` blocks.
 
 ## Serving locally
 
