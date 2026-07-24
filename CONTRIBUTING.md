@@ -7,6 +7,24 @@
 4. Test thoroughly
 5. Submit a pull request to `dev`
 
+## Testing
+The site has no build step, but the inline page scripts and static assets are covered by a
+[Vitest](https://vitest.dev) + [jsdom](https://github.com/jsdom/jsdom) suite that loads the real HTML files.
+
+```bash
+npm install
+npm test          # run the suite once
+npm run test:watch
+npm run coverage
+```
+
+Note that `npm run coverage` only instruments the Node-side test helpers: the page scripts run inside jsdom,
+so v8 cannot attribute coverage to them. Behavioural assertions, not the coverage number, are the signal here.
+
+`test/fixtures/known-issues.json` lists content bugs that already exist on `main` (dead links, sitemap and
+feed gaps). The suite tolerates those entries so it stays green, but fails on any *new* occurrence — when you
+fix one, delete it from that file.
+
 ## Guidelines
 - Keep commits atomic and well-described
 - Follow existing code style and conventions
