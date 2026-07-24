@@ -450,6 +450,23 @@ footer a:hover { color: var(--text); }
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  function readStoredTheme() {
+    try {
+      return localStorage.getItem('theme');
+    } catch (err) {
+      console.warn('theme: localStorage unavailable, falling back to default', err);
+      return null;
+    }
+  }
+
+  function storeTheme(value) {
+    try {
+      localStorage.setItem('theme', value);
+    } catch (err) {
+      console.warn('theme: unable to persist preference', err);
+    }
+  }
+
   // Mobile menu toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -464,20 +481,22 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.tag-filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.post-item').forEach(post => {
-        post.style.display = (tag === 'all' || post.dataset.tags.includes(tag)) ? '' : 'none';
+        const tags = post.dataset.tags;
+        if (tags === undefined) console.warn('tag filter: post missing data-tags', post);
+        post.style.display = (tag === 'all' || (tags || '').includes(tag)) ? '' : 'none';
       });
     });
   });
 
   // Theme toggle
-  const saved = localStorage.getItem('theme');
+  const saved = readStoredTheme();
   if (saved) document.documentElement.setAttribute('data-theme', saved);
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       document.documentElement.setAttribute('data-theme', isLight ? '' : 'light');
-      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      storeTheme(isLight ? 'dark' : 'light');
       themeBtn.textContent = isLight ? '🌙' : '☀️';
     });
   }
