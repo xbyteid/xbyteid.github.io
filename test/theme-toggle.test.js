@@ -55,7 +55,8 @@ describe('theme toggle on blog/index.html', () => {
     expect(button.textContent).toBe('☀️');
 
     fireClick(button);
-    expect(document.documentElement.getAttribute('data-theme')).toBe('');
+    // site.js uses removeAttribute (not setAttribute('', ...))
+    expect(document.documentElement.hasAttribute('data-theme')).toBe(false);
     expect(window.localStorage.getItem('theme')).toBe('dark');
     expect(button.textContent).toBe('🌙');
   });
