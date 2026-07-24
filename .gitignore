@@ -1,2 +1,4 @@
 _preview/
 .squad-prompt.md
+node_modules/
+coverage/

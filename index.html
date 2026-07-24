@@ -1129,7 +1129,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   };
   function setOpen(open) {
     egg.classList.toggle('open', open);
-    egg.hidden = __omp_shell("open;")
+    egg.hidden = !open;
     if (open) input.focus();
   }
   function appendLine(text) {
