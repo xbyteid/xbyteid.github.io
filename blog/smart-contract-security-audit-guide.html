@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Contract Security: Panduan Lengkap Audit Solidity — xbyteid</title>
+<meta name="description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="smart contract, solidity, security audit, web3, defi, immunefi, xbyteid, bug bounty, web3, crypto">
+<link rel="canonical" href="https://xbyteid.codes/blog/smart-contract-security-audit-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/smart-contract-security-audit-guide.html">
+<meta property="og:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity">
+<meta property="og:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.">
+<meta property="og:image" content="https://xbyteid.codes/blog/og-smart-contract-security-audit-guide.png">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart Contract Security: Panduan Lengkap Audit Solidity">
+<meta name="twitter:description" content="Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Smart Contract Security: Panduan Lengkap Audit Solidity",
+  "description": "Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.",
+  "url": "https://xbyteid.codes/blog/smart-contract-security-audit-guide.html",
+  "datePublished": "2026-06-14",
+  "author": {
+    "@type": "Person",
+    "name": "xbyteid",
+    "url": "https://xbyteid.codes"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "xbyteid"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://xbyteid.codes/blog/smart-contract-security-audit-guide.html"
+  }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
+<script defer src="https://43.156.62.160/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="/assets/css/post.css"></head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+<li><a href="/services.html">Services</a></li>
+<li><a href="/work.html">Work</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/#contact">Contact</a></li>
+    </ul>  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/">home</a> / <a href="/blog/">blog</a> / smart-contract-security-audit-guide</div>
+  <article>
+    <header class="article-header">
+      <h1>Smart Contract Security: Panduan Lengkap Audit Solidity</h1>
+      <div class="article-meta">
+        <span>2026-06-14</span>
+        <span class="dot">·</span>
+        <span>2 min read</span>
+      </div>
+      <div class="tags"><span class="tag">smart contract</span> <span class="tag">solidity</span> <span class="tag">security audit</span> <span class="tag">web3</span> <span class="tag">immunefi</span></div>
+    </header>
+    <img src="/blog/img-smart-contract.png" alt="Smart Contract Security Audit Guide" class="hero-img" loading="lazy">
+    <div class="article-body">
+      <p>Di 2026, DeFi udah manage ratusan miliar dollar. Tapi smart contract security masih jadi Wild West. Setiap tahun, billions hilang karena bugs yang seharusnya bisa di-prevent.</p>
+
+      <h2>Kenapa Smart Contract Security?</h2>
+    <div class="ad-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9416812773070739"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+      <p>Bayangin: lo nemuin bug di contract yang pegang $100M TVL. Bug itu bisa worth $50K-$500K bounty. Satu bug. Satu report.</p>
+      <p>Yang bikin menarik: <strong>skill gap-nya masih gede</strong>. Banyak Solidity developer ga ngerti security, dan banyak security researcher ga ngerti blockchain.</p>
+
+      <h2>Common Vulnerabilities</h2>
+
+      <h3>1. Reentrancy</h3>
+      <p>Masih #1 di 2026. The DAO hack ($60M, 2016) pakai ini. Masih banyak contract vulnerable.</p>
+      <pre><code>// VULNERABLE
+function withdraw() public {
+    uint amount = balances[msg.sender];
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+    balances[msg.sender] = 0; // Too late!
+}
+
+// SECURE (Checks-Effects-Interactions)
+function withdraw() public {
+    uint amount = balances[msg.sender];
+    balances[msg.sender] = 0; // Update FIRST
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+}</code></pre>
+
+      <h3>2. Access Control</h3>
+      <p>Functions tanpa proper access modifiers. <code>public</code> yang harusnya <code>internal</code>. Missing <code>onlyOwner</code>.</p>
+
+      <h3>3. Oracle Manipulation</h3>
+      <p>Flash loan attacks. Manipulate price oracle lalu drain liquidity pool. Banyak protocol masih pakai spot price dari DEX sebagai oracle.</p>
+
+      <h3>4. Logic Errors</h3>
+      <p>Math yang salah, edge cases ga ke-handle, state transitions ga valid. Paling sering ditemukan.</p>
+
+      <h3>5. Frontend != Contract</h3>
+      <p>Website bilang "stake your tokens," tapi contract-nya ngasih approval unlimited. Always audit the contract, bukan cuma UI.</p>
+
+      <h2>Tools Buat Audit</h2>
+      <ul>
+        <li><strong>Slither</strong> — static analysis, 70+ detectors, wajib punya</li>
+        <li><strong>Mythril</strong> — symbolic execution buat deep analysis</li>
+        <li><strong>Foundry</strong> — testing framework, <code>forge test</code></li>
+        <li><strong>Echidna</strong> — fuzzer buat property-based testing</li>
+        <li><strong>Aderyn</strong> — static analyzer by Cyfrin</li>
+      </ul>
+
+      <h2>Cara Mulai</h2>
+      <ol>
+        <li><strong>Belajar Solidity</strong> — CryptoZombies, Solidity by Example</li>
+        <li><strong>Baca audit reports</strong> — Code4rena, Sherlock, Cantina</li>
+        <li><strong>Practice</strong> — Damn Vulnerable DeFi, Ethernaut CTF</li>
+        <li><strong>Join contests</strong> — Code4rena, Sherlock, Hats Finance</li>
+        <li><strong>Build reputation</strong> — consistent wins → private audits</li>
+      </ol>
+
+      <h2>Market di 2026</h2>
+      <ul>
+        <li><strong>Public contests</strong> — Code4rena, Sherlock: $5K-$50K per contest</li>
+        <li><strong>Private audits</strong> — Cyfrin, Trail of Bits: $20K-$200K</li>
+        <li><strong>Bug bounties</strong> — Immunefi: $1K-$10M per bug</li>
+        <li><strong>Retainer</strong> — ongoing advisor: $5K-$20K/month</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Pro tip:</strong> Start dari public contests di Code4rena. Entry barrier rendah, bisa compete dari mana aja.
+      </div>
+
+      <h2>Kesimpulan</h2>
+      <p>Smart contract security = salah satu skill paling lucrative di tech sekarang. Supply auditors masih sedikit dari demand. Mulai belajar sekarang, 6-12 bulan udah bisa menang contest.</p>
+      <p>Modal: laptop + internet + 100 jam belajar. Return: potentially $10K+ per bulan.</p>
+    </div>
+  </article>
+  <div class="share-section">
+    <h3>Share this post</h3>
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?text=Smart Contract Security: Panduan Lengkap Audit Solidity&url=https://xbyteid.codes/blog/smart-contract-security-audit-guide.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </a>
+      <a href="https://t.me/share/url?url=https://xbyteid.codes/blog/smart-contract-security-audit-guide.html&text=Smart Contract Security: Panduan Lengkap Audit Solidity" target="_blank" rel="noopener noreferrer" class="share-btn">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Share on Telegram
+      </a>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related posts</h3>
+    <div class="related-cards">
+      <a href="/blog/bug-bounty-pemula-indonesia.html" class="related-card">
+        <h4>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama</h4>
+        <p>Guide lengkap bug bounty untuk pemula Indonesia — dari nol sampai dapetin bounty pertama.</p>
+      </a>
+      <a href="/blog/airdrop-farming-guide-2026.html" class="related-card">
+        <h4>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</h4>
+        <p>Guide lengkap airdrop farming 2026 — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips.</p>
+      </a>
+    </div>
+    <ul class="related-list" style="margin-top:16px">
+      <li><a href="/blog/">← Back to all posts</a></li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <p>© 2026 xbyteid · <a href="https://github.com/xbyteid">github</a> · <a href="https://x.com/xbyteid">x/twitter</a></p>
+  </div>
+</footer>
+</body>
+</html>

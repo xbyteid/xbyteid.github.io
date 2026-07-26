@@ -1,37 +1,12 @@
 {
   "comment": "Content problems that exist on main today. The tests below assert the site never grows NEW instances of these problems; every entry here is a bug that should be fixed and removed from this file.",
   "brokenInternalLinks": [
-    "/blog/ai-agents-cybersecurity-2026-landscape.html",
-    "/blog/solana-token-extensions-token2022-security-deep-dive.html",
-    "/blog/building-bug-bounty-automation-pipeline-with-ai.html",
-    "/blog/l2-fragmentation-battle-usability-2026.html",
-    "/blog/defi-exploits-q2-2026-record-losses.html",
     "/services",
     "/work"
   ],
-  "sitemapMissingPages": [
-    "https://xbyteid.codes/blog/ai-agents-cybersecurity-2026-landscape.html",
-    "https://xbyteid.codes/blog/airdrop-farming-guide-2026.html",
-    "https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html",
-    "https://xbyteid.codes/blog/smart-contract-security-audit-guide.html",
-    "https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html",
-    "https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html",
-    "https://xbyteid.codes/blog/l2-fragmentation-battle-usability-2026.html",
-    "https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html"
-  ],
+  "sitemapMissingPages": [],
   "sitemapDisallowedByRobots": [
     "/privacy-policy.html"
   ],
-  "postsMissingFromFeed": [
-    "blog/build-rest-api-nodejs-express-2026.html",
-    "blog/building-rest-apis-fastapi-python-2026.html",
-    "blog/deploying-docker-containers-production-guide.html",
-    "blog/docker-containers-beginners-practical-guide.html",
-    "blog/github-actions-cicd-automation-guide.html",
-    "blog/landing-page-cost-2026.html",
-    "blog/nextjs-deploy-github-pages-vercel-guide.html",
-    "blog/python-automation-scripts-developer-productivity-2026.html",
-    "blog/python-automation-scripts-developers-2026.html",
-    "blog/web-security-best-practices-developers-2026.html"
-  ]
+  "postsMissingFromFeed": []
 }

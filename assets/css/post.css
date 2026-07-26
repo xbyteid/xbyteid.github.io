@@ -65,3 +65,24 @@ footer { margin-top: 72px; padding: 32px 0; border-top: 1px solid var(--border);
 footer a { color: var(--text-dim); text-decoration: none; }
 footer a:hover { color: var(--text); }
 @media (max-width: 768px) { .nav-links { display: none !important; } .nav-toggle { display: block !important; } .article-body pre { padding: 14px; font-size: 0.78rem; } }
+
+/* Extended content styles (shared across posts) */
+.hero-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: var(--radius); margin: 24px 0; border: 1px solid var(--border); }
+.callout-warn { background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2); border-radius: var(--radius); padding: 16px 20px; margin: 24px 0; }
+.callout-warn strong { color: var(--yellow); }
+.callout-danger, .danger { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--radius); padding: 16px 20px; margin: 24px 0; }
+.callout-danger strong { color: var(--red); }
+.ad-container { margin: 36px 0; padding: 20px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); }
+.related-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
+.related-card { display: block; padding: 18px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-card); transition: all 0.2s; text-decoration: none; }
+.related-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-2px); text-decoration: none; }
+.related-card h4 { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+.related-card p { font-size: 0.8rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
+.stats-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; }
+.stats-table th, .stats-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.stats-table th { color: var(--text-dim); font-weight: 500; font-family: var(--font-mono); font-size: 0.8rem; }
+.stats-table td { color: var(--text); }
+.stats-table .amount { color: var(--red); font-weight: 700; font-family: var(--font-mono); }
+.stats-table .green { color: var(--green); }
+.stats-table .orange { color: #fb923c; }
+.stats-table .red { color: var(--red); }

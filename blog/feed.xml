@@ -6,37 +6,111 @@
     <description>Articles about bug bounty hunting, Web3 security, smart contract auditing, and cybersecurity by xbyteid.</description>
     <language>en</language>
     <atom:link href="https://xbyteid.codes/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 11 Jul 2026 00:00:00 +0700</lastBuildDate>
-  <item>
-    <title>Building a Telegram Bot with Python: From Zero to Production</title>
-    <link>https://xbyteid.codes/blog/telegram-bot-python-production-2026.html</link>
-    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
-    <description>Complete guide to building production-ready Telegram bots with Python. Webhook setup, inline keyboards, file handling, deployment with systemd.</description>
-  </item>
-  <item>
-    <title>How to Build an EVM Blockchain Monitor with Python</title>
-    <link>https://xbyteid.codes/blog/evm-chain-monitoring-python-2026.html</link>
-    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
-    <description>Build a multi-chain EVM monitor with Python and free RPCs. Track token transfers, contract events, and gas prices across 15+ chains.</description>
-  </item>
-  <item>
-    <title>Self-Hosting Website Analytics: Umami vs Matomo vs Plausible in 2026</title>
-    <link>https://xbyteid.codes/blog/self-hosted-analytics-2026.html</link>
-    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
-    <description>Compare self-hosted analytics alternatives to Google Analytics. Full Docker deployment guides for Umami, Matomo, and Plausible.</description>
-  </item>
-  <item>
-    <title>Browser Automation in 2026: Playwright Tips You Actually Need</title>
-    <link>https://xbyteid.codes/blog/playwright-automation-2026.html</link>
-    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
-    <description>Production-ready Playwright patterns: stealth mode, network interception, proxy rotation, mobile emulation, and Docker deployment.</description>
-  </item>
-  <item>
-    <title>Free VPS Guide 2026: Azure, Tencent, Oracle Cloud Free Tier Compared</title>
-    <link>https://xbyteid.codes/blog/free-vps-cloud-2026.html</link>
-    <pubDate>Fri, 11 Jul 2026 00:00:00 +0700</pubDate>
-    <description>Complete guide to free VPS options in 2026. Real specs, what you can actually run, and initial server hardening.</description>
-  </item>
-
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Web Security Best Practices for Developers in 2026</title>
+      <link>https://xbyteid.codes/blog/web-security-best-practices-developers-2026.html</link>
+      <guid>https://xbyteid.codes/blog/web-security-best-practices-developers-2026.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Essential web security practices — XSS prevention, CSRF protection, secure auth, Content Security Policy, dependency scanning, and security headers.</description>
+    </item>
+    <item>
+      <title>Solana Token Extensions (Token-2022): Security Deep Dive</title>
+      <link>https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html</link>
+      <guid>https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Comprehensive security analysis of Solana Token-2022 extensions. Common vulnerabilities, attack patterns, callback reentrancy, mint authority abuse, and secure development patterns for 2026 protocols.</description>
+    </item>
+    <item>
+      <title>Python Automation Scripts Every Developer Should Know in 2026</title>
+      <link>https://xbyteid.codes/blog/python-automation-scripts-developers-2026.html</link>
+      <guid>https://xbyteid.codes/blog/python-automation-scripts-developers-2026.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Practical Python automation scripts — file management, web scraping, API integration, scheduling, and email automation with real code examples.</description>
+    </item>
+    <item>
+      <title>Deploy Next.js Apps: GitHub Pages vs Vercel vs Self-Hosted in 2026</title>
+      <link>https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html</link>
+      <guid>https://xbyteid.codes/blog/nextjs-deploy-github-pages-vercel-guide.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Compare deployment strategies for Next.js — static export to GitHub Pages, Vercel edge, and self-hosted with Docker. Pros, cons, and step-by-step setup.</description>
+    </item>
+    <item>
+      <title>How Much Does a Landing Page Cost in 2026?</title>
+      <link>https://xbyteid.codes/blog/landing-page-cost-2026.html</link>
+      <guid>https://xbyteid.codes/blog/landing-page-cost-2026.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Real landing page pricing in 2026: $300 DIY to $10K+ agency. Breakdown by approach, what you actually get, and how to choose the right option for your budget.</description>
+    </item>
+    <item>
+      <title>GitHub Actions CI/CD: Automate Your Dev Workflow from Zero</title>
+      <link>https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html</link>
+      <guid>https://xbyteid.codes/blog/github-actions-cicd-automation-guide.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Complete guide to GitHub Actions — workflows, secrets, matrix builds, caching, and real-world CI/CD pipelines for any language.</description>
+    </item>
+    <item>
+      <title>Docker for Developers: A Practical Guide to Containers in 2026</title>
+      <link>https://xbyteid.codes/blog/docker-containers-beginners-practical-guide.html</link>
+      <guid>https://xbyteid.codes/blog/docker-containers-beginners-practical-guide.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Hands-on Docker tutorial — Dockerfiles, compose, volumes, networking, multi-stage builds, and production tips.</description>
+    </item>
+    <item>
+      <title>Building Production-Ready REST APIs with FastAPI and Python in 2026</title>
+      <link>https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html</link>
+      <guid>https://xbyteid.codes/blog/building-rest-apis-fastapi-python-2026.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Step-by-step guide to building production-ready REST APIs with FastAPI — project structure, validation, auth, testing, and deployment.</description>
+    </item>
+    <item>
+      <title>Building a Bug Bounty Automation Pipeline with AI</title>
+      <link>https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html</link>
+      <guid>https://xbyteid.codes/blog/building-bug-bounty-automation-pipeline-with-ai.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Practical 2026 guide to building an end-to-end bug bounty automation pipeline using AI agents. Recon, vuln discovery, triage, reporting, and continuous monitoring. Tools, architecture, and lessons from production.</description>
+    </item>
+    <item>
+      <title>AI Agents in Cybersecurity: The 2026 Landscape</title>
+      <link>https://xbyteid.codes/blog/ai-agents-cybersecurity-2026-landscape.html</link>
+      <guid>https://xbyteid.codes/blog/ai-agents-cybersecurity-2026-landscape.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>How AI agents are transforming bug bounty hunting, reconnaissance automation, and vulnerability detection in 2026. Architecture patterns, real tools, and future of autonomous security research.</description>
+    </item>
+    <item>
+      <title>L2 Fragmentation 2026: 100+ Rollups, Tapi Siapa yang Benar-Benar Dipakai?</title>
+      <link>https://xbyteid.codes/blog/l2-fragmentation-battle-usability-2026.html</link>
+      <guid>https://xbyteid.codes/blog/l2-fragmentation-battle-usability-2026.html</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Ethereum L2 udah ada 100+ rollups, tapi user experience makin fragmented. Analisis L2 landscape 2026, security implications, dan masa depan interoperability.</description>
+    </item>
+    <item>
+      <title>Q2 2026 DeFi Exploits: $746M Dicuri, Worst Quarter Ever</title>
+      <link>https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html</link>
+      <guid>https://xbyteid.codes/blog/defi-exploits-q2-2026-record-losses.html</guid>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Q2 2026 jadi quarter terburuk dalam sejarah DeFi — 70+ exploit, $746M dicuri. Analisis attack vectors, pelajaran, dan cara protect diri.</description>
+    </item>
+    <item>
+      <title>Airdrop Farming Guide 2026: Cara Dapetin $10K+ dari Multi-Wallet Strategy</title>
+      <link>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</link>
+      <guid>https://xbyteid.codes/blog/airdrop-farming-guide-2026.html</guid>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Guide lengkap airdrop farming 2026 — setup multi-wallet anti-sybil, target airdrop terbaru, automation tips, dan common mistakes yang harus dihindari.</description>
+    </item>
+    <item>
+      <title>Bug Bounty untuk Pemula: Mulai dari Nol, Dapetin $1000 Pertama</title>
+      <link>https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html</link>
+      <guid>https://xbyteid.codes/blog/bug-bounty-pemula-indonesia.html</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Guide lengkap bug bounty untuk pemula Indonesia — dari nol sampai dapetin bounty pertama. Tools, workflow, target selection, dan cara nulis report.</description>
+    </item>
+    <item>
+      <title>Smart Contract Security: Panduan Lengkap Audit Solidity</title>
+      <link>https://xbyteid.codes/blog/smart-contract-security-audit-guide.html</link>
+      <guid>https://xbyteid.codes/blog/smart-contract-security-audit-guide.html</guid>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Panduan lengkap smart contract security audit — common vulnerabilities, tools, dan cara mulai karir di Web3 security.</description>
+    </item>
   </channel>
 </rss>

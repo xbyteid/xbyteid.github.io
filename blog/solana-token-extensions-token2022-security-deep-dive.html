@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solana Token Extensions (Token-2022): Security Deep Dive — xbyteid</title>
+<meta name="description" content="Comprehensive security analysis of Solana Token-2022 extensions. Common vulnerabilities, attack patterns, callback reentrancy, mint authority abuse, and secure development patterns for 2026 protocols.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="solana, token-2022, token extensions, smart contract security, solana security, reentrancy, callback attack, spl-token, web3 security, xbyteid">
+<link rel="canonical" href="https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html">
+<meta property="og:title" content="Solana Token Extensions (Token-2022): Security Deep Dive">
+<meta property="og:description" content="Security implications, real vulnerabilities, and safe patterns for Solana Token-2022 extensions.">
+<meta property="og:image" content="https://xbyteid.codes/blog/og-solana-token-extensions-token2022-security-deep-dive.png">
+<meta property="og:site_name" content="xbyteid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solana Token Extensions (Token-2022): Security Deep Dive">
+<meta name="twitter:description" content="Deep dive into common vulns and mitigations in Solana's new token standard.">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="alternate" type="application/rss+xml" title="xbyteid Blog RSS" href="/blog/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Solana Token Extensions (Token-2022): Security Deep Dive",
+  "description": "Comprehensive security analysis of Solana Token-2022 extensions, common vulnerabilities, and secure patterns.",
+  "url": "https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html",
+  "datePublished": "2026-06-24",
+  "author": { "@type": "Person", "name": "xbyteid", "url": "https://xbyteid.codes" },
+  "publisher": { "@type": "Person", "name": "xbyteid" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://xbyteid.codes/blog/solana-token-extensions-token2022-security-deep-dive.html" }
+}
+</script>
+<link rel="stylesheet" href="/assets/css/post.css"></head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <ul class="nav-links" id="navLinks">
+<li><a href="/services.html">Services</a></li>
+<li><a href="/work.html">Work</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="breadcrumb"><a href="/blog/">← all posts</a></div>
+  <div class="article-header">
+    <h1>Solana Token Extensions (Token-2022): Security Deep Dive</h1>
+    <div class="article-meta">
+      <span>2026-06-24</span>
+      <span class="dot">·</span>
+      <span>16 min read</span>
+      <span class="dot">·</span>
+      <span>by xbyteid</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Solana</span>
+      <span class="tag">Token-2022</span>
+      <span class="tag">Smart Contracts</span>
+      <span class="tag">Security</span>
+    </div>
+  </div>
+  <img src="/blog/og-solana-token-extensions-token2022-security-deep-dive.png" alt="Solana Token Extensions (Token-2022): Security Deep Dive" loading="lazy" style="width:100%;border-radius:8px;margin-bottom:32px;border:1px solid var(--border);">
+  <div class="article-body">
+    <p>Solana's Token-2022 program (also called Token Extensions) introduced powerful new primitives: transfer hooks, confidential transfers, metadata pointers, and more. These features unlocked sophisticated DeFi and gaming use cases — but they also introduced entirely new attack surfaces.</p>
+
+    <h2>Token-2022 Quick Refresher</h2>
+    <p>Token-2022 lives at a different program ID than the original SPL Token program. It is backward compatible in many ways but adds optional "extensions" stored in the mint and token account data.</p>
+    <p>Key extensions relevant to security:</p>
+    <ul>
+      <li>Transfer Hook — execute custom program logic on every transfer</li>
+      <li>Non-Transferable — soulbound style tokens</li>
+      <li>Metadata Pointer + Token Metadata</li>
+      <li>Confidential Transfers (using ElGamal)</li>
+      <li>Interest Bearing / Scaled UI Amount</li>
+      <li>Mint Close Authority, Permanent Delegate, etc.</li>
+    </ul>
+
+    <h2>High-Impact Vulnerability Classes in 2025–2026</h2>
+
+    <h3>1. Callback Reentrancy via Transfer Hooks</h3>
+    <p>The transfer hook is the most dangerous new primitive. On every transfer (and sometimes mint/burn), the token program CPI-calls your hook program.</p>
+    <p><strong>The classic pattern:</strong></p>
+    <pre><code>// Attacker controlled account
+transfer(from=attackerAta, to=victimAta, amount=1)
+  → token2022 CPI
+    → hook_program.on_transfer(...) 
+       // inside hook attacker can now call back into protocol
+       // before balances are finalized</code></pre>
+    <div class="danger">
+      <strong>Real impact:</strong> Many early protocols that added transfer hooks for taxes, royalties, or access control did not properly handle reentrant calls. The result was double-spend of voting power, double-claim of rewards, and broken accounting.
+    </div>
+    <p><strong>Mitigation:</strong> Use a reentrancy guard (simple boolean or PDA lock), avoid external calls in hooks if possible, or use <code>transfer_checked</code> patterns with explicit post-hook accounting reconciliation.</p>
+
+    <h3>2. Authority Confusion &amp; Permanent Delegate Abuse</h3>
+    <p>Token-2022 added Permanent Delegate and Close Mint Authority. When these are set incorrectly, entire supplies can be moved or the mint can be closed after distribution, creating permanent rug vectors.</p>
+    <p>Common mistake: teams set Permanent Delegate to a "multisig" that is actually a single key controlled by one founder. Or the delegate key is never rotated after launch.</p>
+
+    <h3>3. Metadata Pointer Hijacking</h3>
+    <p>Because metadata can now live in a separate account pointed to by the mint, an attacker who can update the pointer (if authority is not revoked) can change name/symbol or even point to malicious on-chain metadata containing phishing links or fake instructions.</p>
+
+    <h3>4. Confidential Transfer Privacy vs Auditability Tradeoffs</h3>
+    <p>Confidential transfers hide amounts. This is great for privacy but terrible if your protocol relies on being able to read balances on-chain for liquidation logic, reward distribution, or governance power. Many protocols added silent failures or defaulted to public amounts incorrectly.</p>
+
+    <h2>Practical Audit Checklist for Token-2022 Protocols</h2>
+    <ul>
+      <li>Is every extension authority revoked or properly timelocked?</li>
+      <li>Does any transfer hook perform external CPI? Is it reentrancy protected?</li>
+      <li>Are hook programs immutable and verified on-chain?</li>
+      <li>Does the protocol correctly handle both legacy SPL and Token-2022 accounts?</li>
+      <li>Are scaled UI amounts and interest bearing extensions handled in all accounting math?</li>
+      <li>Is the metadata pointer immutable after launch?</li>
+      <li>Can an attacker create a malicious mint with the same symbol that passes superficial UI checks?</li>
+    </ul>
+
+    <h2>Example: Simple Safe Transfer Hook Skeleton (Anchor)</h2>
+    <pre><code>#[interface]
+pub trait TransferHook {
+    fn on_transfer(&amp;self, amount: u64) -&gt; Result&lt;()&gt;;
+}
+
+#[program]
+pub mod safe_hook {
+    use super::*;
+    pub fn on_transfer(ctx: Context&lt;OnTransfer&gt;, amount: u64) -&gt; Result&lt;()&gt; {
+        // Reentrancy guard + state validation
+        let state = &amp;mut ctx.accounts.state;
+        require!(!state.in_hook, ErrorCode::Reentrancy);
+        state.in_hook = true;
+        
+        // business logic here...
+        
+        state.in_hook = false;
+        Ok(())
+    }
+}
+</code></pre>
+
+    <h2>Common Exploit Techniques Observed in the Wild</h2>
+    <ol>
+      <li><strong>Flash-loan style callback abuse</strong>: borrow huge amount, trigger hook, manipulate internal accounting inside the hook window, repay.</li>
+      <li><strong>Delegate sandwich</strong>: sandwich legitimate user transfer with delegate operations when Permanent Delegate exists.</li>
+      <li><strong>Metadata upgrade grief</strong>: point metadata to a program that returns huge strings causing UI crashes for indexers.</li>
+      <li><strong>Account size / extension desync</strong>: create accounts with partial extensions initialized, causing downstream deserialization panics.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>2026 recommendation:</strong> Treat every Token-2022 mint with hooks as high risk. Require formal verification or extensive fuzzing on the hook program before mainnet use. Prefer immutable programs.
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>Token Extensions are a massive leap forward for Solana, but they move a lot of security responsibility from the runtime into user programs. The same way early ERC-777 hooks created chaos on Ethereum, transfer hooks are the new battleground.</p>
+    <p>Build defensively. Revoke authorities. Guard against reentrancy. And remember: the most dangerous code is the code that only runs on every single transfer.</p>
+  </div>
+
+  <div class="related" style="margin-top:50px">
+    <h3>Related</h3>
+    <ul class="related-list">
+      <li><a href="/blog/smart-contract-security-audit-guide.html">Smart Contract Security Audit Guide</a></li>
+      <li><a href="/blog/defi-exploits-q2-2026-record-losses.html">Q2 2026 DeFi Exploits</a></li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <p>© 2026 xbyteid · <a href="/">home</a> · <a href="/blog/">blog</a></p>
+</footer>
+<script defer src="https://43.156.62.160/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+</body>
+</html>
