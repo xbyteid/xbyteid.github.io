@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xbyteid — Builder · Operator · Shipper</title>
+<meta name="description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools. Projects, writing, and contact.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="dTpIUwDdV8h8iXSg5SmsuahnnXYC12smEEI_LAD4Sdg">
+<meta name="author" content="xbyteid">
+<meta name="keywords" content="xbyteid, developer, web development, automation, AI tools, Web3, Indonesia, React, Next.js, portfolio">
+<link rel="canonical" href="https://xbyteid.codes/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xbyteid.codes/">
+<meta property="og:title" content="xbyteid — Builder · Operator · Shipper">
+<meta property="og:description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools.">
+<meta property="og:image" content="https://xbyteid.codes/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="xbyteid">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://xbyteid.codes/">
+<meta name="twitter:title" content="xbyteid — Builder · Operator · Shipper">
+<meta name="twitter:description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools.">
+<meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
+<meta name="twitter:site" content="@xbyteid">
+<meta name="twitter:creator" content="@xbyteid">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "xbyteid",
+      "url": "https://xbyteid.codes",
+      "image": "https://xbyteid.codes/og-image.png",
+      "description": "Indonesia-based developer. Web2, Web3, automation, AI tools. Builder, operator, shipper.",
+      "jobTitle": "Builder · Operator · Shipper",
+      "nationality": { "@type": "Country", "name": "Indonesia" },
+      "sameAs": [
+        "https://github.com/xbyteid",
+        "https://x.com/xbyteid",
+        "https://t.me/xbyteid"
+      ],
+      "knowsAbout": ["Web Development", "Automation", "AI Agents", "Web3", "Bug Bounty"]
+    },
+    {
+      "@type": "WebSite",
+      "name": "xbyteid",
+      "url": "https://xbyteid.codes",
+      "description": "Developer portfolio — projects, writing, and contact.",
+      "author": { "@type": "Person", "name": "xbyteid" }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://formspree.io">
+
+<link rel="stylesheet" href="/assets/css/base.css">
+<style>
+.footer-copy { letter-spacing: -0.01em; }
+
+
+/* ── Hero ── */
+.hero {
+  min-height: min(100vh, 920px);
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  position: relative;
+}
+
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(59,130,246,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(59,130,246,0.045) 0%, transparent 70%);
+  pointer-events: none;
+  animation: mesh-drift 40s ease-in-out infinite;
+}
+@keyframes mesh-drift {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.72; transform: scale(1.04); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: var(--container);
+  margin: 0 auto;
+  padding: clamp(72px, 14vh, 140px) 24px clamp(88px, 16vh, 160px);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-headline {
+  font-family: var(--font-mono);
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin-bottom: 22px;
+  color: var(--text);
+  overflow-wrap: break-word;
+  max-width: 14ch;
+  text-shadow: 0 2px 4px var(--accent-muted);
+  transition: transform 0.35s var(--ease);
+}
+.hero-headline:hover { transform: translateY(-2px); }
+[data-theme='light'] .hero-headline { text-shadow: 0 2px 4px rgba(37,99,235,0.1); }
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 36ch;
+}
+
+.hero-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.15s var(--ease);
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); color: #fff; }
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+.btn-ghost:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+/* ── About strip ── */
+.about-strip {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-strip p {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  color: var(--text-dim);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+
+/* ── Sections ── */
+section { padding: var(--section-gap) 0; }
+section:first-of-type { padding-top: 0; }
+
+.section-heading {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 36px;
+}
+.section-heading::before { content: '// '; color: var(--accent); }
+
+/* ── Projects ── */
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.project-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.08), 0 12px 32px rgba(0,0,0,0.22);
+}
+[data-theme='light'] .project-item:hover {
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.08), 0 10px 28px rgba(0,0,0,0.06);
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
+}
+a.project-name:hover { color: var(--accent); }
+
+.project-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-muted);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: lowercase;
+}
+
+.project-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* ── Services ── */
+.service-list { list-style: none; }
+
+.service-list li {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s, padding-left 0.2s var(--ease);
+  line-height: 1.6;
+}
+.service-list li:first-child { padding-top: 0; }
+.service-list li:last-child { border-bottom: none; }
+.service-list li::before {
+  content: '→ ';
+  color: var(--accent);
+}
+.service-list li:hover { color: var(--text); padding-left: 4px; }
+
+/* ── Writing ── */
+.post-list { list-style: none; }
+
+.post-item { border-bottom: 1px solid var(--border); }
+.post-item:first-child a { padding-top: 0; }
+.post-item:last-child { border-bottom: none; }
+
+.post-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.post-date {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 88px;
+  letter-spacing: -0.02em;
+}
+
+.post-title {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.6;
+  transition: color 0.2s;
+}
+.post-item:hover .post-title { color: var(--accent); }
+
+.writing-footer { margin-top: 32px; }
+
+.writing-footer a {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+.writing-footer a:hover { color: var(--accent); }
+
+/* ── Contact ── */
+.contact-intro {
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: var(--text);
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.contact-meta { margin-bottom: 28px; }
+
+.contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+}
+
+.contact-label {
+  color: var(--text-muted);
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.contact-value { color: var(--text-dim); }
+.contact-value a {
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+.contact-value a:hover { color: var(--accent); }
+.contact-value a + a::before {
+  content: ' · ';
+  color: var(--text-muted);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 22px 22px;
+}
+
+.form-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  transition: border-color 0.2s;
+}
+.form-field:last-of-type { border-bottom: none; }
+.form-field:focus-within { border-color: var(--accent); }
+
+.form-field label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  width: 48px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.form-field input,
+.form-field textarea {
+  flex: 1;
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--text);
+  outline: none;
+  resize: none;
+  line-height: 1.7;
+  min-width: 0;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--text-muted); opacity: 0.85; }
+.form-field textarea { min-height: 120px; }
+
+.form-submit {
+  margin-top: 12px;
+  align-self: flex-start;
+  background: var(--accent);
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, opacity 0.2s;
+}
+.form-submit:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+[data-theme='light'] .form-submit:hover { background: #3b82f6; }
+.form-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+.form-status {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  margin-top: 16px;
+  color: var(--text-dim);
+}
+.form-status.success { color: #22c55e; }
+.form-status.error { color: #ef4444; }
+
+/* ── Terminal easter egg ── */
+.terminal-easter-egg {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: min(400px, calc(100vw - 32px));
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  z-index: 998;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+}
+.terminal-easter-egg.open { display: block; animation: termIn 0.2s var(--ease); }
+@keyframes termIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.terminal-easter-egg .term-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.02);
+}
+.terminal-easter-egg .term-body {
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.65;
+}
+.terminal-easter-egg input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text);
+  outline: none;
+}
+.terminal-easter-egg input:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mesh-bg, .reveal, .page-fade, .terminal-easter-egg.open { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  .project-item, .btn, .form-submit, .service-list li { transition: none; }
+  .project-item:hover, .btn-primary:hover, .form-submit:hover:not(:disabled) { transform: none; }
+  .service-list li:hover { padding-left: 0; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: rgba(10,10,11,0.97);
+    backdrop-filter: blur(12px);
+    padding: 12px clamp(24px, 5vw, 48px) 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  [data-theme='light'] .nav-links.open { background: rgba(255,255,255,0.97); }
+  .nav-links.open a { padding: 10px 0; font-size: 0.9375rem; }
+
+  .post-item a { flex-direction: column; gap: 4px; }
+  .post-date { width: auto; }
+
+  .project-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .project-item { padding: 18px 16px; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  .hero-eyebrow { font-size: 0.75rem !important; }
+  .hero-headline { font-size: clamp(1.75rem, 8vw, 2.25rem) !important; max-width: none; }
+  .hero-subtitle { font-size: 0.9375rem !important; }
+  .btn { font-size: 0.8125rem !important; padding: 11px 16px; }
+  .about-strip p { font-size: 0.875rem !important; }
+  .section-heading { font-size: 0.8125rem !important; margin-bottom: 28px; }
+  .project-name { font-size: 0.9375rem !important; }
+  .project-desc { font-size: 0.875rem !important; }
+  .service-list li { font-size: 0.875rem !important; }
+  .post-title { font-size: 0.9375rem !important; }
+  .post-date { font-size: 0.8125rem !important; }
+  .contact-form { padding: 4px 14px 16px; }
+  .footer-copy { font-size: 0.8125rem !important; }
+  .footer-links a { font-size: 0.8125rem !important; }
+  .terminal-easter-egg { bottom: 16px; right: 16px; }
+}
+
+@media (max-width: 420px) {
+  .hero-links { flex-direction: column; align-items: stretch; gap: 10px; }
+  .btn { width: 100%; }
+  .contact-row { flex-direction: column; gap: 4px; }
+  .contact-label { width: auto; }
+  .form-field { flex-direction: column; gap: 6px; }
+  .form-field label { width: auto; padding-top: 0; }
+}</style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
+<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body data-page-fade>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">xbyteid</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/services.html">services</a></li>
+        <li><a href="/work.html">work</a></li>
+        <li><a href="/blog/">blog</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="hero-inner reveal">
+    <p class="hero-eyebrow">xbyteid · Indonesia</p>
+    <h1 class="hero-headline">Builder · Operator · Shipper</h1>
+    <p class="hero-subtitle">Web2, Web3, automation, AI tools. I ship clean systems that hold up in production.</p>
+    <div class="hero-links">
+      <a href="#work" class="btn btn-primary">See work ↓</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="about-strip">
+  <div class="container reveal">
+    <p>Indonesia-based developer. Web2, Web3, automation, AI tools. Shipping fast, breaking nothing (mostly).</p>
+  </div>
+</div>
+
+<section id="work">
+  <div class="container">
+    <h2 class="section-heading reveal">projects</h2>
+    <ul class="project-list">
+      <li class="project-item reveal">
+        <div class="project-header">
+          <span class="project-name">xMint</span>
+          <span class="project-badge">private</span>
+        </div>
+        <p class="project-desc">NFT mint automation for Solana collections. End-to-end pipeline from metadata to on-chain deployment.</p>
+        <div class="project-tags">
+          <span class="tag">solana</span>
+          <span class="tag">typescript</span>
+          <span class="tag">automation</span>
+        </div>
+      </li>
+      <li class="project-item reveal reveal-delay-1">
+        <div class="project-header">
+          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="project-name">Hermes Agent</a>
+          <span class="project-badge">contributor</span>
+        </div>
+        <p class="project-desc">AI agent framework by Nous Research. Multi-provider orchestration with reliable tool-use for autonomous workflows.</p>
+        <div class="project-tags">
+          <span class="tag">python</span>
+          <span class="tag">llm</span>
+          <span class="tag">agents</span>
+        </div>
+      </li>
+      <li class="project-item reveal reveal-delay-2">
+        <div class="project-header">
+          <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer" class="project-name">Automation Toolkit</a>
+          <span class="project-badge">active</span>
+        </div>
+        <p class="project-desc">Custom bots, scrapers, and workflow tools. Built for speed, maintained with caffeine.</p>
+        <div class="project-tags">
+          <span class="tag">bots</span>
+          <span class="tag">scraping</span>
+          <span class="tag">node</span>
+        </div>
+      </li>
+      <li class="project-item reveal reveal-delay-3">
+        <div class="project-header">
+          <a href="/" class="project-name">xbyteid.codes</a>
+          <span class="project-badge">site</span>
+        </div>
+        <p class="project-desc">This portfolio. Zero build tools — pure HTML/CSS/JS on GitHub Pages. Dark/light theme, blog, Formspree contact.</p>
+        <div class="project-tags">
+          <span class="tag">html</span>
+          <span class="tag">css</span>
+          <span class="tag">seo</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-heading reveal">what i do</h2>
+    <ul class="service-list reveal">
+      <li>Landing pages &amp; company profiles</li>
+      <li>Web applications (React, Next.js, Vue)</li>
+      <li>E-commerce &amp; online stores</li>
+      <li>API &amp; backend development</li>
+      <li>Bots &amp; automation tools</li>
+    </ul>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="container">
+    <h2 class="section-heading reveal">writing</h2>
+    <ul class="post-list">
+      <li class="post-item reveal">
+        <a href="/blog/ai-agents-cybersecurity-2026-landscape.html">
+          <span class="post-date">2026-06-24</span>
+          <span class="post-title">AI Agents in Cybersecurity: The 2026 Landscape</span>
+        </a>
+      </li>
+      <li class="post-item reveal reveal-delay-1">
+        <a href="/blog/solana-token-extensions-token2022-security-deep-dive.html">
+          <span class="post-date">2026-06-24</span>
+          <span class="post-title">Solana Token-2022: Security Deep Dive</span>
+        </a>
+      </li>
+      <li class="post-item reveal reveal-delay-2">
+        <a href="/blog/building-bug-bounty-automation-pipeline-with-ai.html">
+          <span class="post-date">2026-06-24</span>
+          <span class="post-title">Building a Bug Bounty Automation Pipeline with AI</span>
+        </a>
+      </li>
+      <li class="post-item reveal reveal-delay-3">
+        <a href="/blog/l2-fragmentation-battle-usability-2026.html">
+          <span class="post-date">2026-06-22</span>
+          <span class="post-title">L2 Fragmentation 2026: 100+ Rollups, Tapi Siapa yang Benar-Benar Dipakai?</span>
+        </a>
+      </li>
+      <li class="post-item reveal reveal-delay-4">
+        <a href="/blog/defi-exploits-q2-2026-record-losses.html">
+          <span class="post-date">2026-06-18</span>
+          <span class="post-title">Q2 2026 DeFi Exploits: $746M Dicuri, Worst Quarter Ever</span>
+        </a>
+      </li>
+    </ul>
+    <div class="writing-footer reveal">
+      <a href="/blog/">all posts →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-heading reveal">contact</h2>
+    <p class="contact-intro reveal">Let's work together.</p>
+
+    <div class="contact-meta reveal">
+      <div class="contact-row">
+        <span class="contact-label">links</span>
+        <span class="contact-value">
+          <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
+          <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
+        </span>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/myzynqgy" method="POST">
+      <input type="text" name="_subject" value="Message from xbyteid.codes" hidden>
+      <div class="form-field">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" placeholder="your name" required autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      </div>
+      <div class="form-field">
+        <label for="message">msg</label>
+        <textarea id="message" name="message" placeholder="what are you building?" required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="formBtn">send →</button>
+      <div class="form-status" id="formStatus" hidden role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 xbyteid · built with purpose</span>
+      <div class="footer-links">
+        <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
+        <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="/privacy-policy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="terminal-easter-egg" id="termEgg" role="dialog" aria-label="Terminal console" hidden>
+  <div class="term-header">
+    <span>xbyteid — console · ` to toggle</span>
+    <button type="button" id="termEggClose" aria-label="Close terminal" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.875rem;line-height:1;">×</button>
+  </div>
+  <div class="term-body" id="termEggOut">
+    <div>type 'help' for commands</div>
+  </div>
+  <input type="text" id="termEggInput" placeholder="help" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+</div>
+
+<script src="/assets/js/site.js"></script>
+<script>
+(function() {
+  const egg = document.getElementById('termEgg');
+  const input = document.getElementById('termEggInput');
+  const out = document.getElementById('termEggOut');
+  const closeBtn = document.getElementById('termEggClose');
+  if (!egg || !input || !out) return;
+  const cmds = {
+    help: 'help · ls · status · whoami · projects · clear',
+    ls: 'xmint/  hermes-agent/  automation-toolkit/  portfolio/  blog/',
+    status: 'online · building · shipping · mostly working',
+    whoami: 'xbyteid — indonesia · builder · operator · shipper',
+    projects: 'xMint · Hermes Agent · Automation Toolkit · xbyteid.codes'
+  };
+  function setOpen(open) {
+    egg.classList.toggle('open', open);
+    egg.hidden = !open;
+    if (open) input.focus();
+  }
+  function appendLine(text) {
+    const r = document.createElement('div');
+    r.textContent = text;
+    out.appendChild(r);
+  }
+  if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '`' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      const t = e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable) && t !== input) return;
+      e.preventDefault();
+      setOpen(!egg.classList.contains('open'));
+    }
+    if (e.key === 'Escape') setOpen(false);
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    const val = input.value.trim().toLowerCase();
+    appendLine('$ ' + val);
+    if (val === 'clear') { out.replaceChildren(); }
+    else if (Object.prototype.hasOwnProperty.call(cmds, val)) appendLine('→ ' + cmds[val]);
+    else if (val) appendLine('command not found. try help');
+    input.value = '';
+    out.scrollTop = out.scrollHeight;
+  });
+})();
+</script>
+</body>
+</html>

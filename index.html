@@ -2,856 +2,338 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>xbyteid — Builder · Operator · Shipper</title>
-<meta name="description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools. Projects, writing, and contact.">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="dTpIUwDdV8h8iXSg5SmsuahnnXYC12smEEI_LAD4Sdg">
-<meta name="author" content="xbyteid">
-<meta name="keywords" content="xbyteid, developer, web development, automation, AI tools, Web3, Indonesia, React, Next.js, portfolio">
-<link rel="canonical" href="https://xbyteid.codes/">
-
-<!-- Open Graph -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnCallIQ — The on-call platform for teams that ship fast</title>
+<meta name="description" content="OnCallIQ is incident management for small, fast teams: alert routing, on-call schedules, status pages, and AI-assisted postmortems powered by Claude.">
+<meta name="theme-color" content="#0b1220">
 <meta property="og:type" content="website">
+<meta property="og:title" content="OnCallIQ — The on-call platform for teams that ship fast">
+<meta property="og:description" content="Alert routing, on-call schedules, status pages, and AI-assisted postmortems powered by Claude, by Anthropic.">
 <meta property="og:url" content="https://xbyteid.codes/">
-<meta property="og:title" content="xbyteid — Builder · Operator · Shipper">
-<meta property="og:description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools.">
-<meta property="og:image" content="https://xbyteid.codes/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/png">
-<meta property="og:site_name" content="xbyteid">
-<meta property="og:locale" content="en_US">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://xbyteid.codes/">
-<meta name="twitter:title" content="xbyteid — Builder · Operator · Shipper">
-<meta name="twitter:description" content="Indonesia-based developer building for the web. Web2, Web3, automation, AI tools.">
-<meta name="twitter:image" content="https://xbyteid.codes/og-image.png">
-<meta name="twitter:site" content="@xbyteid">
-<meta name="twitter:creator" content="@xbyteid">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "name": "xbyteid",
-      "url": "https://xbyteid.codes",
-      "image": "https://xbyteid.codes/og-image.png",
-      "description": "Indonesia-based developer. Web2, Web3, automation, AI tools. Builder, operator, shipper.",
-      "jobTitle": "Builder · Operator · Shipper",
-      "nationality": { "@type": "Country", "name": "Indonesia" },
-      "sameAs": [
-        "https://github.com/xbyteid",
-        "https://x.com/xbyteid",
-        "https://t.me/xbyteid"
-      ],
-      "knowsAbout": ["Web Development", "Automation", "AI Agents", "Web3", "Bug Bounty"]
-    },
-    {
-      "@type": "WebSite",
-      "name": "xbyteid",
-      "url": "https://xbyteid.codes",
-      "description": "Developer portfolio — projects, writing, and contact.",
-      "author": { "@type": "Person", "name": "xbyteid" }
-    }
-  ]
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://formspree.io">
-
-<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23dc2626'/%3E%3Cpath d='M16 7c-4.2 0-7 3-7 7.2V18l-2.2 3.2h18.4L23 18v-3.8C23 10 19.9 7 16 7z' fill='white'/%3E%3Ccircle cx='16' cy='23.5' r='2.4' fill='white'/%3E%3C/svg%3E">
 <style>
-.footer-copy { letter-spacing: -0.01em; }
-
-
-/* ── Hero ── */
-.hero {
-  min-height: min(100vh, 920px);
-  display: flex;
-  align-items: center;
-  padding-top: var(--nav-height);
-  position: relative;
+:root{
+  --ink:#0f172a; --muted:#5b6472; --line:#e5e7ec; --bg:#ffffff; --soft:#f7f8fa;
+  --console:#0b1220; --console-line:#1e293b; --console-text:#cbd5e1;
+  --red:#dc2626; --red-dark:#b91c1c; --green:#16a34a; --amber:#d97706;
+  --radius:10px;
 }
-
-.mesh-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(59,130,246,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(59,130,246,0.045) 0%, transparent 70%);
-  pointer-events: none;
-  animation: mesh-drift 40s ease-in-out infinite;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+a{color:var(--red)}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.02em}
+::selection{background:#fecaca}
+/* skip link + focus */
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 18px;z-index:100;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
+/* header */
+.site-header{border-bottom:1px solid var(--line);background:rgba(255,255,255,.97);position:sticky;top:0;z-index:10}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.15rem}
+.brand svg{width:30px;height:30px;flex:none}
+/* buttons */
+.btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:8px;padding:13px 26px;font-size:1rem;line-height:1.2;border:1px solid transparent;cursor:pointer;touch-action:manipulation;transition:background-color .18s ease,border-color .18s ease}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-ghost{background:transparent;color:#fff;border-color:#334155}
+.btn-ghost:hover{border-color:#94a3b8}
+.btn-light-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-light-ghost:hover{border-color:var(--ink)}
+.btn-small{padding:9px 18px;font-size:.9rem}
+/* hero — dark console */
+.hero{background:var(--console);color:#f8fafc;padding:88px 0 80px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.kicker{font-size:.95rem;font-weight:600;color:#f87171;margin-bottom:16px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;margin-bottom:20px;color:#fff}
+.hero p.lead{font-size:1.18rem;color:var(--console-text);max-width:32em;margin-bottom:30px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:20px;font-size:.92rem;color:#94a3b8}
+.statusline{margin-top:28px;padding-top:20px;border-top:1px solid var(--console-line);font-size:.9rem;color:#94a3b8;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.dot.ok{background:var(--green);box-shadow:0 0 8px rgba(22,163,74,.8)}
+.dot.warn{background:var(--amber);box-shadow:0 0 8px rgba(217,119,6,.8)}
+/* console mock */
+.console{background:#111c30;border:1px solid var(--console-line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);font-size:.92rem}
+.console-head{display:flex;align-items:center;gap:8px;padding:12px 18px;border-bottom:1px solid var(--console-line)}
+.console-head .dot.red{background:var(--red)}.console-head .dot.amber{background:var(--amber)}.console-head .dot.green{background:var(--green)}
+.console-title{margin-left:8px;color:#64748b;font-size:.82rem}
+.inc{padding:6px 0}
+.inc-top{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--console-line);flex-wrap:wrap}
+.sev{font-size:.72rem;font-weight:700;letter-spacing:.06em;background:rgba(220,38,38,.15);color:#f87171;border:1px solid rgba(220,38,38,.4);padding:3px 9px;border-radius:5px}
+.inc-title{font-weight:600;color:#f1f5f9}
+.inc-state{margin-left:auto;font-size:.78rem;color:var(--amber);font-weight:600}
+.inc-row{display:flex;gap:14px;padding:11px 18px;border-bottom:1px solid rgba(30,41,59,.6);color:var(--console-text)}
+.inc-row:last-child{border-bottom:none}
+.inc-row .t{font-variant-numeric:tabular-nums;color:#64748b;flex:none}
+.inc-row.ai{background:rgba(22,163,74,.07)}
+.inc-row.ai .t{color:var(--green)}
+/* sections */
+section.block{padding:76px 0}
+.section-head{margin-bottom:8px;max-width:44em}
+.section-head h2{font-size:clamp(1.5rem,3vw,2.05rem);margin-bottom:12px}
+.section-head p{color:var(--muted);font-size:1.08rem}
+/* feature rows (not cards) */
+.feat-row{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line);align-items:start}
+.feat-row:last-child{border-bottom:1px solid var(--line)}
+.feat-icon{width:52px;height:52px;border-radius:12px;background:#fef2f2;display:flex;align-items:center;justify-content:center;flex:none}
+.feat-row h3{font-size:1.15rem;margin-bottom:8px}
+.feat-row p{color:var(--muted);max-width:44em}
+/* claude band */
+.band{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.kicker-dark{font-size:.95rem;font-weight:600;color:var(--red);margin-bottom:16px}
+.band h2{font-size:clamp(1.5rem,3vw,2.05rem);margin-bottom:14px}
+.band p{color:var(--muted);margin-bottom:14px}
+.checklist{list-style:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:8px 26px}
+.checklist li{padding:14px 0;border-bottom:1px solid var(--line);font-size:.98rem;display:flex;gap:12px;align-items:flex-start}
+.checklist li:last-child{border-bottom:none}
+.checklist .tick{color:var(--red);font-weight:700;flex:none}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;margin-top:40px}
+.plan{border:1px solid var(--line);border-radius:12px;padding:32px 28px;display:flex;flex-direction:column;background:#fff}
+.plan.featured{background:var(--console);border-color:var(--console);color:#f1f5f9}
+.plan .tier{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.plan.featured .tier{color:#f87171}
+.plan .price{font-size:2rem;font-weight:700;margin-bottom:4px}
+.plan .price span{font-size:.95rem;font-weight:400;color:var(--muted)}
+.plan.featured .price span{color:#94a3b8}
+.plan ul{list-style:none;margin:20px 0 28px;flex:1}
+.plan li{padding:7px 0 7px 26px;position:relative;color:var(--muted);font-size:.96rem}
+.plan.featured li{color:var(--console-text)}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:700}
+.plan.featured li::before{color:#f87171}
+.plan .btn{text-align:center}
+/* team rows */
+.team-row{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:24px 0;border-top:1px solid var(--line);align-items:baseline}
+.team-row:last-of-type{border-bottom:1px solid var(--line)}
+.team-row h3{font-size:1.05rem}
+.team-row .count{font-size:.85rem;color:var(--red);font-weight:700}
+.team-row p{color:var(--muted);font-size:.96rem}
+.hiring{margin-top:28px;border:1px dashed var(--red);border-radius:var(--radius);padding:24px 28px;background:#fef2f2}
+.hiring strong{display:block;margin-bottom:6px}
+/* about */
+.about p{color:var(--muted);font-size:1.08rem;max-width:44em;margin-bottom:14px}
+.founded-line{font-weight:700;color:var(--ink);margin-bottom:18px}
+/* footer — dark bookend */
+footer{background:var(--console);color:#94a3b8;padding:44px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{color:#cbd5e1;text-decoration:none}
+footer a:hover{color:#fff}
+footer nav a{margin-left:20px}
+@media(max-width:860px){
+  .hero-grid,.band-inner{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .team-row{grid-template-columns:1fr;gap:6px}
+  .hero{padding:60px 0}
+  section.block{padding:54px 0}
+  footer .wrap{flex-direction:column}
+  footer nav a{margin-left:0;margin-right:20px}
 }
-@keyframes mesh-drift {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.72; transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
 }
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  width: var(--container);
-  margin: 0 auto;
-  padding: clamp(72px, 14vh, 140px) 24px clamp(88px, 16vh, 160px);
-}
-
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.hero-headline {
-  font-family: var(--font-mono);
-  font-size: clamp(2.25rem, 7vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.05;
-  margin-bottom: 22px;
-  color: var(--text);
-  overflow-wrap: break-word;
-  max-width: 14ch;
-  text-shadow: 0 2px 4px var(--accent-muted);
-  transition: transform 0.35s var(--ease);
-}
-.hero-headline:hover { transform: translateY(-2px); }
-[data-theme='light'] .hero-headline { text-shadow: 0 2px 4px rgba(37,99,235,0.1); }
-
-.hero-subtitle {
-  font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
-  color: var(--text-dim);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 36ch;
-}
-
-.hero-links {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 12px 20px;
-  border-radius: var(--radius);
-  border: 1px solid transparent;
-  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.15s var(--ease);
-  cursor: pointer;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); color: #fff; }
-.btn-ghost {
-  background: transparent;
-  border-color: var(--border);
-  color: var(--text-dim);
-}
-.btn-ghost:hover {
-  border-color: var(--border-hover);
-  color: var(--text);
-}
-
-/* ── About strip ── */
-.about-strip {
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.about-strip p {
-  font-family: var(--font-mono);
-  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
-  color: var(--text-dim);
-  line-height: 1.8;
-  letter-spacing: -0.01em;
-}
-
-/* ── Sections ── */
-section { padding: var(--section-gap) 0; }
-section:first-of-type { padding-top: 0; }
-
-.section-heading {
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text-dim);
-  text-transform: lowercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 36px;
-}
-.section-heading::before { content: '// '; color: var(--accent); }
-
-/* ── Projects ── */
-.project-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.project-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 26px;
-  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-.project-item:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(59,130,246,0.08), 0 12px 32px rgba(0,0,0,0.22);
-}
-[data-theme='light'] .project-item:hover {
-  box-shadow: 0 0 0 1px rgba(37,99,235,0.08), 0 10px 28px rgba(0,0,0,0.06);
-}
-
-.project-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 10px;
-}
-
-.project-name {
-  font-family: var(--font-mono);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.02em;
-  transition: color 0.2s;
-}
-a.project-name:hover { color: var(--accent); }
-
-.project-badge {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  background: var(--accent-muted);
-  flex-shrink: 0;
-  letter-spacing: 0.04em;
-  padding: 3px 10px;
-  border-radius: 999px;
-  text-transform: lowercase;
-}
-
-.project-desc {
-  font-family: var(--font-sans);
-  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
-  color: var(--text-dim);
-  line-height: 1.7;
-  margin-bottom: 14px;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-  border: 1px solid var(--border);
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-
-/* ── Services ── */
-.service-list { list-style: none; }
-
-.service-list li {
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  color: var(--text-dim);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-  transition: color 0.2s, padding-left 0.2s var(--ease);
-  line-height: 1.6;
-}
-.service-list li:first-child { padding-top: 0; }
-.service-list li:last-child { border-bottom: none; }
-.service-list li::before {
-  content: '→ ';
-  color: var(--accent);
-}
-.service-list li:hover { color: var(--text); padding-left: 4px; }
-
-/* ── Writing ── */
-.post-list { list-style: none; }
-
-.post-item { border-bottom: 1px solid var(--border); }
-.post-item:first-child a { padding-top: 0; }
-.post-item:last-child { border-bottom: none; }
-
-.post-item a {
-  display: flex;
-  align-items: baseline;
-  gap: 24px;
-  padding: 20px 0;
-}
-
-.post-date {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  flex-shrink: 0;
-  width: 88px;
-  letter-spacing: -0.02em;
-}
-
-.post-title {
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1.6;
-  transition: color 0.2s;
-}
-.post-item:hover .post-title { color: var(--accent); }
-
-.writing-footer { margin-top: 32px; }
-
-.writing-footer a {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--text-dim);
-  transition: color 0.2s;
-}
-.writing-footer a:hover { color: var(--accent); }
-
-/* ── Contact ── */
-.contact-intro {
-  font-family: var(--font-sans);
-  font-size: clamp(1.0625rem, 2vw, 1.25rem);
-  color: var(--text);
-  margin-bottom: 32px;
-  letter-spacing: -0.01em;
-}
-
-.contact-meta { margin-bottom: 28px; }
-
-.contact-row {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 10px 0;
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-}
-
-.contact-label {
-  color: var(--text-muted);
-  width: 48px;
-  flex-shrink: 0;
-}
-
-.contact-value { color: var(--text-dim); }
-.contact-value a {
-  color: var(--text-dim);
-  transition: color 0.2s;
-}
-.contact-value a:hover { color: var(--accent); }
-.contact-value a + a::before {
-  content: ' · ';
-  color: var(--text-muted);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 8px 22px 22px;
-}
-
-.form-field {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  border-bottom: 1px solid var(--border);
-  padding: 18px 0;
-  transition: border-color 0.2s;
-}
-.form-field:last-of-type { border-bottom: none; }
-.form-field:focus-within { border-color: var(--accent); }
-
-.form-field label {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  width: 48px;
-  flex-shrink: 0;
-  padding-top: 4px;
-}
-
-.form-field input,
-.form-field textarea {
-  flex: 1;
-  background: none;
-  border: none;
-  font-family: var(--font-mono);
-  font-size: 0.9375rem;
-  color: var(--text);
-  outline: none;
-  resize: none;
-  line-height: 1.7;
-  min-width: 0;
-}
-.form-field input::placeholder,
-.form-field textarea::placeholder { color: var(--text-muted); opacity: 0.85; }
-.form-field textarea { min-height: 120px; }
-
-.form-submit {
-  margin-top: 12px;
-  align-self: flex-start;
-  background: var(--accent);
-  border: 1px solid transparent;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s, opacity 0.2s;
-}
-.form-submit:hover:not(:disabled) {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-[data-theme='light'] .form-submit:hover { background: #3b82f6; }
-.form-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
-
-.form-status {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  margin-top: 16px;
-  color: var(--text-dim);
-}
-.form-status.success { color: #22c55e; }
-.form-status.error { color: #ef4444; }
-
-/* ── Terminal easter egg ── */
-.terminal-easter-egg {
-  display: none;
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: min(400px, calc(100vw - 32px));
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  z-index: 998;
-  overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-}
-.terminal-easter-egg.open { display: block; animation: termIn 0.2s var(--ease); }
-@keyframes termIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.terminal-easter-egg .term-header {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255,255,255,0.02);
-}
-.terminal-easter-egg .term-body {
-  padding: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-dim);
-  max-height: 200px;
-  overflow-y: auto;
-  line-height: 1.65;
-}
-.terminal-easter-egg input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-top: 1px solid var(--border);
-  padding: 10px 12px;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text);
-  outline: none;
-}
-.terminal-easter-egg input:focus-visible {
-  box-shadow: inset 0 0 0 1px var(--accent);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .mesh-bg, .reveal, .page-fade, .terminal-easter-egg.open { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
-  .project-item, .btn, .form-submit, .service-list li { transition: none; }
-  .project-item:hover, .btn-primary:hover, .form-submit:hover:not(:disabled) { transform: none; }
-  .service-list li:hover { padding-left: 0; }
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  body { font-size: 14px; }
-  .nav-links { display: none; }
-  .nav-toggle { display: block; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: rgba(10,10,11,0.97);
-    backdrop-filter: blur(12px);
-    padding: 12px clamp(24px, 5vw, 48px) 16px;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  [data-theme='light'] .nav-links.open { background: rgba(255,255,255,0.97); }
-  .nav-links.open a { padding: 10px 0; font-size: 0.9375rem; }
-
-  .post-item a { flex-direction: column; gap: 4px; }
-  .post-date { width: auto; }
-
-  .project-header { flex-direction: column; gap: 8px; align-items: flex-start; }
-  .project-item { padding: 18px 16px; }
-
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-
-  .hero-eyebrow { font-size: 0.75rem !important; }
-  .hero-headline { font-size: clamp(1.75rem, 8vw, 2.25rem) !important; max-width: none; }
-  .hero-subtitle { font-size: 0.9375rem !important; }
-  .btn { font-size: 0.8125rem !important; padding: 11px 16px; }
-  .about-strip p { font-size: 0.875rem !important; }
-  .section-heading { font-size: 0.8125rem !important; margin-bottom: 28px; }
-  .project-name { font-size: 0.9375rem !important; }
-  .project-desc { font-size: 0.875rem !important; }
-  .service-list li { font-size: 0.875rem !important; }
-  .post-title { font-size: 0.9375rem !important; }
-  .post-date { font-size: 0.8125rem !important; }
-  .contact-form { padding: 4px 14px 16px; }
-  .footer-copy { font-size: 0.8125rem !important; }
-  .footer-links a { font-size: 0.8125rem !important; }
-  .terminal-easter-egg { bottom: 16px; right: 16px; }
-}
-
-@media (max-width: 420px) {
-  .hero-links { flex-direction: column; align-items: stretch; gap: 10px; }
-  .btn { width: 100%; }
-  .contact-row { flex-direction: column; gap: 4px; }
-  .contact-label { width: auto; }
-  .form-field { flex-direction: column; gap: 6px; }
-  .form-field label { width: auto; padding-top: 0; }
-}</style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9416812773070739" crossorigin="anonymous"></script>
-<script defer src="https://194.233.68.31/umami/script.js" data-website-id="f516a671-6efa-45df-8506-af0e6d09901d"></script>
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta name="referrer" content="strict-origin-when-cross-origin">
+</style>
 </head>
-<body data-page-fade>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">xbyteid</a>
-    <div class="nav-right">
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/services.html">services</a></li>
-        <li><a href="/work.html">work</a></li>
-        <li><a href="/blog/">blog</a></li>
-        <li><a href="#contact">contact</a></li>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" translate="no">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#dc2626"/><path d="M16 7c-4.2 0-7 3-7 7.2V18l-2.2 3.2h18.4L23 18v-3.8C23 10 19.9 7 16 7z" fill="white"/><circle cx="16" cy="23.5" r="2.4" fill="white"/></svg>
+      OnCallIQ
+    </a>
+    <a class="btn btn-primary btn-small" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20free%20plan">Start Free</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Incident management without the bloat</p>
+        <h1>The on-call platform for teams that ship fast.</h1>
+        <p class="lead">OnCallIQ routes alerts to the right person, keeps rotations sane, and publishes status pages your customers actually read — a focused alternative to PagerDuty, without the enterprise sales call.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20free%20plan">Start Free</a>
+          <a class="btn btn-ghost" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20demo">Talk to Us</a>
+        </div>
+        <p class="hero-note">Free plan includes 1 project and 2 seats. No credit card required.</p>
+        <p class="statusline"><span class="dot ok"></span> All systems operational <span aria-hidden="true">·</span> <span class="dot warn"></span> 1 incident under investigation</p>
+      </div>
+      <div class="console" role="img" aria-label="Illustration of an OnCallIQ incident timeline: a SEV-2 incident being acknowledged, with a status page update and a Claude-drafted postmortem awaiting review.">
+        <div class="console-head" aria-hidden="true"><span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span><span class="console-title">incidents</span></div>
+        <div class="inc" aria-hidden="true">
+          <div class="inc-top"><span class="sev">SEV-2</span><span class="inc-title">API latency elevated</span><span class="inc-state">Investigating</span></div>
+          <div class="inc-row"><span class="t">02:14</span><span>Alert fired — p99 latency above 800&nbsp;ms</span></div>
+          <div class="inc-row"><span class="t">02:16</span><span>Routed to Rian (primary) — acknowledged</span></div>
+          <div class="inc-row"><span class="t">02:31</span><span>Status page updated — subscribers notified</span></div>
+          <div class="inc-row ai"><span class="t">02:47</span><span>Claude drafted the postmortem — awaiting your review</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Features -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Everything an On-Call Rotation Needs. Nothing It Doesn’t.</h2>
+        <p>We deliberately stay small in scope so the product stays fast, honest, and easy to run.</p>
+      </div>
+      <div>
+        <div class="feat-row">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <div>
+            <h3>Alert routing that respects your time</h3>
+            <p>Route by service, severity, and who’s actually awake. Escalation policies, alert dedupe, and quiet hours keep the 3am page for real fires — not flapping monitors.</p>
+          </div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div>
+            <h3>On-call schedules people don’t dread</h3>
+            <p>Rotations, overrides, and swaps in a calendar your team can read at a glance. Syncs with Google Calendar and iCal so coverage is never a mystery.</p>
+          </div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <h3>Status pages your customers trust</h3>
+            <p>Publish a hosted status page, post incident updates once, and reach every subscriber by email and webhook. No more scrambling across channels mid-incident.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Powered by Claude -->
+  <section class="block band">
+    <div class="wrap band-inner">
+      <div>
+        <p class="kicker-dark">Powered by Claude</p>
+        <h2>Postmortems That Write Their First Draft.</h2>
+        <p>When an incident closes, OnCallIQ sends the timeline — alerts, acknowledgements, notes, and resolution steps — to Claude, by Anthropic, via the Anthropic API. Claude drafts a structured postmortem: what happened, the likely root cause, contributing factors, and concrete follow-up actions.</p>
+        <p>Your team edits and approves before anything is shared. Claude never pages anyone, never resolves an incident, and never publishes on its own — it just clears the blank page so the retrospective actually gets written.</p>
+      </div>
+      <ul class="checklist">
+        <li><span class="tick" aria-hidden="true">✓</span><span>Timeline summaries generated from the real incident record, not guesswork.</span></li>
+        <li><span class="tick" aria-hidden="true">✓</span><span>Root-cause suggestions with the evidence that supports them.</span></li>
+        <li><span class="tick" aria-hidden="true">✓</span><span>Action items extracted and assigned to owners you confirm.</span></li>
+        <li><span class="tick" aria-hidden="true">✓</span><span>Human approval required before any postmortem is published.</span></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
     </div>
-  </div>
-</nav>
+  </section>
 
-<main>
-
-<section class="hero" id="home">
-  <div class="mesh-bg" aria-hidden="true"></div>
-  <div class="hero-inner reveal">
-    <p class="hero-eyebrow">xbyteid · Indonesia</p>
-    <h1 class="hero-headline">Builder · Operator · Shipper</h1>
-    <p class="hero-subtitle">Web2, Web3, automation, AI tools. I ship clean systems that hold up in production.</p>
-    <div class="hero-links">
-      <a href="#work" class="btn btn-primary">See work ↓</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
-    </div>
-  </div>
-</section>
-
-<div class="about-strip">
-  <div class="container reveal">
-    <p>Indonesia-based developer. Web2, Web3, automation, AI tools. Shipping fast, breaking nothing (mostly).</p>
-  </div>
-</div>
-
-<section id="work">
-  <div class="container">
-    <h2 class="section-heading reveal">projects</h2>
-    <ul class="project-list">
-      <li class="project-item reveal">
-        <div class="project-header">
-          <span class="project-name">xMint</span>
-          <span class="project-badge">private</span>
+  <!-- 4. Pricing -->
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Simple Pricing That Doesn’t Punish Growth.</h2>
+        <p>Start free, pay per user when your team grows. No platform fees, no per-alert pricing.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <div class="tier">Free</div>
+          <div class="price">$0</div>
+          <ul>
+            <li>1 project</li>
+            <li>2 seats</li>
+            <li>Basic alert routing</li>
+            <li>1 hosted status page</li>
+          </ul>
+          <a class="btn btn-light-ghost" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20free%20plan">Start Free</a>
         </div>
-        <p class="project-desc">NFT mint automation for Solana collections. End-to-end pipeline from metadata to on-chain deployment.</p>
-        <div class="project-tags">
-          <span class="tag">solana</span>
-          <span class="tag">typescript</span>
-          <span class="tag">automation</span>
+        <div class="plan featured">
+          <div class="tier">Team</div>
+          <div class="price">$29 <span>per user / month</span></div>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Smart routing &amp; escalations</li>
+            <li>On-call schedules &amp; overrides</li>
+            <li>Unlimited status pages</li>
+            <li>AI-assisted postmortems (Claude)</li>
+            <li>Slack &amp; email notifications</li>
+          </ul>
+          <a class="btn btn-primary" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20Team%20plan">Start 14-Day Trial</a>
         </div>
-      </li>
-      <li class="project-item reveal reveal-delay-1">
-        <div class="project-header">
-          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" class="project-name">Hermes Agent</a>
-          <span class="project-badge">contributor</span>
+        <div class="plan">
+          <div class="tier">Enterprise</div>
+          <div class="price">Custom</div>
+          <ul>
+            <li>Everything in Team</li>
+            <li>SSO / SAML</li>
+            <li>Audit logs</li>
+            <li>Custom data retention</li>
+            <li>Dedicated support</li>
+          </ul>
+          <a class="btn btn-light-ghost" href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20Enterprise">Contact Us</a>
         </div>
-        <p class="project-desc">AI agent framework by Nous Research. Multi-provider orchestration with reliable tool-use for autonomous workflows.</p>
-        <div class="project-tags">
-          <span class="tag">python</span>
-          <span class="tag">llm</span>
-          <span class="tag">agents</span>
-        </div>
-      </li>
-      <li class="project-item reveal reveal-delay-2">
-        <div class="project-header">
-          <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer" class="project-name">Automation Toolkit</a>
-          <span class="project-badge">active</span>
-        </div>
-        <p class="project-desc">Custom bots, scrapers, and workflow tools. Built for speed, maintained with caffeine.</p>
-        <div class="project-tags">
-          <span class="tag">bots</span>
-          <span class="tag">scraping</span>
-          <span class="tag">node</span>
-        </div>
-      </li>
-      <li class="project-item reveal reveal-delay-3">
-        <div class="project-header">
-          <a href="/" class="project-name">xbyteid.codes</a>
-          <span class="project-badge">site</span>
-        </div>
-        <p class="project-desc">This portfolio. Zero build tools — pure HTML/CSS/JS on GitHub Pages. Dark/light theme, blog, Formspree contact.</p>
-        <div class="project-tags">
-          <span class="tag">html</span>
-          <span class="tag">css</span>
-          <span class="tag">seo</span>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <h2 class="section-heading reveal">what i do</h2>
-    <ul class="service-list reveal">
-      <li>Landing pages &amp; company profiles</li>
-      <li>Web applications (React, Next.js, Vue)</li>
-      <li>E-commerce &amp; online stores</li>
-      <li>API &amp; backend development</li>
-      <li>Bots &amp; automation tools</li>
-    </ul>
-  </div>
-</section>
-
-<section id="writing">
-  <div class="container">
-    <h2 class="section-heading reveal">writing</h2>
-    <ul class="post-list">
-      <li class="post-item reveal">
-        <a href="/blog/ai-agents-cybersecurity-2026-landscape.html">
-          <span class="post-date">2026-06-24</span>
-          <span class="post-title">AI Agents in Cybersecurity: The 2026 Landscape</span>
-        </a>
-      </li>
-      <li class="post-item reveal reveal-delay-1">
-        <a href="/blog/solana-token-extensions-token2022-security-deep-dive.html">
-          <span class="post-date">2026-06-24</span>
-          <span class="post-title">Solana Token-2022: Security Deep Dive</span>
-        </a>
-      </li>
-      <li class="post-item reveal reveal-delay-2">
-        <a href="/blog/building-bug-bounty-automation-pipeline-with-ai.html">
-          <span class="post-date">2026-06-24</span>
-          <span class="post-title">Building a Bug Bounty Automation Pipeline with AI</span>
-        </a>
-      </li>
-      <li class="post-item reveal reveal-delay-3">
-        <a href="/blog/l2-fragmentation-battle-usability-2026.html">
-          <span class="post-date">2026-06-22</span>
-          <span class="post-title">L2 Fragmentation 2026: 100+ Rollups, Tapi Siapa yang Benar-Benar Dipakai?</span>
-        </a>
-      </li>
-      <li class="post-item reveal reveal-delay-4">
-        <a href="/blog/defi-exploits-q2-2026-record-losses.html">
-          <span class="post-date">2026-06-18</span>
-          <span class="post-title">Q2 2026 DeFi Exploits: $746M Dicuri, Worst Quarter Ever</span>
-        </a>
-      </li>
-    </ul>
-    <div class="writing-footer reveal">
-      <a href="/blog/">all posts →</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2 class="section-heading reveal">contact</h2>
-    <p class="contact-intro reveal">Let's work together.</p>
-
-    <div class="contact-meta reveal">
-      <div class="contact-row">
-        <span class="contact-label">links</span>
-        <span class="contact-value">
-          <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
-          <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
-        </span>
       </div>
     </div>
+  </section>
 
-    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/myzynqgy" method="POST">
-      <input type="text" name="_subject" value="Message from xbyteid.codes" hidden>
-      <div class="form-field">
-        <label for="name">name</label>
-        <input type="text" id="name" name="name" placeholder="your name" required autocomplete="name">
+  <!-- 5. Team / Careers -->
+  <section class="block band">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A Small Team That Answers Its Own Pager.</h2>
+        <p>We’re 7 people, full-time on OnCallIQ. Small enough that every one of us has been woken up by an alert we shipped.</p>
       </div>
-      <div class="form-field">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <div>
+        <div class="team-row">
+          <div><h3>Engineering</h3><div class="count">3 people</div></div>
+          <p>Backend, integrations, and reliability. Rian, Tom, and Priya own the paging pipeline end to end.</p>
+        </div>
+        <div class="team-row">
+          <div><h3>Design</h3><div class="count">1 person</div></div>
+          <p>Maya designs the 3am experience — because the UI you use half-asleep matters most.</p>
+        </div>
+        <div class="team-row">
+          <div><h3>Developer relations</h3><div class="count">1 person</div></div>
+          <p>Jon writes the docs and sample integrations, and answers questions in the community channel.</p>
+        </div>
+        <div class="team-row">
+          <div><h3>Customer success</h3><div class="count">2 people</div></div>
+          <p>Ana and Leo help teams set up routing and rotations that actually match how they work.</p>
+        </div>
       </div>
-      <div class="form-field">
-        <label for="message">msg</label>
-        <textarea id="message" name="message" placeholder="what are you building?" required></textarea>
+      <div class="hiring">
+        <strong>We’re hiring.</strong>
+        One backend engineer and one customer success lead. If you’ve carried a pager and have opinions about it, write to <a href="mailto:hello@xbyteid.codes?subject=OnCallIQ%20careers">hello@xbyteid.codes</a>.
       </div>
-      <button type="submit" class="form-submit" id="formBtn">send →</button>
-      <div class="form-status" id="formStatus" hidden role="status" aria-live="polite"></div>
-    </form>
-  </div>
-</section>
+    </div>
+  </section>
 
+  <!-- 6. About -->
+  <section class="block about">
+    <div class="wrap">
+      <div class="founded-line">Founded March 2025</div>
+      <p>OnCallIQ started after one too many 3am pages at our previous jobs. We kept asking why incident tooling had to mean per-alert pricing, year-long contracts, and a sales call just to try the product. So we built the focused alternative we wished existed: routing, schedules, and status pages that a small team can set up in an afternoon — with AI doing the tedious part of the postmortem, and humans making every real decision.</p>
+      <p>We’re independent, remote across three time zones, and growing steadily with early-stage engineering teams who’d rather be shipping than babysitting their pager.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 xbyteid · built with purpose</span>
-      <div class="footer-links">
-        <a href="https://github.com/xbyteid" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://x.com/xbyteid" target="_blank" rel="noopener noreferrer">X/Twitter</a>
-        <a href="https://t.me/xbyteid" target="_blank" rel="noopener noreferrer">Telegram</a>
-        <a href="/privacy-policy.html">Privacy</a>
-      </div>
-    </div>
+  <div class="wrap">
+    <div>© 2025 <span translate="no">OnCallIQ</span> · <a href="mailto:hello@xbyteid.codes">hello@xbyteid.codes</a> · Founded 2025</div>
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
   </div>
 </footer>
 
-<div class="terminal-easter-egg" id="termEgg" role="dialog" aria-label="Terminal console" hidden>
-  <div class="term-header">
-    <span>xbyteid — console · ` to toggle</span>
-    <button type="button" id="termEggClose" aria-label="Close terminal" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.875rem;line-height:1;">×</button>
-  </div>
-  <div class="term-body" id="termEggOut">
-    <div>type 'help' for commands</div>
-  </div>
-  <input type="text" id="termEggInput" placeholder="help" autocomplete="off" spellcheck="false" aria-label="Terminal input">
-</div>
-
-<script src="/assets/js/site.js"></script>
-<script>
-(function() {
-  const egg = document.getElementById('termEgg');
-  const input = document.getElementById('termEggInput');
-  const out = document.getElementById('termEggOut');
-  const closeBtn = document.getElementById('termEggClose');
-  if (!egg || !input || !out) return;
-  const cmds = {
-    help: 'help · ls · status · whoami · projects · clear',
-    ls: 'xmint/  hermes-agent/  automation-toolkit/  portfolio/  blog/',
-    status: 'online · building · shipping · mostly working',
-    whoami: 'xbyteid — indonesia · builder · operator · shipper',
-    projects: 'xMint · Hermes Agent · Automation Toolkit · xbyteid.codes'
-  };
-  function setOpen(open) {
-    egg.classList.toggle('open', open);
-    egg.hidden = !open;
-    if (open) input.focus();
-  }
-  function appendLine(text) {
-    const r = document.createElement('div');
-    r.textContent = text;
-    out.appendChild(r);
-  }
-  if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '`' && !e.metaKey && !e.ctrlKey && !e.altKey) {
-      const t = e.target;
-      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable) && t !== input) return;
-      e.preventDefault();
-      setOpen(!egg.classList.contains('open'));
-    }
-    if (e.key === 'Escape') setOpen(false);
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter') return;
-    const val = input.value.trim().toLowerCase();
-    appendLine('$ ' + val);
-    if (val === 'clear') { out.replaceChildren(); }
-    else if (Object.prototype.hasOwnProperty.call(cmds, val)) appendLine('→ ' + cmds[val]);
-    else if (val) appendLine('command not found. try help');
-    input.value = '';
-    out.scrollTop = out.scrollHeight;
-  });
-})();
-</script>
 </body>
 </html>
